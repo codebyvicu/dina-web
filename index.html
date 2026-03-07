@@ -192,6 +192,24 @@
             margin-bottom: 20px;
             font-size: 0.95em;
         }
+
+        /* Flechas del carrusel */
+        .flecha {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 15px;
+            margin-top: -30px;
+            color: white;
+            font-weight: bold;
+            font-size: 40px;
+            transition: 0.3s;
+            user-select: none;
+        }
+        .prev { left: 20px; }
+        .next { right: 20px; }
+        .flecha:hover { background-color: rgba(255,255,255,0.2); border-radius: 50%; }
         
     </style>
 </head>
@@ -225,8 +243,10 @@
         <div class="grilla-productos">
             
             <div class="producto">
-                <img src="multimedia/shoulderbagdinanegra1.jpeg" alt="Shoulderbag Dina - negro" style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 15px;" onclick="abrirModal(this.src, 'Entran cuadernos A4 y una notebook de 13 pulgadas')" 
-                style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 15px; cursor: pointer;">
+                <img src="multimedia/shoulderbagdinanegra1.jpeg" 
+                     alt="Shoulderbag Dina - negro" 
+                     style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 15px; cursor: pointer;" 
+                     onclick="abrirGaleria(['multimedia/shoulderbagdinanegra1.jpeg', 'multimedia/shoulderbag negra.jpeg', 'multimedia/interiorshoulderdina.jpg'], 'Entran cuadernos A4 y una notebook de 13 pulgadas')">
                 <h4>Shoulderbag Dina</h4>
                 <h4>negro</h4>
                 <p>$35.000</p>
@@ -235,7 +255,10 @@
             </div>
 
             <div class="producto">
-                <img src="multimedia/shoulderbag marron 2.jpeg" alt="Shoulderbag Dina - chocolate" style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 15px;" onclick="abrirModal(this.src, 'Entran cuadernos A4 y una notebook.')" style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 15px; cursor: pointer;">
+                <img src="multimedia/shoulderbagmarron2.jpeg" 
+                      alt="Shoulderbag Dina - chocolate" 
+                      style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 15px;" 
+                       onclick="abrirGaleria(['multimedia/shoulderbagmarron2.jpeg', 'multimedia/shoulderbag-marron.jpeg', 'multimedia/interiorshoulderdina.jpg'], 'Entran cuadernos A4 y una notebook de 13 pulgadas')">
                 <h4>Shoulderbag Dina</h4>
                 <h4>chocolate</h4>
                 <p>$35.000</p>
@@ -244,8 +267,10 @@
             </div>
 
             <div class="producto">
-                <img src="multimedia/tote francesca.jpeg" alt="Shoulder bag Dina" style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 15px;" onclick="abrirModal(this.src, 'Ideal para llevar cuadernos, botellas, notebook, etc.')"style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 15px; cursor: pointer;">
-                <h4>Totebag Francesca</h4>
+                <img src="multimedia/tote francesca.jpeg" 
+                alt="Shoulder bag Dina" 
+                style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 15px;" 
+                onclick="abrirGaleria(['multimedia/tote francesca.jpeg', 'multimedia/tote francesca 3.jpeg', 'multimedia/interiortotefrancesca.jpg', 'multimedia/demostraciontotefrancesca.jpg'], 'Entran cuadernos A4 y una notebook de 13 pulgadas')">
                 <p>$40.000</p>
                 <p style="font-size: 0.8em; color: #777; font-weight: normal; margin-top: 5px;">Medidas: 43,5 x 33 x 12 cm</p>
                 <a href="comprar.html" style="display: block; background-color: #111; color: white; text-decoration: none; padding: 10px; border-radius: 4px; margin-top: 15px;">Comprar</a>
@@ -327,20 +352,54 @@
         </p>
     </footer>
 
-    <div id="modal-imagen" class="modal" onclick="cerrarModal()">
-        <span class="cerrar">&times;</span>
-        <img class="modal-contenido" id="img-ampliada">
-        <p id="descripcion-modal" style="color: white; font-family: 'Playfair Display', serif; font-size: 1.2em; margin-top: 15px; text-align: center; max-width: 80%;"></p>
+    <div id="modal-imagen" class="modal" onclick="cerrarModal(event)">
+        <span class="cerrar" onclick="cerrarModal(event)">&times;</span>
+        <a class="flecha prev" onclick="cambiarImagen(-1, event)">&#10094;</a>
+        <img class="modal-contenido" id="img-ampliada" onclick="event.stopPropagation()">
+        <a class="flecha next" onclick="cambiarImagen(1, event)">&#10095;</a>
+        <p id="descripcion-modal" style="color: white; font-family: 'Playfair Display', serif; font-size: 1.2em; margin-top: 15px; text-align: center; max-width: 80%; pointer-events: none;"></p>
     </div>
 
     <script>
-        function abrirModal(origenDeLaImagen, descripcion) {
+        let imagenesGaleria = [];
+    let indiceActual = 0;
+
+    function abrirGaleria(listaImagenes, descripcion) {
+        imagenesGaleria = listaImagenes;
+        indiceActual = 0;
+        
         document.getElementById('modal-imagen').style.display = 'flex';
-        document.getElementById('img-ampliada').src = origenDeLaImagen;
+        document.getElementById('img-ampliada').src = imagenesGaleria[indiceActual];
         document.getElementById('descripcion-modal').innerText = descripcion;
+        
+        // Esconder flechas si la cartera tiene solo 1 foto
+        let flechas = document.querySelectorAll('.flecha');
+        if(imagenesGaleria.length > 1) {
+            flechas.forEach(f => f.style.display = 'block');
+        } else {
+            flechas.forEach(f => f.style.display = 'none');
+        }
     }
-    function cerrarModal() {
-        document.getElementById('modal-imagen').style.display = 'none';
+
+    function cambiarImagen(direccion, evento) {
+        evento.stopPropagation(); // Evita que se cierre el modal
+        indiceActual = indiceActual + direccion;
+        
+        // Efecto calesita (si pasa la última, vuelve a la primera)
+        if (indiceActual >= imagenesGaleria.length) {
+            indiceActual = 0;
+        }
+        if (indiceActual < 0) {
+            indiceActual = imagenesGaleria.length - 1;
+        }
+        document.getElementById('img-ampliada').src = imagenesGaleria[indiceActual];
+    }
+
+    function cerrarModal(evento) {
+        // Solo cierra si tocaste el fondo negro o la cruz
+        if(evento.target.id === 'modal-imagen' || evento.target.className === 'cerrar') {
+            document.getElementById('modal-imagen').style.display = 'none';
+        }
     }
     </script>
 

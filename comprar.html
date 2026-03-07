@@ -71,7 +71,11 @@
 
             <p style="color: #666; font-size: 0.9em;">Una vez que transfieras, tocá el botón de abajo para enviarnos tu pedido y el comprobante por WhatsApp. Por favor, enviá el mensaje tal cual.</p>
             
-            <button class="btn-whatsapp" onclick="enviarPedido()">Ya transferí - Enviar Pedido</button>
+            <p style="text-align: center; font-weight: bold; margin-top: 25px; margin-bottom: 10px;">¿A quién querés enviarle tu pedido?</p>
+            <div style="display: flex; gap: 10px;">
+                <button class="btn-whatsapp" onclick="enviarPedido('5493454060505')">Enviar a Whatsapp 1</button>
+                <button class="btn-whatsapp" style="background-color: #128C7E;" onclick="enviarPedido('5493455297212')">Enviar a Whatsapp 2</button>
+            </div>
             <button class="btn-principal" style="background-color: transparent; border: 1px solid #ccc; color: #333;" onclick="volverAtras()">Volver</button>
         </div>
     </div>
@@ -89,7 +93,7 @@
             document.getElementById('paso-datos').style.display = 'block';
         }
 
-        function enviarPedido() {
+        function enviarPedido(numeroElegido) {
             // Agarramos todos los datos que escribió la persona
             let producto = document.getElementById('producto').value;
             let envio = document.querySelector('input[name="envio"]:checked').value;
@@ -117,7 +121,7 @@
             mensaje += `¡Acá les dejo el comprobante!`;
 
             // Número de WhatsApp de Dina (El primero que me pasaste)
-            let numeroDina = "5493454060505";
+            let numeroDina = numeroElegido;
             
             // Abrimos WhatsApp con todo el texto listo
             window.open(`https://wa.me/${numeroDina}?text=${mensaje}`, '_blank');

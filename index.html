@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dina | Bolsos y Accesorios</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fafafa;
+            color: #333;
+        }
+
+        /* Encabezado y Menú */
+        header {
+            background-color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+            border-bottom: 1px solid #eaeaea;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            letter-spacing: 3px;
+            color: #111;
+        }
+        nav {
+            margin-top: 15px;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #666;
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 0.9em;
+        }
+        nav a:hover {
+            color: #000;
+        }
+
+        /* Sección principal (Hero) */
+        .portada {
+            text-align: center;
+            padding: 60px 20px;
+            background-color: #eee; 
+        }
+        .portada h2 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+        }
+        .portada p {
+            font-size: 1.2em;
+            color: #555;
+        }
+
+        /* Sección de productos */
+        .contenedor {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+        .grilla-productos {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        .producto {
+            background: #fff;
+            padding: 15px;
+            border: 1px solid #eaeaea;
+            width: 260px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            transition: transform 0.2s;
+        }
+        .producto:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .imagen-placeholder {
+            height: 250px;
+            background-color: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            margin-bottom: 15px;
+            border-radius: 4px;
+        }
+        .producto h4 {
+            margin: 10px 0 5px;
+            font-size: 1.1em;
+        }
+        .producto p {
+            margin: 0;
+            color: #888;
+            font-weight: bold;
+        }
+
+        /* Pie de página */
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            background-color: #111;
+            color: #fff;
+            margin-top: 40px;
+        }
+        footer p {
+            margin: 5px 0;
+            font-size: 0.9em;
+            color: #ccc;
+        }
+
+        /* Efecto Imagen Ampliada (Modal) */
+        .modal {
+            display: none; /* Oculto por defecto */
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.85); /* Fondo oscuro transparente */
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .modal-contenido {
+            max-width: 90%;
+            max-height: 85%;
+            border-radius: 8px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.5);
+        }
+        .cerrar {
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            position: absolute;
+            top: 20px;
+            right: 30px;
+        }
+        .producto img {
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+        .producto img:hover {
+            opacity: 0.8;
+        }
+
+        #inicio h2 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        #nosotros h2 {
+            font-family: 'Playfair Display', serif;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>DINA</h1>
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#nosotros">Nosotros</a>
+            <a href="#coleccion">Colección</a>
+            <a href="#faq">Preguntas Frecuentes</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+    </header>
+
+    <section class="portada" id="inicio">
+        <h2>Estilo en cada detalle</h2>
+        <p>Encontrá el accesorio que te complementa.</p>
+    </section>
+
+    <section class="contenedor" id="nosotros">
+        <h2>¿Quiénes somos?</h2>
+        <p>En Junio del 2025 nos propusimos el objetivo de ofrecer productos únicos a un precio accesible y que cumpla con las necesidades de cada cliente. </p>
+        <p> Somos amigas dispuestas a hacer crecer este emprendimiento llevando al siguiente nivel tu look. </p>
+        <p> El accesorio correcto es funcional y completa tu estilo. </p>
+    </section>
+
+    <div class="contenedor" id="coleccion">
+        <h3>Nuestros Favoritos</h3>
+        <div class="grilla-productos">
+            
+            <div class="producto">
+                <img src="shoulderbagdinanegra1.jpeg" alt="Shoulderbag Dina - negro" style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 15px;" onclick="abrirModal(this.src)">
+                <h4>Shoulderbag Dina</h4>
+                <h4>negro</h4>
+                <p>$35.000</p>
+                <a href="comprar.html" style="display: block; background-color: #111; color: white; text-decoration: none; padding: 10px; border-radius: 4px; margin-top: 15px;">Comprar</a>
+            </div>
+
+            <div class="producto">
+                <img src="shoulderbag marron 2.jpeg" alt="Shoulderbag Dina - chocolate" style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 15px;" onclick="abrirModal(this.src)">
+                <h4>Shoulderbag Dina</h4>
+                <h4>chocolate</h4>
+                <p>$35.000</p>
+                <a href="comprar.html" style="display: block; background-color: #111; color: white; text-decoration: none; padding: 10px; border-radius: 4px; margin-top: 15px;">Comprar</a>
+            </div>
+
+            <div class="producto">
+                <img src="tote francesca.jpeg" alt="Shoulder bag Dina" style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 15px;" onclick="abrirModal(this.src)">
+                <h4>Totebag Francesca</h4>
+                <p>$40.000</p>
+                <a href="comprar.html" style="display: block; background-color: #111; color: white; text-decoration: none; padding: 10px; border-radius: 4px; margin-top: 15px;">Comprar</a>
+            </div>
+
+            <div class="producto">
+                <img src="tote fashion blanca.png" alt="Totebag Fashion" style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 15px;" onclick="abrirModal(this.src)">
+                <h4>Totebag Fashion</h4>
+                <h4>white</h4>
+                <p>$24.800</p>
+                <a href="comprar.html" style="display: block; background-color: #111; color: white; text-decoration: none; padding: 10px; border-radius: 4px; margin-top: 15px;">Comprar</a>
+            </div>
+            
+            <div class="producto">
+                <img src="tote fashion negra.png" alt="Totebag Fashion" style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 15px;" onclick="abrirModal(this.src)">
+                <h4>Totebag Fashion</h4>
+                <h4>black</h4>
+                <p>$24.800</p>
+                <a href="comprar.html" style="display: block; background-color: #111; color: white; text-decoration: none; padding: 10px; border-radius: 4px; margin-top: 15px;">Comprar</a>
+            </div>
+
+            <div class="producto">
+                <img src="tote fashion marron.png" alt="Totebag Fashion" style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 15px;" onclick="abrirModal(this.src)">
+                <h4>Totebag Fashion</h4>
+                <h4>chocolate</h4>
+                <p>$24.800</p>
+                <a href="comprar.html" style="display: block; background-color: #111; color: white; text-decoration: none; padding: 10px; border-radius: 4px; margin-top: 15px;">Comprar</a>
+            </div>
+
+            <div class="producto">
+                <img src="tote fashion gris.png" alt="Totebag Fashion" style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 15px;" onclick="abrirModal(this.src)">
+                <h4>Totebag Fashion</h4>
+                <h4>grey</h4>
+                <p>$24.800</p>
+                <a href="comprar.html" style="display: block; background-color: #111; color: white; text-decoration: none; padding: 10px; border-radius: 4px; margin-top: 15px;">Comprar</a>
+            </div>
+
+        </div>
+    </div>
+
+    <section class="contenedor" id="faq">
+        <h2>Preguntas Frecuentes</h2>
+        
+        <div style="text-align: left; max-width: 800px; margin: 0 auto;">
+            <h4>¿Cómo compro?</h4>
+            <p>Contáctanos por nuestro Instagram o Whatsapp personal indicándonos de dónde sos y qué producto llevás, si está publicado hay stock. </p>
+            Instagram:
+            <a href="https://www.instagram.com/dinacouture_/" target="_blank" style="color: #c22084; text-decoration: none;">@dina.couture_</a> | 
+            WhatsApp: 
+            <a href="https://wa.me/5493454060505" target="_blank" style="color: #549743; text-decoration: none;">+54 9 3454 06-0505</a> / 
+            <a href="https://wa.me/5493455297212" target="_blank" style="color: #549743; text-decoration: none;">+54 9 3455 29-7212</a>
+
+            <h4>¿Hacen envíos?</h4>
+            <p>Sí, hacemos envíos a todo el país a cargo del comprador. Envíanos tu codigo postal! </p>
+            <p>¿Sos de Concordia, Er? te llega en el día. </p>
+
+            <h4>¿Qué métodos de pago aceptan?</h4>
+            <p>Aceptamos efectivo, transferencias, señas, y hasta tres cuotas con tarjeta de crédito. Para coordinar el pago, escribinos.</p>
+
+            <h4>¿Puedo entregar una parte y lo demás en cuotas?</h4>
+            <p>Sí! aceptamos pagos por transferencia/depósito y lo restante se puede hacer en cuotas.</p>
+            
+            <h4>¿Tienen política de cambios?</h4>
+            <p>Realizamos cambios dentro de las 48hs posteriores a la compra. Solicitamos un video del producto completo para corroborar que está en las condiciones adecuadas. (Enviamos el cambio luego de recibir la cartera) </p>
+            <p>Si elegis un artículo de mayor valor, se abona la diferencia. Si optas por uno más barato, se entregará un vale con el saldo restante.  </p>
+            <p>NO realizamos reembolsos.</p>
+        </div>
+    </section>
+
+    <footer id="contacto">
+        <p>© 2026 Dina. Todos los derechos reservados.</p>
+        <p>
+            <a href="https://www.instagram.com/dinacouture_/" target="_blank" style="color: #ccc; text-decoration: none;">Instagram: @dina.couture_</a> | 
+            WhatsApp: 
+            <a href="https://wa.me/5493454060505" target="_blank" style="color: #ccc; text-decoration: none;">+54 9 3454 06-0505</a> / 
+            <a href="https://wa.me/5493455297212" target="_blank" style="color: #ccc; text-decoration: none;">+54 9 3455 29-7212</a>
+        </p>
+    </footer>
+
+    <div id="modal-imagen" class="modal" onclick="cerrarModal()">
+        <span class="cerrar">&times;</span>
+        <img class="modal-contenido" id="img-ampliada">
+    </div>
+
+    <script>
+        function abrirModal(origenDeLaImagen) {
+            document.getElementById('modal-imagen').style.display = 'flex';
+            document.getElementById('img-ampliada').src = origenDeLaImagen;
+        }
+        function cerrarModal() {
+            document.getElementById('modal-imagen').style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>

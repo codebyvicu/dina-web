@@ -128,5 +128,17 @@
             window.open(`https://wa.me/${numeroDina}?text=${mensaje}`, '_blank');
         }
     </script>
+    <script>
+    // Al cargar la página, leemos lo que dice el link
+    window.onload = function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const productoElegido = urlParams.get('producto');
+
+        // Si el link trae un producto, lo ponemos automáticamente en el campo
+        if (productoElegido) {
+            document.getElementById('producto').value = productoElegido;
+        }
+    };
+</script>
 </body>
 </html>

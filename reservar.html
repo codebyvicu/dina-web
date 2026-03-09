@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservas | Dina</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #fafafa; color: #333; margin: 0; padding: 20px; }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+        .contenedor-form { max-width: 600px; margin: 0 auto; background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .grupo-input { margin-bottom: 15px; }
+        input[type="text"], input[type="tel"] { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; font-family: inherit; }
+        input[type="text"]:focus, input[type="tel"]:focus { border-color: #cc0000; outline: none; } /* Borde rojo como en tu foto */
+        .opcion-envio { border: 1px solid #eaeaea; padding: 15px; margin-bottom: 10px; border-radius: 4px; cursor: pointer; display: block; }
+        .btn-principal { background-color: #111; color: #fff; border: none; padding: 15px 20px; width: 100%; font-size: 1.1em; border-radius: 4px; cursor: pointer; margin-top: 20px; }
+        .btn-principal:hover { background-color: #333; }
+        .btn-whatsapp { background-color: #25D366; color: white; border: none; padding: 15px 20px; width: 100%; font-size: 1.1em; border-radius: 4px; cursor: pointer; margin-top: 15px; font-weight: bold; }
+        
+        /* Ocultar el paso 2 al principio */
+        #paso-pago { display: none; text-align: center; }
+        .caja-alias { background-color: #f9f9f9; border: 2px dashed #ccc; padding: 20px; margin: 20px 0; border-radius: 8px; font-size: 1.2em; }
+    </style>
+</head>
+<body>
+
+    <div class="contenedor-form">
+        <div id="paso-datos">
+            <h1 style="text-align: center; margin-top:0;">Finalizar Compra</h1>
+            
+            <h3>¿Qué producto reservas?</h3>
+            <div class="grupo-input">
+                <input type="text" id="producto" placeholder="Ej: Shoulderbag Dina - negro" required>
+            </div>
+
+            <h3>Opciones de Entrega</h3>
+            <label class="opcion-envio"><input type="radio" name="envio" value="Correo Argentino a Sucursal" checked> Correo Argentino a Sucursal</label>
+            <label class="opcion-envio"><input type="radio" name="envio" value="Correo Argentino a Domicilio"> Correo Argentino a Domicilio</label>
+            <label class="opcion-envio"><input type="radio" name="envio" value="Motito mandado (Concordia, ER)"> Concordia envío express (llega en el día)</label>
+
+            <h3>Datos del destinatario</h3>
+            <div class="grupo-input"><input type="text" id="nombre" placeholder="Nombre" required></div>
+            <div class="grupo-input"><input type="text" id="apellido" placeholder="Apellido" required></div>
+            <div class="grupo-input"><input type="tel" id="telefono" placeholder="Teléfono" required></div>
+            <div class="grupo-input"><input type="text" id="cp" placeholder="Código Postal" required></div>
+            <div class="grupo-input"><input type="text" id="calle" placeholder="Calle" required></div>
+            <div style="display: flex; gap: 10px;">
+                <div class="grupo-input" style="flex: 1;"><input type="text" id="numero" placeholder="Número"></div>
+                <div class="grupo-input" style="flex: 1;"><input type="text" id="depto" placeholder="Depto (opcional)"></div>
+            </div>
+            <div class="grupo-input"><input type="text" id="barrio" placeholder="Barrio (opcional)"></div>
+            <div class="grupo-input"><input type="text" id="ciudad" placeholder="Ciudad" required></div>
+
+            <button class="btn-principal" onclick="mostrarPago()">Siguiente</button>
+            <p style="text-align: center; font-size: 0.8em; color: #888; margin-top: 15px;">Tus datos están seguros. No guardamos información en esta web.</p>
+        </div>
+
+        <div id="paso-pago">
+            <h1 style="margin-top:0;">Datos de Pago</h1>
+            <p>Por favor, realizá la transferencia a alguna de las cuentas para asegurar tu producto: MINIMO $5.000</p>
+
+            <div class="caja-alias">
+                <strong>Alias:</strong> dinabags<br>
+                <strong>Titular:</strong> Lara Fernandez<br><br>
+                
+                <strong>Alias:</strong> dinacouture<br>
+                <strong>Titular:</strong> Victoria Ojeda
+            </div>
+
+            <p style="color: #666; font-size: 0.9em;">Una vez que transfieras, tocá el botón de abajo para enviarnos tu pedido y el comprobante por WhatsApp. Por favor, enviá el mensaje tal cual.</p>
+            
+            <p style="text-align: center; font-weight: bold; margin-top: 25px; margin-bottom: 10px;">¿A quién querés enviarle tu pedido?</p>
+            <div style="display: flex; gap: 10px;">
+                <button class="btn-whatsapp" onclick="enviarPedido('5493455297212')">Enviar a Whatsapp 1</button>
+                <button class="btn-whatsapp" style="background-color: #128C7E;" onclick="enviarPedido('5493454060505')">Enviar a Whatsapp 2</button>
+            </div>
+            <button class="btn-principal" style="background-color: transparent; border: 1px solid #ccc; color: #333;" onclick="volverAtras()">Volver</button>
+        </div>
+    </div>
+
+    <script>
+        function mostrarPago() {
+            // Acá hacemos que se oculte el formulario y aparezca el Alias
+            document.getElementById('paso-datos').style.display = 'none';
+            document.getElementById('paso-pago').style.display = 'block';
+            window.scrollTo(0, 0); // Sube la pantalla arriba
+        }
+
+        function volverAtras() {
+            document.getElementById('paso-pago').style.display = 'none';
+            document.getElementById('paso-datos').style.display = 'block';
+        }
+
+        function enviarPedido(numeroElegido) {
+            // Agarramos todos los datos que escribió la persona
+            let producto = document.getElementById('producto').value;
+            let envio = document.querySelector('input[name="envio"]:checked').value;
+            let nombre = document.getElementById('nombre').value;
+            let apellido = document.getElementById('apellido').value;
+            let telefono = document.getElementById('telefono').value;
+            let cp = document.getElementById('cp').value;
+            let calle = document.getElementById('calle').value;
+            let numero = document.getElementById('numero').value;
+            let depto = document.getElementById('depto').value;
+            let barrio = document.getElementById('barrio').value;
+            let ciudad = document.getElementById('ciudad').value;
+
+            // Armamos el mensajito de WhatsApp
+            let mensaje = `¡Hola Dina! Quiero reservar una bag.`;
+            mensaje += `🛍️ *Producto:* ${producto}%0A`;
+            mensaje += `🚚 *Envío:* ${envio}%0A%0A`;
+            mensaje += `📍 *Datos de entrega:*%0A`;
+            mensaje += `${nombre} ${apellido}%0A`;
+            mensaje += `Tel: ${telefono}%0A`;
+            mensaje += `${calle} ${numero}`;
+            if(depto) mensaje += ` Dpto: ${depto}`;
+            if(barrio) mensaje += ` Barrio: ${barrio}`;
+            mensaje += `%0A${ciudad}, CP: ${cp}%0A%0A`;
+            mensaje += `¡Acá les dejo el comprobante!`;
+
+            // Número de WhatsApp de Dina (El primero que me pasaste)
+            let numeroDina = numeroElegido;
+            
+            // Abrimos WhatsApp con todo el texto listo
+            window.open(`https://wa.me/${numeroDina}?text=${mensaje}`, '_blank');
+        }
+    </script>
+    <script>
+    // Al cargar la página, leemos lo que dice el link
+    window.onload = function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const productoElegido = urlParams.get('producto');
+
+        // Si el link trae un producto, lo ponemos automáticamente en el campo
+        if (productoElegido) {
+            document.getElementById('producto').value = productoElegido;
+        }
+    };
+</script>
+</body>
+</html>

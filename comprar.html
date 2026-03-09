@@ -108,24 +108,23 @@
             let barrio = document.getElementById('barrio').value;
             let ciudad = document.getElementById('ciudad').value;
 
-            // Armamos el mensajito de WhatsApp
-            let mensaje = `¡Hola Dina! Ya realicé el pago, les dejo mi pedido:%0A%0A`;
-            mensaje += `🛍️ *Producto:* ${producto}%0A`;
-            mensaje += `🚚 *Envío:* ${envio}%0A%0A`;
-            mensaje += `📍 *Datos de entrega:*%0A`;
-            mensaje += `${nombre} ${apellido}%0A`;
-            mensaje += `Tel: ${telefono}%0A`;
+            // Armamos el mensajito de WhatsApp (usando \n para los saltos de línea)
+            let mensaje = `¡Hola Dina! Ya realicé el pago, les dejo mi pedido:\n\n`;
+            mensaje += `🛍️ *Producto:* ${producto}\n`;
+            mensaje += `🚚 *Envío:* ${envio}\n\n`;
+            mensaje += `📍 *Datos de entrega:*\n`;
+            mensaje += `${nombre} ${apellido}\n`;
+            mensaje += `Tel: ${telefono}\n`;
             mensaje += `${calle} ${numero}`;
             if(depto) mensaje += ` Dpto: ${depto}`;
             if(barrio) mensaje += ` Barrio: ${barrio}`;
-            mensaje += `%0A${ciudad}, CP: ${cp}%0A%0A`;
+            mensaje += `\n${ciudad}, CP: ${cp}\n\n`;
             mensaje += `¡Acá les dejo el comprobante!`;
 
-            // Número de WhatsApp de Dina (El primero que me pasaste)
             let numeroDina = numeroElegido;
             
-            // Abrimos WhatsApp con todo el texto listo
-            window.open(`https://wa.me/${numeroDina}?text=${mensaje}`, '_blank');
+            // LA MAGIA: encodeURIComponent traduce los emojis para que WhatsApp los entienda perfecto
+            window.open(`https://wa.me/${numeroDina}?text=${encodeURIComponent(mensaje)}`, '_blank');
         }
     </script>
     <script>

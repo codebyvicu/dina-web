@@ -14,16 +14,20 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #fafafa;
-            color: #333;
+            background-color: #f7f5f0; /* Color crema/hueso cálido */
+            color: #3b312b; /* Marrón súper oscuro para el texto, no negro duro */
         }
 
-        /* Encabezado y Menú en Negro */
+        header, #faq, footer {
+            background-color: #1f1a18; /* Marrón Espresso, súper chic */
+            color: #fff;
+        }
         header {
-            background-color: #000; /* Negro puro */
             padding: 25px 0;
             text-align: center;
-            border-bottom: 1px solid #222; /* Borde muy sutil */
+        }
+        nav a:hover {
+            color: #d4c2b4; /* Un tono nude/visón al pasar el mouse */
         }
         header h1 {
             margin: 0;
@@ -48,21 +52,34 @@
         /* Sección principal en Negro - Versión Compacta */
         .portada {
             text-align: center;
-            padding: 30px 20px; /* Reducido de 100px a 30px para que sea una franja fina */
-            background-color: #dfdfdf; 
-            color: #474646;
+            padding: 50px 20px; 
+            background-color: transparent; /* Deja ver el crema de fondo */
+            color: #3b312b;
         }
+
+        .portada {
+            text-align: center;
+            /* Aumentamos el padding para que el banner sea más alto y se vea la foto */
+            padding: 140px 20px; 
+            
+            /* Acá ponemos el filtro oscuro y la foto de fondo */
+            background: linear-gradient(rgba(31, 26, 24, 0.6), rgba(31, 26, 24, 0.6)), url('multimedia/banner.png');
+            background-size: cover; /* Hace que la foto ocupe todo el espacio */
+            background-position: center; /* Centra la foto */
+            background-repeat: no-repeat;
+            
+            color: #f7f5f0; /* Letras en color crema clarito para que resalten */
+        }
+        
+        /* Ajustamos un poquito los textos para que se vean más elegantes sobre la foto */
         .portada h2 {
-            font-family: 'Playfair Display', serif; /* Usando tu tipografía elegida */
-            font-size: 2.2em; /* Un poco más chico para que no ocupe tanto alto */
-            margin-bottom: 5px; /* Menos espacio abajo del título */
-            margin-top: 0;
+            font-size: 3em; /* Título un poco más grande */
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3); /* Sombra suave para que se lea mejor */
         }
         .portada p {
-            font-size: 1em; /* Texto un toque más compacto */
-            color: #474646; 
-            letter-spacing: 1px;
-            margin: 0; /* Quitamos márgenes para que todo quede bien centrado y pegadito */
+            font-size: 1.2em;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
         }
 
         /* Sección de productos */
@@ -79,13 +96,14 @@
             margin-top: 30px;
         }
         .producto {
-            background: #fff;
+            background: #fff; /* Las tarjetas quedan blancas sobre el fondo crema, resalta la foto */
             padding: 15px;
-            border: 1px solid #eaeaea;
+            border: none; /* Le sacamos el borde gris feo */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Sombra súper suavecita */
             width: 260px;
             margin-bottom: 25px;
             border-radius: 8px;
-            transition: transform 0.2s;
+            transition: transform 0.3s ease;
         }
         .producto:hover {
             transform: translateY(-5px);

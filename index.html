@@ -5,21 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dina | Bolsos y Accesorios</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Estilos generales */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f7f5f0; /* Color crema/hueso cálido */
-            color: #3b312b; /* Marrón súper oscuro para el texto, no negro duro */
+            background-color: #f7f5f0; 
+            color: #3b312b; 
         }
 
         header, #faq, footer {
-            background-color: #1f1a18; /* Marrón Espresso, súper chic */
+            background-color: #1f1a18; 
             color: #fff;
         }
         header {
@@ -27,55 +27,43 @@
             text-align: center;
         }
         nav a:hover {
-            color: #d4c2b4; /* Un tono nude/visón al pasar el mouse */
+            color: #d4c2b4; 
         }
         header h1 {
             margin: 0;
             font-size: 2.5em;
-            letter-spacing: 5px; /* Un poco más de espacio entre letras queda más elegante */
-            color: #fff; /* Texto blanco */
+            letter-spacing: 5px;
+            color: #fff;
             font-family: 'Playfair Display', serif;
         }
         nav a {
             margin: 0 15px;
             text-decoration: none;
-            color: #aaa; /* Gris claro para los enlaces */
+            color: #aaa;
             font-weight: 400;
             text-transform: uppercase;
             font-size: 0.85em;
             transition: color 0.3s;
         }
         nav a:hover {
-            color: #fff; /* Blanco al pasar el mouse */
+            color: #fff;
         }
 
-        /* Sección principal en Negro - Versión Compacta */
+        /* Sección principal */
         .portada {
             text-align: center;
-            padding: 50px 20px; 
-            background-color: transparent; /* Deja ver el crema de fondo */
-            color: #3b312b;
-        }
-
-        .portada {
-            text-align: center;
-            /* Aumentamos el padding para que el banner sea más alto y se vea la foto */
             padding: 140px 20px; 
-            
-            /* Acá ponemos el filtro oscuro y la foto de fondo */
             background: linear-gradient(rgba(31, 26, 24, 0.6), rgba(31, 26, 24, 0.6)), url('multimedia/banner.png');
-            background-size: cover; /* Hace que la foto ocupe todo el espacio */
-            background-position: center; /* Centra la foto */
+            background-size: cover;
+            background-position: center;
             background-repeat: no-repeat;
-            
-            color: #f7f5f0; /* Letras en color crema clarito para que resalten */
+            color: #f7f5f0;
         }
         
-        /* Ajustamos un poquito los textos para que se vean más elegantes sobre la foto */
         .portada h2 {
-            font-size: 3em; /* Título un poco más grande */
+            font-size: 3em;
             letter-spacing: 2px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3); /* Sombra suave para que se lea mejor */
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
         .portada p {
             font-size: 1.2em;
@@ -96,10 +84,10 @@
             margin-top: 30px;
         }
         .producto {
-            background: #fff; /* Las tarjetas quedan blancas sobre el fondo crema, resalta la foto */
+            background: #fff;
             padding: 15px;
-            border: none; /* Le sacamos el borde gris feo */
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Sombra súper suavecita */
+            border: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             width: 260px;
             margin-bottom: 25px;
             border-radius: 8px;
@@ -108,16 +96,6 @@
         .producto:hover {
             transform: translateY(-5px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        .imagen-placeholder {
-            height: 250px;
-            background-color: #f5f5f5;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #999;
-            margin-bottom: 15px;
-            border-radius: 4px;
         }
         .producto h4 {
             margin: 10px 0 5px;
@@ -145,14 +123,14 @@
 
         /* Efecto Imagen Ampliada (Modal) */
         .modal {
-            display: none; /* Oculto por defecto */
+            display: none;
             position: fixed;
             z-index: 1000;
             left: 0;
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0,0,0,0.85); /* Fondo oscuro transparente */
+            background-color: rgba(0,0,0,0.85);
             justify-content: center;
             align-items: center;
             flex-direction: column;
@@ -180,32 +158,28 @@
             opacity: 0.8;
         }
 
-        #inicio h2 {
+        #inicio h2, #nosotros h2, #faq h2, #titulo-coleccion {
             font-family: 'Playfair Display', serif;
         }
 
-        #nosotros h2 {
-            font-family: 'Playfair Display', serif;
-        }
         /* Franja Negra para Preguntas Frecuentes */
         #faq {
             background-color: #000;
             color: #fff;
-            padding: 40px 0; /* 40px es el alto de la franja. Si la querés más finita, bajalo a 30px */
+            padding: 40px 0;
         }
         #faq h2 {
             text-align: center;
-            font-family: 'Playfair Display', serif;
             margin-top: 0;
             margin-bottom: 30px;
         }
         #faq h4 {
-            color: #fff; /* Preguntas en blanco puro */
+            color: #fff;
             margin-bottom: 5px;
             font-size: 1.1em;
         }
         #faq p {
-            color: #ccc; /* Respuestas en gris clarito para que la lectura sea suave */
+            color: #ccc;
             margin-top: 0;
             margin-bottom: 20px;
             font-size: 0.95em;
@@ -228,7 +202,46 @@
         .prev { left: 20px; }
         .next { right: 20px; }
         .flecha:hover { background-color: rgba(255,255,255,0.2); border-radius: 50%; }
-        
+
+        /* Contenedor del desplegable */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown .dropbtn {
+            cursor: pointer;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f7f5f0;
+            min-width: 250px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.15);
+            z-index: 100;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 4px;
+            padding: 10px 0;
+        }
+        .dropdown-content a {
+            color: #3b312b;
+            padding: 12px 20px;
+            text-decoration: none;
+            display: block;
+            margin: 0;
+            font-size: 0.8em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background 0.3s;
+        }
+        .dropdown-content a:hover {
+            background-color: #e8e4d9;
+            color: #1f1a18;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -238,7 +251,16 @@
         <nav>
             <a href="#inicio">Inicio</a>
             <a href="#nosotros">Nosotros</a>
-            <a href="#coleccion">Colección</a>
+            
+            <div class="dropdown">
+                <a class="dropbtn">Colección <i class="fas fa-chevron-down" style="font-size: 0.8em; margin-left: 3px;"></i></a>
+                <div class="dropdown-content">
+                    <a href="javascript:void(0)" onclick="filtrarCategoria('todas')">Ver Todo</a>
+                    <a href="javascript:void(0)" onclick="filtrarCategoria('totebags')">Bolsos, Totebags & Shoulderbags</a>
+                    <a href="javascript:void(0)" onclick="filtrarCategoria('minibags')">Minibags</a>
+                    <a href="javascript:void(0)" onclick="filtrarCategoria('cintos')">Cintos (Próximamente)</a>
+                </div>
+            </div>
             <a href="#faq">Preguntas</a>
             <a href="#contacto">Contacto</a>
         </nav>
@@ -251,16 +273,19 @@
 
     <section class="contenedor" id="nosotros">
         <h2>¿Quiénes somos?</h2>
-        <p>En Junio del 2025 nos propusimos el objetivo de ofrecer productos únicos a un precio accesible y que cumpla con las necesidades de cada cliente. </p>
-        <p> Somos amigas dispuestas a hacer crecer este emprendimiento llevando al siguiente nivel tu look. </p>
-        <p> El accesorio correcto es funcional y completa tu estilo. </p>
+        <p>En Junio del 2025 nos propusimos el objetivo de ofrecer productos únicos a un precio accesible y que cumpla con las necesidades de cada cliente.</p>
+        <p>Somos amigas dispuestas a hacer crecer este emprendimiento llevando al siguiente nivel tu look.</p>
+        <p>El accesorio correcto es funcional y completa tu estilo.</p>
     </section>
 
     <div class="contenedor" id="coleccion">
-        <h3>Nuestros Favoritos</h3>
-        <div class="grilla-productos">
+        <h3 id="titulo-coleccion" style="font-size: 2em; margin-bottom: 30px; border-bottom: 1px solid #ddd; padding-bottom: 10px;">Nuestros Favoritos</h3>
+        
+        <p id="mensaje-cintos" style="display: none; text-align: center; color: #777; font-style: italic; margin-bottom: 60px;">Próximamente agregaremos nuestra línea de cinturones para completar tu look.</p>
+
+        <div class="grilla-productos" id="grilla-principal">
             
-            <div class="producto">
+            <div class="producto" data-categoria="totebags">
                 <img src="multimedia/shoulderbagdinanegra1.jpeg" 
                      alt="Shoulderbag Dina - negro" 
                      style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 15px; cursor: pointer;" 
@@ -269,91 +294,90 @@
                 <h4>negro</h4>
                 <p>$35.000</p>
                 <p style="font-size: 0.8em; color: #777; font-weight: normal; margin-top: 5px;">Medidas: 32x37cm (alto y ancho) </p>
-                <a href="comprar.html?producto=Shoulderbag%20Dina%20Negro" style="display: block; background-color: #111; color: white; text-decoration: none; padding: 10px; border-radius: 4px; margin-top: 15px;">Comprar</a>
+                <a href="comprar.html?producto=Shoulderbag%20Dina%20Negro" style="display: block; background-color: #5c2427; color: white; text-decoration: none; padding: 10px; border-radius: 4px; margin-top: 15px;">Comprar</a>
             </div>
 
-            <div class="producto">
+            <div class="producto" data-categoria="totebags">
                 <img src="multimedia/shoulderbagmarron2.jpeg" 
-                      alt="Shoulderbag Dina - chocolate" 
-                      style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 15px;" 
+                       alt="Shoulderbag Dina - chocolate" 
+                       style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 15px; cursor: pointer;" 
                        onclick="abrirGaleria(['multimedia/shoulderbagmarron2.jpeg', 'multimedia/shoulderbag-marron.jpeg', 'multimedia/interiorshoulderdina.jpg'], 'Entran cuadernos A4 y una notebook de 13 pulgadas')">
                 <h4>Shoulderbag Dina</h4>
                 <h4>chocolate</h4>
                 <p>$35.000</p>
                 <p style="font-size: 0.8em; color: #777; font-weight: normal; margin-top: 5px;">Medidas: 32x37cm (alto y ancho) </p>
-                <a href="comprar.html?producto=Shoulderbag%20Marron" style="display: block; background-color: #111; color: white; text-decoration: none; padding: 10px; border-radius: 4px; margin-top: 15px;">Comprar</a>
+                <a href="comprar.html?producto=Shoulderbag%20Marron" style="display: block; background-color: #5c2427; color: white; text-decoration: none; padding: 10px; border-radius: 4px; margin-top: 15px;">Comprar</a>
             </div>
 
-            <div class="producto">
+            <div class="producto" data-categoria="totebags">
                 <img src="multimedia/tote francesca.jpeg" 
                 alt="Tote Francesca" 
-                style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 15px;" 
+                style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 15px; cursor: pointer;" 
                 onclick="abrirGaleria(['multimedia/tote francesca.jpeg', 'multimedia/tote francesca 3.jpeg', 'multimedia/interiortotefrancesca.jpg', 'multimedia/demostraciontotefrancesca.jpg'], 'Entran cuadernos A4 y una notebook de 13 pulgadas. Correas cortas y larga desmontable.')">
                 <h4>Totebag Francesca</h4>
                 <p>$40.000</p>
                 <p style="font-size: 0.8em; color: #777; font-weight: normal; margin-top: 5px;">Medidas: 43,5 x 33 x 12 cm</p>
-                <a href="comprar.html?producto=Totebag%20Francesca" style="display: block; background-color: #111; color: white; text-decoration: none; padding: 10px; border-radius: 4px; margin-top: 15px;">Comprar</a>
+                <a href="comprar.html?producto=Totebag%20Francesca" style="display: block; background-color: #5c2427; color: white; text-decoration: none; padding: 10px; border-radius: 4px; margin-top: 15px;">Comprar</a>
             </div>
 
-            <div class="producto">
+            <div class="producto" data-categoria="totebags">
                 <img src="multimedia/tote fashion blanca.png" 
                 alt="Totebag Fashion" 
-                style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 15px;" 
-                onclick="abrirGaleria(['multimedia/tote fashion blanca.png'], 'Entran cuadernos a4, cartuchera, etc.')"
+                style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 15px; cursor: pointer;" 
+                onclick="abrirGaleria(['multimedia/tote fashion blanca.png'], 'Entran cuadernos a4, cartuchera, etc.')">
                 <h4>Totebag Fashion</h4>
                 <h4>white</h4>
                 <p>$24.800</p>
                 <p style="font-size: 0.8em; color: #777; font-weight: normal; margin-top: 5px;">Medidas: 39 x 14 x 31 </p>
-                <a href="comprar.html?producto=Tote%20Fashion%20Blanca" style="display: block; background-color: #111; color: white; text-decoration: none; padding: 10px; border-radius: 4px; margin-top: 15px;">Comprar</a>
+                <a href="comprar.html?producto=Tote%20Fashion%20Blanca" style="display: block; background-color: #5c2427; color: white; text-decoration: none; padding: 10px; border-radius: 4px; margin-top: 15px;">Comprar</a>
             </div>
 
-            <div class="producto">
+            <div class="producto" data-categoria="minibags">
                 <img src="multimedia/cherrytina2.jpeg" 
-                alt="Totebag Fashion" 
-                style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 15px;" 
-                onclick="abrirGaleria(['multimedia/cherrytina2.jpeg', 'multimedia/cherrytina.jpeg', 'multimedia/cherrytina1.jpeg'], 'Ideal para llevar tu billetera, llaves, perfume, cargador. No es minibag.')"
+                alt="Tina Bag Cherry" 
+                style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 15px; cursor: pointer;" 
+                onclick="abrirGaleria(['multimedia/cherrytina2.jpeg', 'multimedia/cherrytina.jpeg', 'multimedia/cherrytina1.jpeg'], 'Ideal para llevar tu billetera, llaves, perfume, cargador. No es minibag.')">
                 <h4>Tina Bag</h4>
                 <h4>cherry</h4>
                 <p>$26.000</p>
                 <p style="font-size: 0.8em; color: #777; font-weight: normal; margin-top: 5px;">Medidas: 30 x 20x 8cm  </p>
-                <a href="comprar.html?producto=Cherry%20tina" style="display: block; background-color: #111; color: white; text-decoration: none; padding: 10px; border-radius: 4px; margin-top: 15px;">Comprar</a>
+                <a href="comprar.html?producto=Cherry%20tina" style="display: block; background-color: #5c2427; color: white; text-decoration: none; padding: 10px; border-radius: 4px; margin-top: 15px;">Comprar</a>
             </div>
-            
-            <div class="producto">
+
+            <div class="producto" data-categoria="totebags">
                 <img src="multimedia/tote fashion negra.png" 
                 alt="Totebag Fashion" 
-                style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 15px;" 
-                onclick="abrirGaleria(['multimedia/tote fashion negra.png'], 'Entran cuadernos a4, cartuchera, etc.')"
-                style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 15px; cursor: pointer;">
+                style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 15px; cursor: pointer;" 
+                onclick="abrirGaleria(['multimedia/tote fashion negra.png'], 'Entran cuadernos a4, cartuchera, etc.')">
                 <h4>Totebag Fashion</h4>
                 <h4>black</h4>
                 <p>$24.800</p>
                 <p style="font-size: 0.8em; color: #777; font-weight: normal; margin-top: 5px;">Medidas: 39 x 14 x 31 </p>
-                <a href="comprar.html" style="display: block; background-color: #111; color: white; text-decoration: none; padding: 10px; border-radius: 4px; margin-top: 15px;">Comprar</a>
+                <a href="comprar.html?producto=Tote%20Fashion%20Negra" style="display: block; background-color: #5c2427; color: white; text-decoration: none; padding: 10px; border-radius: 4px; margin-top: 15px;">Comprar</a>
             </div>
 
-            <div class="producto">
+            <div class="producto" data-categoria="totebags">
                 <img src="multimedia/tote fashion marron.png" 
                 alt="Totebag Fashion" 
-                style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 15px;" 
-                onclick="abrirGaleria(['multimedia/tote fashion marron.png'], 'Entran cuadernos a4, cartuchera, etc.')"
+                style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 15px; cursor: pointer;" 
+                onclick="abrirGaleria(['multimedia/tote fashion marron.png'], 'Entran cuadernos a4, cartuchera, etc.')">
                 <h4>Totebag Fashion</h4>
                 <h4>chocolate</h4>
                 <p>$24.800</p>
                 <p style="font-size: 0.8em; color: #777; font-weight: normal; margin-top: 5px;">Medidas: 39 x 14 x 31 </p>
-                <a href="comprar.html" style="display: block; background-color: #111; color: white; text-decoration: none; padding: 10px; border-radius: 4px; margin-top: 15px;">Comprar</a>
+                <a href="comprar.html?producto=Tote%20Fashion%20Marron" style="display: block; background-color: #5c2427; color: white; text-decoration: none; padding: 10px; border-radius: 4px; margin-top: 15px;">Comprar</a>
             </div>
 
-            <div class="producto">
+            <div class="producto" data-categoria="totebags">
                 <img src="multimedia/tote fashion gris.png" 
                 alt="Totebag Fashion" 
-                style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 15px;" 
-                onclick="abrirGaleria(['multimedia/tote fashion gris.png'], 'Entran cuadernos a4, cartuchera, etc.')"
+                style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 15px; cursor: pointer;" 
+                onclick="abrirGaleria(['multimedia/tote fashion gris.png'], 'Entran cuadernos a4, cartuchera, etc.')">
                 <h4>Totebag Fashion</h4>
                 <h4>grey</h4>
                 <p>$24.800</p>
                 <p style="font-size: 0.8em; color: #777; font-weight: normal; margin-top: 5px;">Medidas: 39 x 14 x 31 </p>
-                <a href="comprar.html" style="display: block; background-color: #111; color: white; text-decoration: none; padding: 10px; border-radius: 4px; margin-top: 15px;">Comprar</a>
+                <a href="comprar.html?producto=Tote%20Fashion%20Gris" style="display: block; background-color: #5c2427; color: white; text-decoration: none; padding: 10px; border-radius: 4px; margin-top: 15px;">Comprar</a>
             </div>
 
         </div>
@@ -396,7 +420,6 @@
             <a href="https://www.instagram.com/dina.couture_" target="_blank" style="color: #ccc; text-decoration: none; margin-right: 15px;">
                 <i class="fab fa-instagram" style="font-size: 1.5em; vertical-align: middle;"></i> @dina.couture_
             </a>
-            </span>
         </p>
     </footer>
 
@@ -409,7 +432,10 @@
     </div>
 
     <script>
-        let imagenesGaleria = [];
+    // -----------------------------------------
+    // CÓDIGO DEL CARRUSEL DE IMÁGENES
+    // -----------------------------------------
+    let imagenesGaleria = [];
     let indiceActual = 0;
 
     function abrirGaleria(listaImagenes, descripcion) {
@@ -420,7 +446,6 @@
         document.getElementById('img-ampliada').src = imagenesGaleria[indiceActual];
         document.getElementById('descripcion-modal').innerText = descripcion;
         
-        // Esconder flechas si la cartera tiene solo 1 foto
         let flechas = document.querySelectorAll('.flecha');
         if(imagenesGaleria.length > 1) {
             flechas.forEach(f => f.style.display = 'block');
@@ -430,10 +455,9 @@
     }
 
     function cambiarImagen(direccion, evento) {
-        evento.stopPropagation(); // Evita que se cierre el modal
+        evento.stopPropagation(); 
         indiceActual = indiceActual + direccion;
         
-        // Efecto calesita (si pasa la última, vuelve a la primera)
         if (indiceActual >= imagenesGaleria.length) {
             indiceActual = 0;
         }
@@ -444,10 +468,47 @@
     }
 
     function cerrarModal(evento) {
-        // Solo cierra si tocaste el fondo negro o la cruz
         if(evento.target.id === 'modal-imagen' || evento.target.className === 'cerrar') {
             document.getElementById('modal-imagen').style.display = 'none';
         }
+    }
+
+    // -----------------------------------------
+    // MAGIA DEL FILTRO POR ETIQUETAS
+    // -----------------------------------------
+    function filtrarCategoria(categoriaElegida) {
+        // Agarramos todos los productos de la grilla
+        let productos = document.querySelectorAll('.producto');
+        let titulo = document.getElementById('titulo-coleccion');
+        let mensajeCintos = document.getElementById('mensaje-cintos');
+
+        // 1. Cambiamos el título según lo que eligió la clienta
+        if(categoriaElegida === 'todas') {
+            titulo.innerText = 'Nuestros Favoritos';
+            mensajeCintos.style.display = 'none';
+        } else if(categoriaElegida === 'totebags') {
+            titulo.innerText = 'Bolsos, Totebags & Shoulderbags';
+            mensajeCintos.style.display = 'none';
+        } else if(categoriaElegida === 'minibags') {
+            titulo.innerText = 'Minibags';
+            mensajeCintos.style.display = 'none';
+        } else if(categoriaElegida === 'cintos') {
+            titulo.innerText = 'Cintos';
+            mensajeCintos.style.display = 'block';
+        }
+
+        // 2. Escondemos o mostramos cada producto
+        productos.forEach(prod => {
+            // Si eligió "Ver Todo" o si la etiqueta del producto coincide con el menú
+            if (categoriaElegida === 'todas' || prod.getAttribute('data-categoria') === categoriaElegida) {
+                prod.style.display = 'block'; // Lo mostramos
+            } else {
+                prod.style.display = 'none'; // Lo escondemos
+            }
+        });
+
+        // Hacemos scroll suave hasta la colección para que la clienta vea el filtro aplicado
+        document.getElementById('coleccion').scrollIntoView({ behavior: 'smooth' });
     }
     </script>
 

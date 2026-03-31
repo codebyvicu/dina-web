@@ -242,6 +242,97 @@
         .dropdown:hover .dropdown-content {
             display: block;
         }
+
+        /* --- ESTILOS SHOP BY COLLECTION --- */
+        .colecciones-wrapper {
+            max-width: 1200px; /* Un poco más ancho para que luzcan las fotos */
+            margin: 60px auto 20px auto;
+            padding: 0 20px;
+        }
+
+        .titulo-colecciones {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 1.8em;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: left; /* Alineado a la izquierda como en tu foto */
+            margin-bottom: 25px;
+            color: #000;
+        }
+
+        .grilla-colecciones {
+            display: flex;
+            gap: 20px; /* Espacio entre las fotos */
+            justify-content: space-between;
+        }
+
+        .tarjeta-coleccion {
+            position: relative;
+            flex: 1;
+            height: 450px; /* Altura estilo retrato vertical */
+            overflow: hidden;
+            cursor: pointer;
+            background-color: #eee;
+        }
+
+        .tarjeta-coleccion img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Asegura que la foto llene toda la caja sin deformarse */
+            transition: transform 0.5s ease; /* Para el efecto al pasar el mouse */
+        }
+
+        /* Efecto de zoom suave al pasar el mouse por la tarjeta */
+        .tarjeta-coleccion:hover img {
+            transform: scale(1.05);
+        }
+
+        /* El degradado oscuro en la base de la foto */
+        .overlay-coleccion {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50%; /* La sombra ocupa la mitad de abajo */
+            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            padding-bottom: 30px;
+            color: white;
+            box-sizing: border-box;
+        }
+
+        .overlay-coleccion h3 {
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 1.1em;
+            margin: 0 0 8px 0;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .overlay-coleccion p {
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 0.9em;
+            margin: 0;
+            font-weight: bold;
+        }
+
+        /* Que se adapte a los celulares (una abajo de la otra) */
+        @media (max-width: 768px) {
+            .grilla-colecciones {
+                flex-direction: column;
+            }
+            .tarjeta-coleccion {
+                height: 350px;
+            }
+            .titulo-colecciones {
+                text-align: center;
+            }
+        }
     </style>
 </head>
 <body>
@@ -272,6 +363,40 @@
         <p>Encontrá el accesorio que te complementa.</p>
     </section>
 
+    <!-- SECCIÓN SHOP BY COLLECTION -->
+    <div class="colecciones-wrapper">
+        <h2 class="titulo-colecciones">SHOP BY COLLECTION</h2>
+        
+        <div class="grilla-colecciones">
+            <!-- Tarjeta 1: Totebags -->
+            <div class="tarjeta-coleccion" onclick="filtrarCategoria('totebags')">
+                <img src="multimedia/tote francesca.jpeg" alt="Bolsos y Totebags">
+                <div class="overlay-coleccion">
+                    <h3>BOLSOS & TOTEBAGS</h3>
+                    <p>Shop now ></p>
+                </div>
+            </div>
+
+            <!-- Tarjeta 2: Minibags -->
+            <div class="tarjeta-coleccion" onclick="filtrarCategoria('minibags')">
+                <img src="multimedia/minibag-print.jpeg" alt="Minibags">
+                <div class="overlay-coleccion">
+                    <h3>MINIBAGS</h3>
+                    <p>Shop now ></p>
+                </div>
+            </div>
+
+            <!-- Tarjeta 3: Ver Todo / Destacados -->
+            <div class="tarjeta-coleccion" onclick="filtrarCategoria('todas')">
+                <img src="multimedia/shoulderbagdinanegra1.jpeg" alt="Ver Todo">
+                <div class="overlay-coleccion">
+                    <h3>VER TODO</h3>
+                    <p>Shop now ></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <section class="contenedor" id="nosotros">
         <h2>¿Quiénes somos?</h2>
         <p>En Junio del 2025 nos propusimos el objetivo de ofrecer productos únicos a un precio accesible y que cumpla con las necesidades de cada cliente.</p>
@@ -286,15 +411,96 @@
 
         <div class="grilla-productos" id="grilla-principal">
 
-            <div class="producto" data-categoria="totebags">
-                <img src="multimedia/tote-dina.jpeg" 
-                alt="Totebag Dina" 
+            <div class="producto" data-categoria="minibags">
+                <img src="multimedia/bag_effy.jpeg" 
+                     alt="Bag Effy" 
+                     style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 15px; cursor: pointer;" 
+                     onclick="abrirGaleria(['multimedia/bag_effy.jpeg'], 'estilo y2k.')">
+                <h4>Bag Effy</h4>
+                <p>$26.000</p>
+                <p style="font-size: 0.8em; color: #777; font-weight: normal; margin-top: 5px;">Medidas: 23x13.5x14 </p>
+                <a href="comprar.html?producto=Bag%20Dina%20Effy" style="display: block; background-color: #5c2427; color: white; text-decoration: none; padding: 10px; border-radius: 4px; margin-top: 15px;">Comprar</a>
+            </div>
+
+            <div class="producto" data-categoria="minibags">
+                <img src="multimedia/bag_effy2.jpeg" 
+                     alt="Bag Effy - Chocolate" 
+                     style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 15px; cursor: pointer;" 
+                     onclick="abrirGaleria(['multimedia/bag_effy2.jpeg'], 'estilo y2k.')">
+                <h4>Bag Effy</h4>
+                <h4>Chocolate</h4>
+                <p>$26.000</p>
+                <p style="font-size: 0.8em; color: #777; font-weight: normal; margin-top: 5px;">Medidas: 23x13.5x14</p>
+                <a href="comprar.html?producto=Bag%20Effy%20Chocolate" style="display: block; background-color: #5c2427; color: white; text-decoration: none; padding: 10px; border-radius: 4px; margin-top: 15px;">Comprar</a>
+            </div>
+
+            <div class="producto" data-categoria="minibags">
+                <img src="multimedia/minibag_jennie.jpeg" 
+                     alt="Minibag Jennie" 
+                     style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 15px; cursor: pointer;" 
+                     onclick="abrirGaleria(['multimedia/minibag_jennie.jpeg'], 'minibag estilo grunge.')">
+                <h4>Minibag Jennie</h4>
+                <p>$26.000</p>
+                <p style="font-size: 0.8em; color: #777; font-weight: normal; margin-top: 5px;">Medidas: 24x12 (alto y ancho) </p>
+                <a href="comprar.html?producto=Bag%20Effy%20Chocolate" style="display: block; background-color: #5c2427; color: white; text-decoration: none; padding: 10px; border-radius: 4px; margin-top: 15px;">Comprar</a>
+            </div>
+
+            <div class="producto" data-categoria="minibags">
+                <img src="multimedia/bag_jenna_choco.jpeg" 
+                     alt="Bag Jenna Choco" 
+                     style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 15px; cursor: pointer;" 
+                     onclick="abrirGaleria(['multimedia/bag_jenna_choco.jpeg'], 'minibag Jenna - brown edition')">
+                <h4>Minibag Jenna</h4>
+                <h4>Chocolate</h4>
+                <p>$26.000</p>
+                <p style="font-size: 0.8em; color: #777; font-weight: normal; margin-top: 5px;">Medidas: 23x11.5 (alto y ancho) </p>
+                <a href="comprar.html?producto=Bag%20Jenna%20Chocolate" style="display: block; background-color: #5c2427; color: white; text-decoration: none; padding: 10px; border-radius: 4px; margin-top: 15px;">Comprar</a>
+            </div>
+
+            <div class="producto" data-categoria="minibags">
+                <img src="multimedia/bag_jenna.jpeg" 
+                     alt="Bag Jenna" 
+                     style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 15px; cursor: pointer;" 
+                     onclick="abrirGaleria(['multimedia/bag_jenna.jpeg'], 'minibag Jenna - dark edition.')">
+                <h4>Minibag Jenna</h4>
+                <p>$26.000</p>
+                <p style="font-size: 0.8em; color: #777; font-weight: normal; margin-top: 5px;">Medidas: 23x11.5 (alto y ancho) </p>
+                <a href="comprar.html?producto=Bag%20Jenna" style="display: block; background-color: #5c2427; color: white; text-decoration: none; padding: 10px; border-radius: 4px; margin-top: 15px;">Comprar</a>
+            </div>
+
+            <div class="producto" data-categoria="minibags">
+                <img src="multimedia/minibag-cherry2.jpeg" 
+                alt="Minibag Kendall" 
                 style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 15px; cursor: pointer;" 
-                onclick="abrirGaleria(['multimedia/tote-dina.jpeg', 'multimedia/tote-dina-interiorr.jpeg'], 'Espaciosa, reforzada y con forrería interna. Compartimentos laterales y frontal, perfecta para el uso del día a día.')">
-                <h4>Totebag Dina</h4> 
-                <p>$37.000</p> 
-                <p style="font-size: 0.8em; color: #777; font-weight: normal; margin-top: 5px;">Medidas:  40 x 32 x 8cm</p>
-                <a style="display: block; background-color: #e0e0e0; color: #888888; text-decoration: none; padding: 10px; border-radius: 4px; margin-top: 15px; cursor: not-allowed; font-weight: bold; letter-spacing: 1px;">SIN STOCK</a>
+                onclick="abrirGaleria(['multimedia/minibag-cherry2.jpeg', 'multimedia/y2k-cherry.jpeg'], 'Minibag y2k Kendall.')">
+                <h4>Minibag Kendall</h4>
+                <p>$27.000</p>
+                <p style="font-size: 0.8em; color: #777; font-weight: normal; margin-top: 5px;">Medidas: 15 x 28 (correa 30cm)  </p>
+                <a href="comprar.html?producto=Minibag%20Kendall" style="display: block; background-color: #5c2427; color: white; text-decoration: none; padding: 10px; border-radius: 4px; margin-top: 15px;">Comprar</a>
+            </div>
+
+            <div class="producto" data-categoria="minibags">
+                <img src="multimedia/cherrytina2.jpeg" 
+                alt="Tina Bag Cherry" 
+                style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 15px; cursor: pointer;" 
+                onclick="abrirGaleria(['multimedia/cherrytina2.jpeg', 'multimedia/cherrytina.jpeg', 'multimedia/cherrytina1.jpeg'], 'Ideal para llevar tu billetera, llaves, perfume, cargador. No es minibag.')">
+                <h4>Tina Bag</h4>
+                <h4>cherry</h4>
+                <p>$26.000</p>
+                <p style="color: #cc0000; font-weight: bold; font-size: 0.85em; margin: 5px 0;">¡ÚLTIMA EN STOCK!</p>
+                <p style="font-size: 0.8em; color: #777; font-weight: normal; margin-top: 5px;">Medidas: 30 x 20x 8cm  </p>
+                <a href="comprar.html?producto=Cherry%20tina" style="display: block; background-color: #5c2427; color: white; text-decoration: none; padding: 10px; border-radius: 4px; margin-top: 15px;">Comprar</a>
+            </div>
+
+            <div class="producto" data-categoria="minibags">
+                <img src="multimedia/minibag-ariana1.jpeg" 
+                alt="Minibag Ariana" 
+                style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 15px; cursor: pointer;" 
+                onclick="abrirGaleria(['multimedia/minibag-ariana1.jpeg', 'multimedia/minibag-y2k-negra.jpeg', 'multimedia/y2k-negra.jpeg'], 'Minibag y2k Ariana.')">
+                <h4>Minibag Ariana</h4>
+                <p>$27.000</p>
+                <p style="font-size: 0.8em; color: #777; font-weight: normal; margin-top: 5px;">Medidas: 15 x 28 (correa 30cm)  </p>
+                <a href="comprar.html?producto=Minibag%20Ariana" style="display: block; background-color: #5c2427; color: white; text-decoration: none; padding: 10px; border-radius: 4px; margin-top: 15px;">Comprar</a>
             </div>
 
             <div class="producto" data-categoria="totebags">
@@ -347,16 +553,15 @@
                 <a href="comprar.html?producto=Totebag%20Helena" style="display: block; background-color: #5c2427; color: white; text-decoration: none; padding: 10px; border-radius: 4px; margin-top: 15px;">Comprar</a>
             </div>
 
-            <div class="producto" data-categoria="minibags">
-                <img src="multimedia/minibag-boho.jpg" 
-                alt="Cartera Boho" 
+            <div class="producto" data-categoria="totebags">
+                <img src="multimedia/tote-dina.jpeg" 
+                alt="Totebag Dina" 
                 style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 15px; cursor: pointer;" 
-                onclick="abrirGaleria(['multimedia/minibag-boho.jpg', 'multimedia/minibag-boho-adentro.jpg', 'multimedia/minibag-boho-atras.jpg'], 'Llevá tu billetera, celu y lo que necesites con gran estilo.')">
-                <h4>Minibag Boho</h4>
-                <p>$23.500</p>
-                <p style="font-size: 0.8em; color: #777; font-weight: normal; margin-top: 5px;">Medidas: 20cm x 26cm  </p>
-                <a href="comprar.html?producto=Bag%20Boho" style="display: block; background-color: #5c2427; color: white; text-decoration: none; padding: 10px; border-radius: 4px; margin-top: 15px;">Comprar</a>
-
+                onclick="abrirGaleria(['multimedia/tote-dina.jpeg', 'multimedia/tote-dina-interiorr.jpeg'], 'Espaciosa, reforzada y con forrería interna. Compartimentos laterales y frontal, perfecta para el uso del día a día.')">
+                <h4>Totebag Dina</h4> 
+                <p>$37.000</p> 
+                <p style="font-size: 0.8em; color: #777; font-weight: normal; margin-top: 5px;">Medidas:  40 x 32 x 8cm</p>
+                <a style="display: block; background-color: #e0e0e0; color: #888888; text-decoration: none; padding: 10px; border-radius: 4px; margin-top: 15px; cursor: not-allowed; font-weight: bold; letter-spacing: 1px;">SIN STOCK</a>
             </div>
 
             <div class="producto" data-categoria="totebags">
@@ -405,30 +610,6 @@
                <a style="display: block; background-color: #e0e0e0; color: #888888; text-decoration: none; padding: 10px; border-radius: 4px; margin-top: 15px; cursor: not-allowed; font-weight: bold; letter-spacing: 1px;">SIN STOCK</a>
             </div>
 
-            <div class="producto" data-categoria="minibags">
-                <img src="multimedia/cherrytina2.jpeg" 
-                alt="Tina Bag Cherry" 
-                style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 15px; cursor: pointer;" 
-                onclick="abrirGaleria(['multimedia/cherrytina2.jpeg', 'multimedia/cherrytina.jpeg', 'multimedia/cherrytina1.jpeg'], 'Ideal para llevar tu billetera, llaves, perfume, cargador. No es minibag.')">
-                <h4>Tina Bag</h4>
-                <h4>cherry</h4>
-                <p>$26.000</p>
-                <p style="color: #cc0000; font-weight: bold; font-size: 0.85em; margin: 5px 0;">¡ÚLTIMA EN STOCK!</p>
-                <p style="font-size: 0.8em; color: #777; font-weight: normal; margin-top: 5px;">Medidas: 30 x 20x 8cm  </p>
-                <a href="comprar.html?producto=Cherry%20tina" style="display: block; background-color: #5c2427; color: white; text-decoration: none; padding: 10px; border-radius: 4px; margin-top: 15px;">Comprar</a>
-            </div>
-
-            <div class="producto" data-categoria="minibags">
-                <img src="multimedia/minibag-ariana1.jpeg" 
-                alt="Minibag Ariana" 
-                style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 15px; cursor: pointer;" 
-                onclick="abrirGaleria(['multimedia/minibag-ariana1.jpeg', 'multimedia/minibag-y2k-negra.jpeg', 'multimedia/y2k-negra.jpeg'], 'Minibag y2k Ariana.')">
-                <h4>Minibag Ariana</h4>
-                <p>$27.000</p>
-                <p style="font-size: 0.8em; color: #777; font-weight: normal; margin-top: 5px;">Medidas: 15 x 28 (correa 30cm)  </p>
-                <a href="comprar.html?producto=Minibag%20Ariana" style="display: block; background-color: #5c2427; color: white; text-decoration: none; padding: 10px; border-radius: 4px; margin-top: 15px;">Comprar</a>
-            </div>
-
             <div class="producto" data-categoria="totebags">
                 <img src="multimedia/tote-fashion-negra.jpeg" 
                 alt="Totebag Fashion" 
@@ -454,16 +635,7 @@
                 <a href="comprar.html?producto=Tote%20Fashion%20Gris" style="display: block; background-color: #5c2427; color: white; text-decoration: none; padding: 10px; border-radius: 4px; margin-top: 15px;">Comprar</a>
             </div>
 
-            <div class="producto" data-categoria="minibags">
-                <img src="multimedia/minibag-cherry2.jpeg" 
-                alt="Minibag Kendall" 
-                style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 15px; cursor: pointer;" 
-                onclick="abrirGaleria(['multimedia/minibag-cherry2.jpeg', 'multimedia/y2k-cherry.jpeg'], 'Minibag y2k Kendall.')">
-                <h4>Minibag Kendall</h4>
-                <p>$27.000</p>
-                <p style="font-size: 0.8em; color: #777; font-weight: normal; margin-top: 5px;">Medidas: 15 x 28 (correa 30cm)  </p>
-                <a href="comprar.html?producto=Minibag%20Kendall" style="display: block; background-color: #5c2427; color: white; text-decoration: none; padding: 10px; border-radius: 4px; margin-top: 15px;">Comprar</a>
-            </div>
+            
 
         </div>
     </div>

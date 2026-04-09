@@ -3,631 +3,805 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OSS Servicios de Seguridad | Capacitación</title>
+    <title>Dina | Bolsos y Accesorios </title>
+    <meta name="description" content="Descubrí tu estilo con Dina. Tienda online de carteras, totebags, minibags y accesorios. Diseños únicos desde Concordia para todo el país.">
+    <meta name="keywords" content="carteras, tienda de carteras, bolsos, totebags, minibags, Dina Couture, accesorios, moda">
+    <meta name="google-site-verification" content="NDFEwc_2f93wWAdqWIO7Cc-N3mAD0kFdBS11xE9AmUw" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Paleta Táctica: Fondos negros, grises oscuros y acentos en rojo seguridad */
+        /* Estilos generales */
         body {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #0d0d0d; /* Fondo casi negro */
-            color: #e0e0e0; /* Texto gris claro para no cansar la vista */
+            background-color: #f7f5f0; 
+            color: #3b312b; 
         }
 
+        header, #faq, footer {
+            background-color: #1f1a18; 
+            color: #fff;
+        }
         header {
-            background-color: #000;
-            padding: 20px 0;
+            padding: 25px 0;
             text-align: center;
-            border-bottom: 3px solid #b30000; /* Línea roja de seguridad abajo del menú */
-            position: sticky;
-            top: 0;
-            z-index: 100;
         }
-
+        nav a:hover {
+            color: #d4c2b4; 
+        }
         header h1 {
             margin: 0;
             font-size: 2.5em;
             letter-spacing: 5px;
             color: #fff;
-            font-weight: 900;
-            text-transform: uppercase;
+            font-family: 'Playfair Display', serif;
         }
-
         nav a {
             margin: 0 15px;
             text-decoration: none;
             color: #aaa;
-            font-weight: 700;
+            font-weight: 400;
             text-transform: uppercase;
             font-size: 0.85em;
             transition: color 0.3s;
         }
-
         nav a:hover {
-            color: #b30000; /* Hover en rojo */
+            color: #fff;
         }
 
-        /* Sección Portada */ 
+        /* Sección principal */
         .portada {
             text-align: center;
-            padding: 160px 20px; 
-            /* Se sugiere una foto de instructores o táctica con un filtro negro encima */
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), url('multimedia/header.png');
+            padding: 140px 20px; 
+            background: linear-gradient(rgba(31, 26, 24, 0.6), rgba(31, 26, 24, 0.6)), url('multimedia/banner.png');
             background-size: cover;
             background-position: center;
-            color: #fff;
+            background-repeat: no-repeat;
+            color: #f7f5f0;
         }
         
         .portada h2 {
-            font-size: 3.5em;
+            font-size: 3em;
             letter-spacing: 2px;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            font-weight: 900;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
-
         .portada p {
             font-size: 1.2em;
-            color: #aaa;
-            max-width: 600px;
-            margin: 0 auto;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
         }
 
-        /* Contenedores generales */
+        /* Sección de productos */
         .contenedor {
-            max-width: 1100px;
-            margin: 60px auto;
+            max-width: 1000px;
+            margin: 40px auto;
             padding: 0 20px;
-        }
-
-        .titulo-seccion {
-            font-size: 2.2em;
-            font-weight: 900;
-            text-transform: uppercase;
-            border-left: 5px solid #b30000;
-            padding-left: 15px;
-            margin-bottom: 40px;
-            color: #fff;
-        }
-
-        /* Grilla de Cursos (Reciclado de productos) */
-        .grilla-cursos {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .curso-card {
-            background: #1a1a1a;
-            border: 1px solid #333;
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .curso-card:hover {
-            transform: translateY(-5px);
-            border-color: #b30000;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-        }
-
-        .curso-card img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            border-bottom: 3px solid #333;
-            cursor: pointer;
-        }
-
-        .curso-info {
-            padding: 20px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .curso-info h4 {
-            margin: 0 0 10px 0;
-            font-size: 1.3em;
-            color: #fff;
-            text-transform: uppercase;
-        }
-
-        .curso-info p {
-            font-size: 0.9em;
-            color: #aaa;
-            margin-bottom: 20px;
-            line-height: 1.5;
-        }
-
-        .btn-accion {
-            display: block;
-            background-color: #b30000;
-            color: #fff;
-            text-decoration: none;
             text-align: center;
-            padding: 12px;
+        }
+        .grilla-productos {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        .producto {
+            background: #fff;
+            padding: 15px;
+            border: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            width: 260px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+        .producto:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .producto h4 {
+            margin: 10px 0 5px;
+            font-size: 1.1em;
+        }
+        .producto p {
+            margin: 0;
+            color: #888;
             font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: auto;
-            transition: background 0.3s;
         }
 
-        .btn-accion:hover {
-            background-color: #ff0000;
-        }
-
-        /* Sección Nosotros y Servicios */
-        .bloque-texto {
-            background-color: #111;
-            padding: 40px;
-            border: 1px solid #222;
-            margin-bottom: 30px;
-        }
-
-        .bloque-texto p {
-            line-height: 1.8;
-            color: #bbb;
-        }
-
-        /* Footer */
+        /* Pie de página */
         footer {
             text-align: center;
-            padding: 40px 20px;
-            background-color: #000;
-            border-top: 1px solid #222;
-            margin-top: 60px;
+            padding: 30px 20px;
+            background-color: #111;
+            color: #fff;
+            margin-top: 40px;
+        }
+        footer p {
+            margin: 5px 0;
+            font-size: 0.9em;
+            color: #ccc;
         }
 
-        /* --- ESTILOS DE SERVICIOS DESTACADOS (Ex "Shop by Collection") --- */
-.grilla-colecciones {
-    display: flex;
-    gap: 20px;
-    justify-content: space-between;
-}
-
-.tarjeta-coleccion {
-    position: relative;
-    flex: 1;
-    height: 450px; /* Altura imponente */
-    overflow: hidden;
-    cursor: pointer;
-    border: 1px solid #333; /* Borde duro táctico */
-    background-color: #1a1a1a;
-    transition: border-color 0.3s ease;
-}
-
-.tarjeta-coleccion img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.6s ease, filter 0.6s ease;
-    filter: grayscale(40%) contrast(110%); /* Le da un tono más cinematográfico/serio */
-}
-
-/* Efecto al pasar el mouse */
-.tarjeta-coleccion:hover img {
-    transform: scale(1.05);
-    filter: grayscale(0%) contrast(120%);
-}
-
-.tarjeta-coleccion:hover {
-    border-color: #b30000; /* El borde se ilumina en rojo */
-}
-
-.overlay-coleccion {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 60%; 
-    /* Gradiente negro intenso para asegurar lectura */
-    background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.7) 40%, rgba(0,0,0,0) 100%);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
-    padding-bottom: 35px;
-    color: white;
-    box-sizing: border-box;
-}
-
-.overlay-coleccion h3 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.4em;
-    margin: 0 0 10px 0;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    text-align: center;
-    font-weight: 900;
-    padding: 0 15px;
-}
-
-.overlay-coleccion p {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.9em;
-    margin: 0;
-    font-weight: 700;
-    color: #b30000; /* Texto de acción en rojo */
-    letter-spacing: 1px;
-}
-
-/* Adaptación para celulares */
-@media (max-width: 768px) {
-    .grilla-colecciones {
-        flex-direction: column;
-    }
-    .tarjeta-coleccion {
-        height: 350px;
-    }
-}
-
-/* --- ESTILOS DEL MODAL DE CURSOS --- */
-        .modal-curso-overlay {
-            display: none; /* Oculto por defecto */
+        /* Efecto Imagen Ampliada (Modal) */
+        .modal {
+            display: none;
             position: fixed;
-            z-index: 2000;
+            z-index: 1000;
             left: 0;
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0,0,0,0.85); /* Fondo negro semitransparente */
-            align-items: center;
+            background-color: rgba(0,0,0,0.85);
             justify-content: center;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-
-        .modal-curso-contenido {
-            background-color: #111;
-            border: 1px solid #333;
-            width: 100%;
-            max-width: 900px;
-            display: flex;
+            align-items: center;
             flex-direction: column;
-            position: relative;
         }
-
-        @media (min-width: 768px) {
-            .modal-curso-contenido {
-                flex-direction: row; /* En PC se parte a la mitad */
-            }
+        .modal-contenido {
+            max-width: 90%;
+            max-height: 85%;
+            border-radius: 8px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.5);
         }
-
-        .cerrar-modal {
-            position: absolute;
-            top: 10px;
-            right: 20px;
+        .cerrar {
             color: #fff;
-            font-size: 35px;
+            font-size: 40px;
             font-weight: bold;
             cursor: pointer;
-            z-index: 10;
+            position: absolute;
+            top: 20px;
+            right: 30px;
+        }
+        .producto img {
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+        .producto img:hover {
+            opacity: 0.8;
         }
 
-        .cerrar-modal:hover { color: #b30000; }
-
-        .modal-curso-imagen {
-            flex: 1;
-            max-height: 300px;
-        }
-        
-        @media (min-width: 768px) {
-            .modal-curso-imagen { max-height: none; }
+        #inicio h2, #nosotros h2, #faq h2, #titulo-coleccion {
+            font-family: 'Playfair Display', serif;
         }
 
-        .modal-curso-imagen img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .modal-curso-info {
-            flex: 1;
-            padding: 40px 30px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .modal-botones {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .modal-botones a {
-            flex: 1; /* Para que los dos botones midan lo mismo */
-        }
-
-        .btn-secundario {
-            display: block;
-            background-color: transparent;
+        /* Franja Negra para Preguntas Frecuentes */
+        #faq {
+            background-color: #000;
             color: #fff;
-            border: 2px solid #555;
+            padding: 40px 0;
+        }
+        #faq h2 {
             text-align: center;
-            padding: 10px;
-            text-decoration: none;
-            font-weight: bold;
-            text-transform: uppercase;
-            transition: border-color 0.3s;
+            margin-top: 0;
+            margin-bottom: 30px;
+        }
+        #faq h4 {
+            color: #fff;
+            margin-bottom: 5px;
+            font-size: 1.1em;
+        }
+        #faq p {
+            color: #ccc;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 0.95em;
         }
 
-        .btn-secundario:hover {
-            border-color: #fff;
-        }
-        /* --- ESTILOS DE LAS FLECHAS DEL CARRUSEL --- */
+        /* Flechas del carrusel */
         .flecha {
             cursor: pointer;
             position: absolute;
             top: 50%;
-            transform: translateY(-50%); /* Centrado vertical perfecto */
-            padding: 10px 15px;
+            width: auto;
+            padding: 15px;
+            margin-top: -30px;
             color: white;
             font-weight: bold;
-            font-size: 24px;
+            font-size: 40px;
             transition: 0.3s;
             user-select: none;
-            background-color: rgba(0,0,0,0.6); /* Fondo oscuro para que se lea siempre */
-            z-index: 10;
         }
-        
-        .flecha.prev { left: 0; }
-        .flecha.next { right: 0; }
-        
-        .flecha:hover { 
-            background-color: #b30000; /* Se pone rojo táctico al pasar el mouse */
+        .prev { left: 20px; }
+        .next { right: 20px; }
+        .flecha:hover { background-color: rgba(255,255,255,0.2); border-radius: 50%; }
+
+        /* Contenedor del desplegable */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown .dropbtn {
+            cursor: pointer;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f7f5f0;
+            min-width: 250px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.15);
+            z-index: 100;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 4px;
+            padding: 10px 0;
+        }
+        .dropdown-content a {
+            color: #3b312b;
+            padding: 12px 20px;
+            text-decoration: none;
+            display: block;
+            margin: 0;
+            font-size: 0.8em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background 0.3s;
+        }
+        .dropdown-content a:hover {
+            background-color: #e8e4d9;
+            color: #1f1a18;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* --- ESTILOS SHOP BY COLLECTION --- */
+        .colecciones-wrapper {
+            max-width: 1200px; /* Un poco más ancho para que luzcan las fotos */
+            margin: 60px auto 20px auto;
+            padding: 0 20px;
+        }
+
+        .titulo-colecciones {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 1.8em;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: left; /* Alineado a la izquierda como en tu foto */
+            margin-bottom: 25px;
+            color: #000;
+        }
+
+        .grilla-colecciones {
+            display: flex;
+            gap: 20px; /* Espacio entre las fotos */
+            justify-content: space-between;
+        }
+
+        .tarjeta-coleccion {
+            position: relative;
+            flex: 1;
+            height: 450px; /* Altura estilo retrato vertical */
+            overflow: hidden;
+            cursor: pointer;
+            background-color: #eee;
+        }
+
+        .tarjeta-coleccion img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Asegura que la foto llene toda la caja sin deformarse */
+            transition: transform 0.5s ease; /* Para el efecto al pasar el mouse */
+        }
+
+        /* Efecto de zoom suave al pasar el mouse por la tarjeta */
+        .tarjeta-coleccion:hover img {
+            transform: scale(1.05);
+        }
+
+        /* El degradado oscuro en la base de la foto */
+        .overlay-coleccion {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50%; /* La sombra ocupa la mitad de abajo */
+            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            padding-bottom: 30px;
+            color: white;
+            box-sizing: border-box;
+        }
+
+        .overlay-coleccion h3 {
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 1.1em;
+            margin: 0 0 8px 0;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .overlay-coleccion p {
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 0.9em;
+            margin: 0;
+            font-weight: bold;
+        }
+
+        /* Que se adapte a los celulares (una abajo de la otra) */
+        @media (max-width: 768px) {
+            .grilla-colecciones {
+                flex-direction: column;
+            }
+            .tarjeta-coleccion {
+                height: 350px;
+            }
+            .titulo-colecciones {
+                text-align: center;
+            }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>O.S.S SEGURIDAD</h1>
+        <h1>DINA</h1>
         <nav>
             <a href="#inicio">Inicio</a>
-            <a href="#cursos">Capacitaciones</a>
-            <a href="#servicios">Servicios Corporativos</a>
-            <a href="#nosotros">Quiénes Somos</a>
+            <a href="#nosotros">Nosotros</a>
+            
+            <div class="dropdown">
+                <a class="dropbtn">Colección <i class="fas fa-chevron-down" style="font-size: 0.8em; margin-left: 3px;"></i></a>
+                <div class="dropdown-content">
+                    <a href="javascript:void(0)" onclick="filtrarCategoria('todas')">Ver Todo</a>
+                    <a href="javascript:void(0)" onclick="filtrarCategoria('totebags')">Bolsos, Totebags & Shoulderbags</a>
+                    <a href="javascript:void(0)" onclick="filtrarCategoria('minibags')">Minibags</a>
+                    <a href="javascript:void(0)" onclick="filtrarCategoria('cintos')">Cintos (Próximamente)</a>
+                    <a href="javascript:void(0)" onclick="filtrarCategoria('anteojos')">Anteojos (Próximamente)</a>
+                </div>
+            </div>
+            <a href="#faq">Preguntas</a>
             <a href="#contacto">Contacto</a>
         </nav>
     </header>
 
     <section class="portada" id="inicio">
-        <h2>Protección y Capacitación</h2>
-        <p>Especialistas en seguridad corporativa, custodia VIP y entrenamiento táctico de alto rendimiento.</p>
+        <h2>Estilo en cada detalle</h2>
+        <p>Encontrá el accesorio que te complementa.</p>
     </section>
 
-    <div class="contenedor" id="cursos">
-        <h3 class="titulo-seccion">Próximos Cursos y Entrenamientos</h3>
+    <!-- SECCIÓN SHOP BY COLLECTION -->
+    <div class="colecciones-wrapper">
+        <h2 class="titulo-colecciones">SHOP BY COLLECTION</h2>
         
-        <div class="grilla-cursos">
-            
-            <div class="curso-card" onclick="abrirDetalleCurso('custodia')" style="cursor: pointer;">
-                <img src="multimedia/img2.jpg" alt="Custodia VIP">
-                <div class="curso-info">
-                    <h4>Custodia VIP</h4>
-                    <p>Formación intensiva en protección de ejecutivos, planeamiento de rutas y protocolos de evacuación.</p>
-                    <p style="color: #b30000; font-weight: bold; font-size: 0.85em;">CERTIFICACIÓN</p>
-                    <span class="btn-accion">Ver Detalles</span>
-                </div>
-            </div>
-
-            <div class="curso-card" onclick="abrirDetalleCurso('tiro')" style="cursor: pointer;">
-                <img src="multimedia/img1.jpg" alt="Tiro Táctico">
-                <div class="curso-info">
-                    <h4>Tiro Táctico</h4>
-                    <p>Manejo seguro, posiciones de tiro y resolución de fallas bajo estrés en polígono abierto.</p>
-                    <p style="color: #b30000; font-weight: bold; font-size: 0.85em;">CUPOS LIMITADOS</p>
-                    <span class="btn-accion">Ver Detalles</span>
-                </div>
-            </div>
-
-            <div class="curso-card" onclick="abrirDetalleCurso('auxilios')" style="cursor: pointer;">
-                <img src=multimedia/primerosauxilios.jpg alt="Primeros Auxilios">
-                <div class="curso-info">
-                    <h4>Primeros Auxilios</h4>
-                    <p>Manejo de trauma, control de hemorragias y estabilización en zonas de riesgo (TCCC). Modalidad práctica y virtual</p>
-                    <p style="color: #b30000; font-weight: bold; font-size: 0.85em;">CERTIFICACIÓN</p>
-                    <span class="btn-accion">Ver Detalles</span>
-                </div>
-            </div>
-
-        </div>
-
-    <div class="contenedor" id="servicios">
-        <h3 class="titulo-seccion">Servicios para Empresas y Particulares</h3>
-        <div class="bloque-texto">
-            <h4 style="color: #fff; margin-top: 0; text-transform: uppercase;">Seguridad Física e Instalaciones</h4>
-            <p>Proveemos personal altamente capacitado para el resguardo de oficinas, predios industriales y eventos de concurrencia masiva. Desarrollamos esquemas de seguridad adaptados a las vulnerabilidades de cada infraestructura.</p>
-            <a href="#contacto" style="color: #b30000; font-weight: bold; text-decoration: none;">Solicitar análisis de riesgo ></a>
-        </div>
-    </div>
-
-   <div class="contenedor" style="margin-top: -10px;"> 
         <div class="grilla-colecciones">
-            
-            <div class="tarjeta-coleccion" onclick="abrirDetalle('barrios')">
-                <img src="multimedia/familiafeliz.avif" alt="Seguridad en Barrios Privados">
+            <!-- Tarjeta 1: Totebags -->
+            <div class="tarjeta-coleccion" onclick="filtrarCategoria('totebags')">
+                <img src="multimedia/tote francesca.jpeg" alt="Bolsos y Totebags">
                 <div class="overlay-coleccion">
-                    <h3>Seguridad en Barrios Privados</h3>
-                    <p>MÁS INFO ></p>
+                    <h3>BOLSOS & TOTEBAGS</h3>
+                    <p>Shop now ></p>
                 </div>
             </div>
 
-            <div class="tarjeta-coleccion" onclick="abrirDetalle('vip')">
-                <img src="multimedia/bodyguard.webp" alt="Seguridad Personal VIP">
+            <!-- Tarjeta 2: Minibags -->
+            <div class="tarjeta-coleccion" onclick="filtrarCategoria('minibags')">
+                <img src="multimedia/minibag-print.jpeg" alt="Minibags">
                 <div class="overlay-coleccion">
-                    <h3>Seguridad Personal VIP</h3>
-                    <p>MÁS INFO ></p>
+                    <h3>MINIBAGS</h3>
+                    <p>Shop now ></p>
                 </div>
             </div>
 
+            <!-- Tarjeta 3: Ver Todo / Destacados -->
+            <div class="tarjeta-coleccion" onclick="filtrarCategoria('todas')">
+                <img src="multimedia/tote_fashion_negra_portada.jpeg" alt="Ver Todo">
+                <div class="overlay-coleccion">
+                    <h3>VER TODO</h3>
+                    <p>Shop now ></p>
+                </div>
+            </div>
         </div>
     </div>
 
     <section class="contenedor" id="nosotros">
-        <h3 class="titulo-seccion">Quiénes Somos</h3>
-        <div class="bloque-texto">
-            <p>Con más de una década de experiencia en el sector privado y fuerzas de seguridad, <strong>O.S.S Servicios de Seguridad</strong> nace con el objetivo de elevar el estándar de la protección en la ciudad.</p>
-            <p>Nuestros instructores cuentan con certificaciones internacionales y operan bajo las normativas vigentes, garantizando no solo la protección física de nuestros clientes, sino también el respaldo legal en cada procedimiento.</p>
+        <h2>¿Quiénes somos?</h2>
+        <p>En Junio del 2025 nos propusimos el objetivo de ofrecer productos únicos a un precio accesible y que cumpla con las necesidades de cada cliente.</p>
+        <p>Somos amigas dispuestas a hacer crecer este emprendimiento llevando al siguiente nivel tu look.</p>
+        <p>El accesorio correcto es funcional y completa tu estilo.</p>
+    </section>
+
+    <div class="contenedor" id="coleccion">
+        <h3 id="titulo-coleccion" style="font-size: 2em; margin-bottom: 30px; border-bottom: 1px solid #ddd; padding-bottom: 10px;">Nuestros Favoritos</h3>
+        
+        <p id="mensaje-cintos" style="display: none; text-align: center; color: #777; font-style: italic; margin-bottom: 60px;">Próximamente agregaremos nuestra línea de cinturones para completar tu look.</p>
+
+        <div class="grilla-productos" id="grilla-principal">
+
+            <div class="producto" data-categoria="minibags">
+                <img src="multimedia/bag_effy.jpeg" 
+                     alt="Bag Effy" 
+                     style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 15px; cursor: pointer;" 
+                     onclick="abrirGaleria(['multimedia/bag_effy.jpeg'], 'estilo y2k.')">
+                <h4>Bag Effy</h4>
+                <p>$26.000</p>
+                <p style="font-size: 0.8em; color: #777; font-weight: normal; margin-top: 5px;">Medidas: 23x13.5x14 </p>
+                <a href="comprar.html?producto=Bag%20Dina%20Effy" style="display: block; background-color: #5c2427; color: white; text-decoration: none; padding: 10px; border-radius: 4px; margin-top: 15px;">Comprar</a>
+            </div>
+
+            <div class="producto" data-categoria="minibags">
+                <img src="multimedia/bag_effy2.jpeg" 
+                     alt="Bag Effy - Chocolate" 
+                     style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 15px; cursor: pointer;" 
+                     onclick="abrirGaleria(['multimedia/bag_effy2.jpeg'], 'estilo y2k.')">
+                <h4>Bag Effy</h4>
+                <h4>Chocolate</h4>
+                <p>$26.000</p>
+                <p style="font-size: 0.8em; color: #777; font-weight: normal; margin-top: 5px;">Medidas: 23x13.5x14</p>
+                <a href="comprar.html?producto=Bag%20Effy%20Chocolate" style="display: block; background-color: #5c2427; color: white; text-decoration: none; padding: 10px; border-radius: 4px; margin-top: 15px;">Comprar</a>
+            </div>
+
+            <div class="producto" data-categoria="minibags">
+                <img src="multimedia/minibag_jennie.jpeg" 
+                     alt="Minibag Jennie" 
+                     style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 15px; cursor: pointer;" 
+                     onclick="abrirGaleria(['multimedia/minibag_jennie.jpeg'], 'minibag estilo grunge.')">
+                <h4>Minibag Jennie</h4>
+                <p>$26.000</p>
+                <p style="font-size: 0.8em; color: #777; font-weight: normal; margin-top: 5px;">Medidas: 24x12 (alto y ancho) </p>
+                <a href="comprar.html?producto=Bag%20Effy%20Chocolate" style="display: block; background-color: #5c2427; color: white; text-decoration: none; padding: 10px; border-radius: 4px; margin-top: 15px;">Comprar</a>
+            </div>
+
+            <div class="producto" data-categoria="minibags">
+                <img src="multimedia/bag_jenna_choco.jpeg" 
+                     alt="Bag Jenna Choco" 
+                     style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 15px; cursor: pointer;" 
+                     onclick="abrirGaleria(['multimedia/bag_jenna_choco.jpeg'], 'minibag Jenna - brown edition')">
+                <h4>Minibag Jenna</h4>
+                <h4>Chocolate</h4>
+                <p>$26.000</p>
+                <p style="font-size: 0.8em; color: #777; font-weight: normal; margin-top: 5px;">Medidas: 23x11.5 (alto y ancho) </p>
+                <a href="comprar.html?producto=Bag%20Jenna%20Chocolate" style="display: block; background-color: #5c2427; color: white; text-decoration: none; padding: 10px; border-radius: 4px; margin-top: 15px;">Comprar</a>
+            </div>
+
+            <div class="producto" data-categoria="minibags">
+                <img src="multimedia/bag_jenna.jpeg" 
+                     alt="Bag Jenna" 
+                     style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 15px; cursor: pointer;" 
+                     onclick="abrirGaleria(['multimedia/bag_jenna.jpeg'], 'minibag Jenna - dark edition.')">
+                <h4>Minibag Jenna</h4>
+                <p>$26.000</p>
+                <p style="font-size: 0.8em; color: #777; font-weight: normal; margin-top: 5px;">Medidas: 23x11.5 (alto y ancho) </p>
+                <a href="comprar.html?producto=Bag%20Jenna" style="display: block; background-color: #5c2427; color: white; text-decoration: none; padding: 10px; border-radius: 4px; margin-top: 15px;">Comprar</a>
+            </div>
+
+            <div class="producto" data-categoria="totebags">
+                <img src="multimedia/bolso-nina.jpeg" 
+                     alt="Bolso Nina" 
+                     style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 15px; cursor: pointer;" 
+                     onclick="abrirGaleria(['multimedia/bolso-nina.jpeg'], 'bag casual..')">
+                <h4>Bolso Nina</h4>
+                <p>$30.000</p>
+                <a href="comprar.html?producto=Bag%20Dina%20Effy" style="display: block; background-color: #5c2427; color: white; text-decoration: none; padding: 10px; border-radius: 4px; margin-top: 15px;">Comprar</a>
+            </div>
+
+            <div class="producto" data-categoria="minibags">
+                <img src="multimedia/minibag-cherry2.jpeg" 
+                alt="Minibag Kendall" 
+                style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 15px; cursor: pointer;" 
+                onclick="abrirGaleria(['multimedia/minibag-cherry2.jpeg', 'multimedia/y2k-cherry.jpeg'], 'Minibag y2k Kendall.')">
+                <h4>Minibag Kendall</h4>
+                <p>$27.000</p>
+                <p style="font-size: 0.8em; color: #777; font-weight: normal; margin-top: 5px;">Medidas: 15 x 28 (correa 30cm)  </p>
+                <a href="comprar.html?producto=Minibag%20Kendall" style="display: block; background-color: #5c2427; color: white; text-decoration: none; padding: 10px; border-radius: 4px; margin-top: 15px;">Comprar</a>
+            </div>
+
+            <div class="producto" data-categoria="minibags">
+                <img src="multimedia/cherrytina2.jpeg" 
+                alt="Tina Bag Cherry" 
+                style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 15px; cursor: pointer;" 
+                onclick="abrirGaleria(['multimedia/cherrytina2.jpeg', 'multimedia/cherrytina.jpeg', 'multimedia/cherrytina1.jpeg'], 'Ideal para llevar tu billetera, llaves, perfume, cargador. No es minibag.')">
+                <h4>Tina Bag</h4>
+                <h4>cherry</h4>
+                <p>$26.000</p>
+                <p style="color: #cc0000; font-weight: bold; font-size: 0.85em; margin: 5px 0;">¡ÚLTIMA EN STOCK!</p>
+                <p style="font-size: 0.8em; color: #777; font-weight: normal; margin-top: 5px;">Medidas: 30 x 20x 8cm  </p>
+                <a href="comprar.html?producto=Cherry%20tina" style="display: block; background-color: #5c2427; color: white; text-decoration: none; padding: 10px; border-radius: 4px; margin-top: 15px;">Comprar</a>
+            </div>
+
+            <div class="producto" data-categoria="minibags">
+                <img src="multimedia/minibag-ariana1.jpeg" 
+                alt="Minibag Ariana" 
+                style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 15px; cursor: pointer;" 
+                onclick="abrirGaleria(['multimedia/minibag-ariana1.jpeg', 'multimedia/minibag-y2k-negra.jpeg', 'multimedia/y2k-negra.jpeg'], 'Minibag y2k Ariana.')">
+                <h4>Minibag Ariana</h4>
+                <p>$27.000</p>
+                <p style="font-size: 0.8em; color: #777; font-weight: normal; margin-top: 5px;">Medidas: 15 x 28 (correa 30cm)  </p>
+                <a href="comprar.html?producto=Minibag%20Ariana" style="display: block; background-color: #5c2427; color: white; text-decoration: none; padding: 10px; border-radius: 4px; margin-top: 15px;">Comprar</a>
+            </div>
+
+            <div class="producto" data-categoria="totebags">
+                <img src="multimedia/tote-fashion-chocolate.jpeg" 
+                alt="Totebag Fashion" 
+                style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 15px; cursor: pointer;" 
+                onclick="abrirGaleria(['multimedia/tote-fashion-chocolate.jpeg', 'multimedia/tote-fashion-chocolate2.jpeg'], 'Entran cuadernos a4, cartuchera, etc.')">
+                <h4>Totebag Fashion</h4>
+                <h4>chocolate</h4>
+                <p>$24.800</p>
+                <p style="font-size: 0.8em; color: #777; font-weight: normal; margin-top: 5px;">Medidas: 39 x 14 x 31 </p>
+                <a style="display: block; background-color: #e0e0e0; color: #888888; text-decoration: none; padding: 10px; border-radius: 4px; margin-top: 15px; cursor: not-allowed; font-weight: bold; letter-spacing: 1px;">SIN STOCK</a>
+            </div>
             
+            <div class="producto" data-categoria="totebags">
+                <img src="multimedia/shoulderbagdinanegra1.jpeg" 
+                     alt="Shoulderbag Dina - negro" 
+                     style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 15px; cursor: pointer;" 
+                     onclick="abrirGaleria(['multimedia/shoulderbagdinanegra1.jpeg', 'multimedia/shoulderbag negra.jpeg', 'multimedia/interiorshoulderdina.jpg'], 'Entran cuadernos A4 y una notebook de 15 pulgadas')">
+                <h4>Shoulderbag Dina</h4>
+                <h4>negro</h4>
+                <p>$35.000</p>
+                <a style="display: block; background-color: #e0e0e0; color: #888888; text-decoration: none; padding: 10px; border-radius: 4px; margin-top: 15px; cursor: not-allowed; font-weight: bold; letter-spacing: 1px;">SIN STOCK</a>
+                <p style="font-size: 0.8em; color: #777; font-weight: normal; margin-top: 5px;">Medidas: 32x37cm (alto y ancho) </p>
+            </div>
+
+            <div class="producto" data-categoria="totebags">
+                <img src="multimedia/shoulderbagmarron2.jpeg" 
+                       alt="Shoulderbag Dina - chocolate" 
+                       style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 15px; cursor: pointer;" 
+                       onclick="abrirGaleria(['multimedia/shoulderbagmarron2.jpeg', 'multimedia/shoulderbag-marron.jpeg', 'multimedia/interiorshoulderdina.jpg'], 'Entran cuadernos A4 y una notebook de 15 pulgadas')">
+                <h4>Shoulderbag Dina</h4>
+                <h4>chocolate</h4>
+                <p>$35.000</p>
+                <p style="color: #cc0000; font-weight: bold; font-size: 0.85em; margin: 5px 0;">¡ÚLTIMA EN STOCK!</p>
+                <p style="font-size: 0.8em; color: #777; font-weight: normal; margin-top: 5px;">Medidas: 32x37cm (alto y ancho) </p>
+                <a href="comprar.html?producto=Shoulderbag%20Marron" style="display: block; background-color: #5c2427; color: white; text-decoration: none; padding: 10px; border-radius: 4px; margin-top: 15px;">Comprar</a>
+            </div>
+
+            <div class="producto" data-categoria="totebags">
+                <img src="multimedia/tote-fashion-negra.jpeg" 
+                alt="Totebag Fashion" 
+                style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 15px; cursor: pointer;" 
+                onclick="abrirGaleria(['multimedia/tote-fashion-negra.jpeg', 'multimedia/tote-fashion-negra2.jpeg'], 'Entran cuadernos a4, cartuchera, etc.')">
+                <h4>Totebag Fashion</h4>
+                <h4>black</h4>
+                <p>$24.800</p>
+                <p style="font-size: 0.8em; color: #777; font-weight: normal; margin-top: 5px;">Medidas: 36 x 30 x 5 cm </p>
+                <a href="comprar.html?producto=Tote%20Fashion%20Negra" style="display: block; background-color: #5c2427; color: white; text-decoration: none; padding: 10px; border-radius: 4px; margin-top: 15px;">Comprar</a>
+            </div>
+
+            <div class="producto" data-categoria="totebags">
+                <img src="multimedia/tote fashion gris.png" 
+                alt="Totebag Fashion" 
+                style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 15px; cursor: pointer;" 
+                onclick="abrirGaleria(['multimedia/tote fashion gris.png'], 'Entran cuadernos a4, cartuchera, etc.')">
+                <h4>Totebag Fashion</h4>
+                <h4>grey</h4>
+                <p>$24.800</p>
+                <p style="color: #cc0000; font-weight: bold; font-size: 0.85em; margin: 5px 0;">¡ÚLTIMA EN STOCK!</p>
+                <p style="font-size: 0.8em; color: #777; font-weight: normal; margin-top: 5px;">Medidas: 39 x 14 x 31 </p>
+                <a href="comprar.html?producto=Tote%20Fashion%20Gris" style="display: block; background-color: #5c2427; color: white; text-decoration: none; padding: 10px; border-radius: 4px; margin-top: 15px;">Comprar</a>
+            </div>
+
+            <div class="producto" data-categoria="totebags">
+                <img src="multimedia/tote francesca.jpeg" 
+                alt="Tote Francesca" 
+                style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 15px; cursor: pointer;" 
+                onclick="abrirGaleria(['multimedia/tote francesca.jpeg', 'multimedia/tote francesca 3.jpeg', 'multimedia/interiortotefrancesca.jpg', 'multimedia/demostraciontotefrancesca.jpg'], 'Entran cuadernos A4 y una notebook de 16 pulgadas. Correas cortas y larga desmontable.')">
+                <h4>Totebag Francesca</h4>
+                <p>$38.000</p>
+                <p style="color: #cc0000; font-weight: bold; font-size: 0.85em; margin: 5px 0;">¡ÚLTIMA EN STOCK!</p>
+                <p style="font-size: 0.8em; color: #777; font-weight: normal; margin-top: 5px;">Medidas: 43,5 x 33 x 12 cm</p>
+                <a href="comprar.html?producto=Totebag%20Francesca" style="display: block; background-color: #5c2427; color: white; text-decoration: none; padding: 10px; border-radius: 4px; margin-top: 15px;">Comprar</a>
+            </div>
+
+            <div class="producto" data-categoria="totebags">
+                <img src="multimedia/tote-helena.jpeg" 
+                alt="Totebag Helena" 
+                style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 15px; cursor: pointer;" 
+                onclick="abrirGaleria(['multimedia/tote-helena.jpeg', 'multimedia/tote-helena2.jpeg', 'multimedia/close-totehelena.jpeg'], 'Forrería interna, bolsillos y monedero.')">
+                <h4>Totebag Helena</h4>
+                <p>$35.000</p> 
+                <a style="display: block; background-color: #e0e0e0; color: #888888; text-decoration: none; padding: 10px; border-radius: 4px; margin-top: 15px; cursor: not-allowed; font-weight: bold; letter-spacing: 1px;">SIN STOCK</a>
+                <p style="font-size: 0.8em; color: #777; font-weight: normal; margin-top: 5px;">Medidas: 40 x 27 x 12 </p>
+            </div>
+
+            <div class="producto" data-categoria="totebags">
+                <img src="multimedia/tote-dina.jpeg" 
+                alt="Totebag Dina" 
+                style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 15px; cursor: pointer;" 
+                onclick="abrirGaleria(['multimedia/tote-dina.jpeg', 'multimedia/tote-dina-interiorr.jpeg'], 'Espaciosa, reforzada y con forrería interna. Compartimentos laterales y frontal, perfecta para el uso del día a día.')">
+                <h4>Totebag Dina</h4> 
+                <p>$37.000</p> 
+                <p style="font-size: 0.8em; color: #777; font-weight: normal; margin-top: 5px;">Medidas:  40 x 32 x 8cm</p>
+                <a style="display: block; background-color: #e0e0e0; color: #888888; text-decoration: none; padding: 10px; border-radius: 4px; margin-top: 15px; cursor: not-allowed; font-weight: bold; letter-spacing: 1px;">SIN STOCK</a>
+            </div>
+
+            <div class="producto" data-categoria="totebags">
+                <img src="multimedia/tote-vera.jpeg" 
+                alt="Totebag Vera White" 
+                style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 15px; cursor: pointer;" 
+                onclick="abrirGaleria(['multimedia/tote-vera.jpeg'], 'Múltiples bolsillos para llevar lo que necesites, entran cuadernolas, notebook, incluye monedero')">
+                <h4>Totebag Vera</h4> <h4>White</h4>
+                <p>$28.000</p> 
+                <p style="font-size: 0.8em; color: #777; font-weight: normal; margin-top: 5px;">Medidas: 27 x 11 x 30</p>
+                <a style="display: block; background-color: #e0e0e0; color: #888888; text-decoration: none; padding: 10px; border-radius: 4px; margin-top: 15px; cursor: not-allowed; font-weight: bold; letter-spacing: 1px;">SIN STOCK</a>
+            </div>
+
+            <div class="producto" data-categoria="totebags">
+                <img src="multimedia/tote-fashion-blanca1.jpeg" 
+                alt="Totebag Fashion" 
+                style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 15px; cursor: pointer;" 
+                onclick="abrirGaleria(['multimedia/tote-fashion-blanca1.jpeg'], 'Entran cuadernos a4, cartuchera, etc.')">
+                <h4>Totebag Fashion</h4>
+                <h4>white</h4>
+                <p>$24.800</p>
+                <p style="font-size: 0.8em; color: #777; font-weight: normal; margin-top: 5px;">Medidas: 39 x 14 x 31 </p>
+                <a style="display: block; background-color: #e0e0e0; color: #888888; text-decoration: none; padding: 10px; border-radius: 4px; margin-top: 15px; cursor: not-allowed; font-weight: bold; letter-spacing: 1px;">SIN STOCK</a>
+            </div>
+
+            <div class="producto" data-categoria="minibags">
+                <img src="multimedia/minibag-print.jpeg" 
+                alt="Minibag print" 
+                style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 15px; cursor: pointer;" 
+                onclick="abrirGaleria(['multimedia/minibag-print.jpeg', 'multimedia/minibag-animal2.jpg', 'multimedia/minibag-animal3.jpg'], 'Minibag animal print.')">
+                <h4>Minibag print</h4>
+                <p>$29.000</p>
+                <p style="font-size: 0.8em; color: #777; font-weight: normal; margin-top: 5px;">Medidas: 13 x 25 (correa 29cm)  </p>
+               <a style="display: block; background-color: #e0e0e0; color: #888888; text-decoration: none; padding: 10px; border-radius: 4px; margin-top: 15px; cursor: not-allowed; font-weight: bold; letter-spacing: 1px;">SIN STOCK</a>
+            </div>
+
+            
+
+            
+
+        </div>
+    </div>
+
+    <section id="faq">
+        <h2>Preguntas Frecuentes</h2>
+        <p style="text-align: center; margin: 40px 0; font-size: 0.7em; color: #777; letter-spacing: 1.5px; text-transform: uppercase; font-family: 'Segoe UI', sans-serif;">
+    Diseñado y desarrollado por <a href="https://www.instagram.com/vicckyojeda/" target="_blank" style="color: #d4c2b4; text-decoration: none; font-weight: bold;">Victoria Ojeda</a>
+        </p>
+        
+        <div style="text-align: left; max-width: 800px; margin: 0 auto; padding: 0 20px;">
+            <h4>¿Cómo compro?</h4>
+            <p>Seleccioná el botón "Comprar" e indica qué modelo llevas, rellená el formulario y serás dirigido a nuestro Whatsapp personal para completar la compra! </p>
+            Por consultas:
+            <p><i class="fab fa-instagram" style="font-size: 1.2em; margin-right: 5px;"></i> <a href="https://www.instagram.com/dinacouture_/" target="_blank" style="color: #ccc; text-decoration: none;">@dinacouture_</a> &nbsp;&nbsp;|&nbsp;&nbsp; 
+            </p>
+            
+            <h4>¿Hacen envíos?</h4>
+            <p>Sí, hacemos envíos a todo el país a cargo del comprador. Envíanos tu codigo postal! </p>
+            <p>¿Sos de Concordia, Er? te llega en el día. </p>
+
+            <h4>¿Qué métodos de pago aceptan?</h4>
+            <p>Aceptamos efectivo, transferencias, señas, y hasta tres cuotas con tarjeta de crédito. Para coordinar el pago, escribinos.</p>
+
+            <h4>¿Cómo reservo? ¿Cuándo me llega?</h4>
+            <p>Te contamos cómo funciona nuestro sistema de reservas: </p>
+            <p>siempre que tenemos disponibles modelos para reservar es porque ya están en camino! la espera no suele ser más de una semana. 
+            Podes realizar tu reserva con una seña de $5000 en adelante, en caso de haber abonado el monto mínimo para guardar tu cartera tenés 48hs después de la llegada al local para abonar lo demás.
+            ¡Si señas con el 50% tenes una semana para retirarla y abonar lo restante!</p> 
+            <p>Hacé click en el botón "Reservar" rellena el formulario y con una transferencia de $5000 (mínimo) ya te guardamos tu cartera!</p>
+            <p>Consultanos y te indicamos cuándo llega exactamente. Siempre pasamos codigo de seguimiento. </p>
+
+            <h4>¿Puedo entregar una parte y lo demás en cuotas?</h4>
+            <p>Sí! aceptamos pagos por transferencia/depósito y lo restante se puede hacer en cuotas.</p>
+            
+            <h4>¿Tienen política de cambios?</h4>
+            <p>Realizamos cambios dentro de las 48hs posteriores a la compra. Solicitamos un video del producto completo para corroborar que está en las condiciones adecuadas. (Enviamos el cambio luego de recibir la cartera) </p>
+            <p>Si elegis un artículo de mayor valor, se abona la diferencia. Si optas por uno más barato, se entregará un vale con el saldo restante.  </p>
+            <p>NO realizamos reembolsos.</p>
+
+            <h4>¿De dónde son? ¿Tienen local físico?</h4>
+            <p>Somos de Concordia, Entre Ríos. Hacemos envíos a todo el país 🇦🇷 </p>
+            <p>No contamos con local físico, es una tienda online. Pero podés pasar a retirar presencialmente coordinando una visita.</p>
+
+            <h4>¿Tienen cupones o descuentos?</h4>
+            <p>Si! podes conseguir un descuento subiendo una historia y etiquetándonos en nuestro Instagram @dinacouture_, ganas un 15% off en tu próxima compra, válido desde la fecha hasta en seis meses adelante!</p>
         </div>
     </section>
 
     <footer id="contacto">
-    <h2 style="color: #fff; text-transform: uppercase; font-size: 1.5em; margin-top: 0;">Contacto Operativo</h2>
-    <p style="color: #bbb; margin-bottom: 30px;">Disponibilidad 24/7 para requerimientos corporativos.</p>
-    
-    <p style="margin-top: 15px; margin-bottom: 30px;">
-        <a href="https://www.instagram.com/osserviciosdeseguridad" target="_blank" style="color: #fff; text-decoration: none; font-size: 1.2em;">
-            <i class="fab fa-instagram" style="color: #b30000; margin-right: 10px;"></i>@osserviciosdeseguridad
-        </a>
-    </p>
-    
-    <p style="margin-top: 15px; margin-bottom: 30px;">
-        <a href="https://wa.me/34554083022?text=Hola,%20me%20comunico%20para%20realizar%20una%20consulta%20corporativa." target="_blank" style="color: #fff; text-decoration: none; font-size: 1.2em;">
-            <i class="fab fa-whatsapp" style="color: #b30000; margin-right: 10px;"></i> +34 554 083 022
-        </a>
-    </p>
+        <p>© 2026 Dina. Todos los derechos reservados.</p>
+        
+        <p style="margin-top: 15px; margin-bottom: 30px;">
+            <a href="https://www.instagram.com/dina.couture_" target="_blank" style="color: #ccc; text-decoration: none;">
+                <i class="fab fa-instagram" style="font-size: 1.5em; vertical-align: middle;"></i> @dina.couture_
+            </a>
+        </p>
 
-    <p style="font-size: 0.8em; color: #555; letter-spacing: 1.5px; text-transform: uppercase; margin-top: 50px;">
-        Desarrollo Web por Victoria Ojeda
-    </p>
-</footer>
+        <p style="font-size: 0.7em; color: #777; letter-spacing: 1.5px; text-transform: uppercase; font-family: 'Segoe UI', sans-serif;">
+            Diseñado y desarrollado por <a href="https://www.instagram.com/vicckyojeda/" target="_blank" style="color: #d4c2b4; text-decoration: none; font-weight: bold;">Victoria Ojeda</a>
+        </p>
+    </footer>
 
-<div id="modal-curso" class="modal-curso-overlay" onclick="cerrarModalCurso(event)">
-        <div class="modal-curso-contenido" onclick="event.stopPropagation()">
-            <span class="cerrar-modal" onclick="cerrarModalCurso(event)">&times;</span>
-            
-            <div class="modal-curso-imagen" style="position: relative;">
-                <a class="flecha prev" onclick="cambiarImagenCurso(-1, event)">&#10094;</a>
-                <img id="img-detalle" src="" alt="Imagen del curso">
-                <a class="flecha next" onclick="cambiarImagenCurso(1, event)">&#10095;</a>
-            </div>
-            
-            <div class="modal-curso-info">
-                <h2 id="titulo-detalle" style="margin-top: 0; text-transform: uppercase; color: #fff;"></h2>
-                <p id="desc-detalle" style="color: #bbb; line-height: 1.6;"></p>
-                
-                <div class="modal-botones">
-                    <a href="#" id="btn-inscribirse-detalle" class="btn-accion">Inscripción</a>
-                    <a href="#" id="btn-consulta-detalle" class="btn-secundario">Consulta</a>
-                </div>
-            </div>
-        </div>
+    <div id="modal-imagen" class="modal" onclick="cerrarModal(event)">
+        <span class="cerrar" onclick="cerrarModal(event)">&times;</span>
+        <a class="flecha prev" onclick="cambiarImagen(-1, event)">&#10094;</a>
+        <img class="modal-contenido" id="img-ampliada" onclick="event.stopPropagation()">
+        <a class="flecha next" onclick="cambiarImagen(1, event)">&#10095;</a>
+        <p id="descripcion-modal" style="color: white; font-family: 'Playfair Display', serif; font-size: 1.2em; margin-top: 15px; text-align: center; max-width: 80%; pointer-events: none;"></p>
     </div>
 
     <script>
-        let imagenesActuales = [];
-        let indiceImagen = 0;
+    // -----------------------------------------
+    // CÓDIGO DEL CARRUSEL DE IMÁGENES
+    // -----------------------------------------
+    let imagenesGaleria = [];
+    let indiceActual = 0;
 
-        // Base de datos unificada (Cursos y Servicios)
-        const baseDeDatos = {
-            // --- CURSOS ---
-            'custodia': {
-                titulo: 'Custodia VIP',
-                imagenes: ['multimedia/img2.jpg'],
-                descripcion: 'Formación intensiva orientada a la protección de ejecutivos. Aprenderás planeamiento de rutas seguras, cápsulas de seguridad, y protocolos de evacuación bajo estrés. Incluye simulaciones en vehículos y manejo de multitudes. Requisito: Credencial de Legítimo Usuario (CLU) vigente.',
-                mostrarInscripcion: true, // Muestra el botón rojo
-                linkReserva: 'inscribirse.html?producto=Curso%20Custodia%20VIP',
-                textoConsulta: 'Consulta',
-                mensajeConsulta: '¡Hola! Me gustaría hacer una consulta sobre el curso de Custodia VIP.'
-            },
-            'tiro': {
-                titulo: 'Tiro Táctico',
-                imagenes: ['multimedia/img1.jpg'],
-                descripcion: 'Diseñado para personal de seguridad y legítimos usuarios. Manejo seguro de armamento, transiciones, posiciones de tiro no convencionales y resolución de fallas bajo presión. Jornada de 8 horas en polígono abierto.',
-                mostrarInscripcion: true,
-                linkReserva: 'inscribirse.html?producto=Curso%20Tiro%20Tactico',
-                textoConsulta: 'Consulta',
-                mensajeConsulta: '¡Hola! Quería consultar por el curso de Tiro Táctico.'
-            },
-            'auxilios': {
-                titulo: 'Primeros Auxilios Tácticos',
-                imagenes: ['https://images.unsplash.com/photo-1534320490799-7313cd02082b?q=80&w=600&auto=format&fit=crop'],
-                descripcion: 'Manejo de trauma, control de hemorragias masivas y estabilización de heridos en zonas de alto riesgo (TCCC). Ideal para personal de seguridad que actúa como primer respondiente en situaciones críticas.',
-                mostrarInscripcion: true,
-                linkReserva: 'inscribirse.html?producto=Primeros%20Auxilios',
-                textoConsulta: 'Consulta',
-                mensajeConsulta: '¡Hola! Me interesa obtener más información sobre el curso de Primeros Auxilios Tácticos.'
-            },
-            
-            // --- SERVICIOS CORPORATIVOS ---
-            'barrios': {
-                titulo: 'Seguridad en Barrios Privados',
-                imagenes: ['multimedia/familiafeliz.avif'], 
-                // Copywriting orientado a la comisión directiva / propietarios
-                descripcion: 'Entendemos que la tranquilidad de los residentes es su prioridad absoluta. Diseñamos anillos de seguridad perimetral, controles de acceso estrictos mediante tecnología y patrullaje interno 24/7. Nuestro personal está entrenado en disuasión preventiva y atención cordial al propietario, garantizando un entorno seguro sin alterar la armonía de su comunidad.',
-                mostrarInscripcion: false, // Oculta el botón de inscripción
-                textoConsulta: 'Contactar a un Asesor',
-                mensajeConsulta: 'Hola. Represento a la administración de un barrio privado y me gustaría coordinar una reunión para conocer sus esquemas de seguridad.'
-            },
-            'vip': {
-                titulo: 'Seguridad Personal VIP',
-                imagenes: ['multimedia/bodyguard.webp'],
-                // Copywriting orientado a ejecutivos/personalidades
-                descripcion: 'Su integridad y la de su entorno son nuestro único objetivo. Proveemos agentes de protección ejecutiva altamente capacitados en prevención de amenazas, rutas de escape y manejo de crisis. Operamos con absoluta confidencialidad y máxima discreción, adaptándonos a su agenda y estilo de vida, ya sea para traslados puntuales o cobertura permanente 24/7.',
-                mostrarInscripcion: false, // Oculta el botón de inscripción
-                textoConsulta: 'Solicitar Entrevista',
-                mensajeConsulta: 'Hola. Me gustaría agendar una entrevista confidencial para evaluar el servicio de Custodia VIP.'
-            }
-        };
+    function abrirGaleria(listaImagenes, descripcion) {
+        imagenesGaleria = listaImagenes;
+        indiceActual = 0;
+        
+        document.getElementById('modal-imagen').style.display = 'flex';
+        document.getElementById('img-ampliada').src = imagenesGaleria[indiceActual];
+        document.getElementById('descripcion-modal').innerText = descripcion;
+        
+        let flechas = document.querySelectorAll('.flecha');
+        if(imagenesGaleria.length > 1) {
+            flechas.forEach(f => f.style.display = 'block');
+        } else {
+            flechas.forEach(f => f.style.display = 'none');
+        }
+    }
 
-        // Función Maestra para abrir el modal
-        function abrirDetalle(idItem) {
-            const datos = baseDeDatos[idItem]; 
-            
-            imagenesActuales = datos.imagenes;
-            indiceImagen = 0;
-            
-            // Textos
-            document.getElementById('titulo-detalle').innerText = datos.titulo;
-            document.getElementById('img-detalle').src = imagenesActuales[indiceImagen];
-            document.getElementById('desc-detalle').innerText = datos.descripcion;
-            
-            // Lógica de botones: ¿Mostramos el botón de inscripción?
-            const btnInscripcion = document.getElementById('btn-inscribirse-detalle');
-            if(datos.mostrarInscripcion) {
-                btnInscripcion.style.display = 'block';
-                btnInscripcion.href = datos.linkReserva;
+    function cambiarImagen(direccion, evento) {
+        evento.stopPropagation(); 
+        indiceActual = indiceActual + direccion;
+        
+        if (indiceActual >= imagenesGaleria.length) {
+            indiceActual = 0;
+        }
+        if (indiceActual < 0) {
+            indiceActual = imagenesGaleria.length - 1;
+        }
+        document.getElementById('img-ampliada').src = imagenesGaleria[indiceActual];
+    }
+
+    function cerrarModal(evento) {
+        if(evento.target.id === 'modal-imagen' || evento.target.className === 'cerrar') {
+            document.getElementById('modal-imagen').style.display = 'none';
+        }
+    }
+
+    // -----------------------------------------
+    // MAGIA DEL FILTRO POR ETIQUETAS
+    // -----------------------------------------
+    function filtrarCategoria(categoriaElegida) {
+        // Agarramos todos los productos de la grilla
+        let productos = document.querySelectorAll('.producto');
+        let titulo = document.getElementById('titulo-coleccion');
+        let mensajeCintos = document.getElementById('mensaje-cintos');
+
+        // 1. Cambiamos el título según lo que eligió la clienta
+        if(categoriaElegida === 'todas') {
+            titulo.innerText = 'Nuestros Favoritos';
+            mensajeCintos.style.display = 'none';
+        } else if(categoriaElegida === 'totebags') {
+            titulo.innerText = 'Bolsos, Totebags & Shoulderbags';
+            mensajeCintos.style.display = 'none';
+        } else if(categoriaElegida === 'minibags') {
+            titulo.innerText = 'Minibags';
+            mensajeCintos.style.display = 'none';
+        } else if(categoriaElegida === 'cintos') {
+            titulo.innerText = 'Cintos';
+            mensajeCintos.style.display = 'block';
+        }
+
+        // 2. Escondemos o mostramos cada producto
+        productos.forEach(prod => {
+            // Si eligió "Ver Todo" o si la etiqueta del producto coincide con el menú
+            if (categoriaElegida === 'todas' || prod.getAttribute('data-categoria') === categoriaElegida) {
+                prod.style.display = 'block'; // Lo mostramos
             } else {
-                btnInscripcion.style.display = 'none'; // Se oculta para los servicios
+                prod.style.display = 'none'; // Lo escondemos
             }
-            
-            // Botón de WhatsApp
-            const btnConsulta = document.getElementById('btn-consulta-detalle');
-            btnConsulta.innerText = datos.textoConsulta; // Cambia el texto del botón
-            
-            const numeroWhatsApp = "5493454060505"; // Tu número de OSS
-            btnConsulta.href = `https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${encodeURIComponent(datos.mensajeConsulta)}`;
-            
-            // Mostrar modal
-            document.getElementById('modal-curso').style.display = 'flex';
-        }
+        });
 
-        // Carrusel
-        function cambiarImagenCurso(direccion, evento) {
-            evento.stopPropagation(); 
-            indiceImagen = indiceImagen + direccion;
-            
-            if (indiceImagen >= imagenesActuales.length) { indiceImagen = 0; }
-            if (indiceImagen < 0) { indiceImagen = imagenesActuales.length - 1; }
-            
-            document.getElementById('img-detalle').src = imagenesActuales[indiceImagen];
-        }
-
-        // Cerrar modal
-        function cerrarModalCurso(evento) {
-            if (!evento || evento.target.id === 'modal-curso' || evento.target.className === 'cerrar-modal') {
-                document.getElementById('modal-curso').style.display = 'none';
-            }
-        }
+        // Hacemos scroll suave hasta la colección para que la clienta vea el filtro aplicado
+        document.getElementById('coleccion').scrollIntoView({ behavior: 'smooth' });
+    }
     </script>
+
 </body>
 </html>

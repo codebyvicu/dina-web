@@ -3,343 +3,395 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dina | Bolsos y Accesorios </title>
-    <link rel="icon" href="multimedia/logodina.png" type="image/png">
-
-    <meta name="description" content="Descubrí tu estilo con Dina. Tienda online de carteras, totebags, minibags y accesorios. Diseños únicos desde Concordia para todo el país.">
-    <meta name="keywords" content="carteras, tienda de carteras, bolsos, totebags, minibags, Dina Couture, accesorios, moda">
-    <meta name="google-site-verification" content="NDFEwc_2f93wWAdqWIO7Cc-N3mAD0kFdBS11xE9AmUw" />
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+    <title>VO | Studio Web </title>
+    <link rel="shortcut icon" href="multimedia/logo.png" type="image/png">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <header>
-        <h1>DINA</h1>
-        <nav>
-            <a href="#inicio">Inicio</a>
-            <a href="#nosotros">Nosotros</a>
-            
-            <div class="dropdown">
-                <a class="dropbtn">Colección <i class="fas fa-chevron-down" style="font-size: 0.8em; margin-left: 3px;"></i></a>
-                <div class="dropdown-content">
-                    <a href="javascript:void(0)" onclick="filtrarCategoria('todas')">Ver Todo</a>
-                    <a href="javascript:void(0)" onclick="filtrarCategoria('totebags')">Bolsos, Totebags & Shoulderbags</a>
-                    <a href="javascript:void(0)" onclick="filtrarCategoria('minibags')">Minibags</a>
-                    <a href="javascript:void(0)" onclick="filtrarCategoria('cintos')">Cintos (Próximamente)</a>
-                    <a href="javascript:void(0)" onclick="filtrarCategoria('anteojos')">Anteojos (Próximamente)</a>
-                </div>
+    <nav class="navbar">
+        <div class="logo">VO.</div>
+        <ul class="nav-links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#servicios-packs">Packs</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+            <li><a href="#faq">FAQ</a></li>
+        </ul>
+    </nav>
+
+    <header id="inicio" class="hero-split">
+        <div class="hero-left">
+            <div class="star-badge">✦</div>
+            <h1 class="title">IMPULSÁ TU NEGOCIO</h1>
+            <p class="subtitle">Programamos para hacer que resaltes.</p>
+            <a href="#servicios" class="btn">Empecemos</a>
+        </div>
+        
+        <div class="hero-right">
             </div>
-            <a href="#faq">Preguntas</a>
-            <a href="#contacto">Contacto</a>
-        </nav>
     </header>
 
-    <section class="portada" id="inicio">
-        <h2>Estilo en cada detalle</h2>
-        <p>Encontrá el accesorio que te complementa.</p>
-    </section>
-
-    <!-- SECCIÓN SHOP BY COLLECTION -->
-    <div class="colecciones-wrapper">
-        <h2 class="titulo-colecciones">SHOP BY COLLECTION</h2>
-        
-        <div class="grilla-colecciones">
-            <!-- Tarjeta 1: Totebags -->
-            <div class="tarjeta-coleccion" onclick="filtrarCategoria('totebags')">
-                <img src="multimedia/tote francesca.jpeg" alt="Bolsos y Totebags">
-                <div class="overlay-coleccion">
-                    <h3>BOLSOS & TOTEBAGS</h3>
-                    <p>Shop now ></p>
-                </div>
-            </div>
-
-            <!-- Tarjeta 2: Minibags -->
-            <div class="tarjeta-coleccion" onclick="filtrarCategoria('minibags')">
-                <img src="multimedia/minibag-print.jpeg" alt="Minibags">
-                <div class="overlay-coleccion">
-                    <h3>MINIBAGS</h3>
-                    <p>Shop now ></p>
-                </div>
-            </div>
-
-            <!-- Tarjeta 3: Ver Todo / Destacados -->
-            <div class="tarjeta-coleccion" onclick="filtrarCategoria('todas')">
-                <img src="multimedia/tote_fashion_negra_portada.jpeg" alt="Ver Todo">
-                <div class="overlay-coleccion">
-                    <h3>VER TODO</h3>
-                    <p>Shop now ></p>
-                </div>
-            </div>
+    <div class="pattern-marquee">
+        <div class="marquee-content">
+            <span>DISEÑO WEB ✦ E-COMMERCE ✦ IDENTIDAD VISUAL ✦ DESARROLLO A MEDIDA ✦ </span>
+            <span>DISEÑO WEB ✦ E-COMMERCE ✦ IDENTIDAD VISUAL ✦ DESARROLLO A MEDIDA ✦ </span>
         </div>
     </div>
 
-    <div class="contenedor" id="coleccion">
-        <h3 id="titulo-coleccion" style="font-size: 2em; margin-bottom: 30px; border-bottom: 1px solid #ddd; padding-bottom: 10px;">Nuestros Favoritos</h3>
+  <section id="servicios" class="section">
+        <h2 class="section-title fade-up">Nuestros Servicios</h2>
+        <p class="services-highlight fade-up">CADA EXPERIENCIA ES ÚNICA</p>
         
-        <p id="mensaje-cintos" style="display: none; text-align: center; color: #777; font-style: italic; margin-bottom: 60px;">Próximamente agregaremos nuestra línea de cinturones para completar tu look.</p>
-
-        <div class="grilla-productos" id="grilla-principal">
-
-            <div class="producto" data-categoria="minibags">
-                <img class="img-producto" src="multimedia/bag_effy.jpeg" alt="Bag Effy" onclick="abrirGaleria(['multimedia/bag_effy.jpeg'], 'estilo y2k.')">
-                <h4>Bag Effy</h4>
-                <p>$26.000</p>
-                <p class="texto-medidas">Medidas: 23x13.5x14 </p>
-                <a class="btn-sinstock">SIN STOCK</a>
-
-            </div>
-
-            <div class="producto" data-categoria="minibags">
-                <img class="img-producto" src="multimedia/bag_effy2.jpeg" alt="Bag Effy - Chocolate" onclick="abrirGaleria(['multimedia/bag_effy2.jpeg'], 'estilo y2k.')">
-                <h4>Bag Effy</h4>
-                <h4>Chocolate</h4>
-                <p>$26.000</p>
-                <p class="texto-medidas">Medidas: 23x13.5x14</p>
-                <a class="btn-sinstock">SIN STOCK</a>
-
-            </div>
-
-            <div class="producto" data-categoria="minibags">
-                <img class="img-producto" src="multimedia/minibag_jennie.jpeg" alt="Minibag Jennie" onclick="abrirGaleria(['multimedia/minibag_jennie.jpeg'], 'minibag estilo grunge.')">
-                <h4>Minibag Jennie</h4>
-                <p>$26.000</p>
-                <p class="texto-medidas">Medidas: 24x12 (alto y ancho) </p>
-                <a href="comprar.html?producto=Minibag%20Jennie" class="btn-comprar">Comprar</a>
-            </div>
-
-            <div class="producto" data-categoria="minibags">
-                <img class="img-producto" src="multimedia/bag_jenna.jpeg" alt="Bag Jenna" onclick="abrirGaleria(['multimedia/bag_jenna.jpeg'], 'minibag Jenna - dark edition.')">
-                <h4>Minibag Jenna</h4>
-                <p>$26.000</p>
-                <p class="texto-stock">¡ÚLTIMA EN STOCK!</p>
-                <p class="texto-medidas">Medidas: 23x11.5 (alto y ancho) </p>
-                <a href="comprar.html?producto=Bag%20Jenna" class="btn-comprar">Comprar</a>
-            </div>
-
-            <div class="producto" data-categoria="minibags">
-                <img class="img-producto" src="multimedia/bag_jenna_choco.jpeg" alt="Bag Jenna Choco" onclick="abrirGaleria(['multimedia/bag_jenna_choco.jpeg'], 'minibag Jenna - brown edition')">
-                <h4>Minibag Jenna</h4>
-                <h4>Chocolate</h4>
-                <p>$26.000</p>
-                <p class="texto-medidas">Medidas: 23x11.5 (alto y ancho) </p>
-                <a class="btn-sinstock">SIN STOCK</a>
-            </div>
-
-            <div class="producto" data-categoria="totebags">
-                <img class="img-producto" src="multimedia/bolso-nina.jpeg" alt="Bolso Nina" onclick="abrirGaleria(['multimedia/bolso-nina.jpeg'], 'Bag casual con tachas.')">
-                <h4>Bolso Nina</h4>
-                <p>$30.000</p>
-                <a href="comprar.html?producto=Bag%20Dina%20Effy" class="btn-comprar">Comprar</a>
-            </div>
-
-            <div class="producto" data-categoria="totebags">
-                <img class="img-producto" src="multimedia/shoulderbagmarron2.jpeg" alt="Shoulderbag Dina - chocolate" onclick="abrirGaleria(['multimedia/shoulderbagmarron2.jpeg', 'multimedia/shoulderbag-marron.jpeg', 'multimedia/interiorshoulderdina.jpg'], 'Entran cuadernos A4 y una notebook de 15 pulgadas')">
-                <h4>Shoulderbag Dina</h4>
-                <h4>chocolate</h4>
-                <p>$35.000</p>
-                <p class="texto-stock">¡ÚLTIMA EN STOCK!</p>
-                <p class="texto-medidas">Medidas: 32x37cm (alto y ancho) </p>
-                <a href="comprar.html?producto=Shoulderbag%20Marron" class="btn-comprar">Comprar</a>
-            </div>
-
-            <div class="producto" data-categoria="totebags">
-                <img class="img-producto" src="multimedia/tote-fashion-negra.jpeg" alt="Totebag Fashion" onclick="abrirGaleria(['multimedia/tote-fashion-negra.jpeg', 'multimedia/tote-fashion-negra2.jpeg'], 'Entran cuadernos a4, cartuchera, etc.')">
-                <h4>Totebag Fashion</h4>
-                <h4>black</h4>
-                <p>$24.800</p>
-                <p class="texto-medidas">Medidas: 36 x 30 x 5 cm </p>
-                <a href="comprar.html?producto=Tote%20Fashion%20Negra" class="btn-comprar">Comprar</a>
-            </div>
-
-            <div class="producto" data-categoria="minibags">
-                <img class="img-producto" src="multimedia/minibag-cherry2.jpeg" alt="Minibag Kendall" onclick="abrirGaleria(['multimedia/minibag-cherry2.jpeg', 'multimedia/y2k-cherry.jpeg'], 'Minibag y2k Kendall.')">
-                <h4>Minibag Kendall</h4>
-                <p>$27.000</p>
-                <p class="texto-medidas">Medidas: 15 x 28 (correa 30cm)  </p>
-                <a href="comprar.html?producto=Minibag%20Kendall" class="btn-comprar">Comprar</a>
-            </div>
-
-            <div class="producto" data-categoria="minibags">
-                <img class="img-producto" src="multimedia/cherrytina2.jpeg" alt="Tina Bag Cherry" onclick="abrirGaleria(['multimedia/cherrytina2.jpeg', 'multimedia/cherrytina.jpeg', 'multimedia/cherrytina1.jpeg'], 'Ideal para llevar tu billetera, llaves, perfume, cargador. No es minibag.')">
-                <h4>Tina Bag</h4>
-                <h4>cherry</h4>
-                <p>$26.000</p>
-                <p class="texto-stock">¡ÚLTIMA EN STOCK!</p>
-                <p class="texto-medidas">Medidas: 30 x 20x 8cm  </p>
-                <a href="comprar.html?producto=Cherry%20tina" class="btn-comprar">Comprar</a>
-            </div>
-
-            <div class="producto" data-categoria="minibags">
-                <img class="img-producto" src="multimedia/minibag-ariana1.jpeg" alt="Minibag Ariana" onclick="abrirGaleria(['multimedia/minibag-ariana1.jpeg', 'multimedia/minibag-y2k-negra.jpeg', 'multimedia/y2k-negra.jpeg'], 'Minibag y2k Ariana.')">
-                <h4>Minibag Ariana</h4>
-                <p>$27.000</p>
-                <p class="texto-medidas">Medidas: 15 x 28 (correa 30cm)  </p>
-                <a href="comprar.html?producto=Minibag%20Ariana" class="btn-comprar">Comprar</a>
-            </div>
-
-            <div class="producto" data-categoria="totebags">
-                <img class="img-producto" src="multimedia/tote francesca.jpeg" alt="Tote Francesca" onclick="abrirGaleria(['multimedia/tote francesca.jpeg', 'multimedia/tote francesca 3.jpeg', 'multimedia/interiortotefrancesca.jpg', 'multimedia/demostraciontotefrancesca.jpg'], 'Entran cuadernos A4 y una notebook de 16 pulgadas. Correas cortas y larga desmontable.')">
-                <h4>Totebag Francesca</h4>
-                <p>$38.000</p>
-                <p class="texto-medidas">Medidas: 43,5 x 33 x 12 cm</p>
-                <a class="btn-sinstock">SIN STOCK</a>
-            </div>
-
-            <div class="producto" data-categoria="totebags">
-                <img class="img-producto" src="multimedia/tote-fashion-chocolate.jpeg" alt="Totebag Fashion" onclick="abrirGaleria(['multimedia/tote-fashion-chocolate.jpeg', 'multimedia/tote-fashion-chocolate2.jpeg'], 'Entran cuadernos a4, cartuchera, etc.')">
-                <h4>Totebag Fashion</h4>
-                <h4>chocolate</h4>
-                <p>$24.800</p>
-                <p class="texto-medidas">Medidas: 39 x 14 x 31 </p>
-                <a class="btn-sinstock">SIN STOCK</a>
-            </div>
+        <div class="services-grid fade-up">
             
-            <div class="producto" data-categoria="totebags">
-                <img class="img-producto" src="multimedia/shoulderbagdinanegra1.jpeg" alt="Shoulderbag Dina - negro" onclick="abrirGaleria(['multimedia/shoulderbagdinanegra1.jpeg', 'multimedia/shoulderbag negra.jpeg', 'multimedia/interiorshoulderdina.jpg'], 'Entran cuadernos A4 y una notebook de 15 pulgadas')">
-                <h4>Shoulderbag Dina</h4>
-                <h4>negro</h4>
-                <p>$35.000</p>
-                <a class="btn-sinstock">SIN STOCK</a>
-                <p class="texto-medidas">Medidas: 32x37cm (alto y ancho) </p>
+            <div class="service-card">
+                <span class="service-number">01</span>
+                <div class="service-content">
+                    <div class="star-icon">✦</div>
+                    <h3>Maquetado Personalizado</h3>
+                    <p>Captamos lo que los demás no ven. Diseño de la interfaz basado en la identidad de tu marca (colores, tipografía, logo).</p>
+                </div>
             </div>
 
-            <div class="producto" data-categoria="totebags">
-                <img class="img-producto" src="multimedia/tote fashion gris.png" alt="Totebag Fashion" onclick="abrirGaleria(['multimedia/tote fashion gris.png'], 'Entran cuadernos a4, cartuchera, etc.')">
-                <h4>Totebag Fashion</h4>
-                <h4>grey</h4>
-                <p>$24.800</p>
-                <a class="btn-sinstock">SIN STOCK</a>
-                <p class="texto-medidas">Medidas: 39 x 14 x 31 </p>
+            <div class="service-card">
+                <span class="service-number">02</span>
+                <div class="service-content">
+                    <div class="star-icon">✦</div>
+                    <h3>Desarrollo Web</h3>
+                    <p>Transformamos tus ideas en plataformas interactivas que trabajan las 24 horas. Estructuras sólidas en HTML, CSS, JavaScript, Java y Python. </p>
+                </div>
             </div>
 
-            <div class="producto" data-categoria="totebags">
-                <img class="img-producto" src="multimedia/tote-helena.jpeg" alt="Totebag Helena" onclick="abrirGaleria(['multimedia/tote-helena.jpeg', 'multimedia/tote-helena2.jpeg', 'multimedia/close-totehelena.jpeg'], 'Forrería interna, bolsillos y monedero.')">
-                <h4>Totebag Helena</h4>
-                <p>$35.000</p> 
-                <a class="btn-sinstock">SIN STOCK</a>
-                <p class="texto-medidas">Medidas: 40 x 27 x 12 </p>
+            <div class="service-card">
+                <span class="service-number">03</span>
+                <div class="service-content">
+                    <div class="star-icon">✦</div>
+                    <h3>Catálogo y Mantenimiento</h3>
+                    <p>Organización de productos y servicios. Nos encargamos de que tu catálogo luzca profesional, con stock sincronizado y precios actualizados en tiempo real.</p>
+                </div>
             </div>
 
-            <div class="producto" data-categoria="totebags">
-                <img class="img-producto" src="multimedia/tote-dina.jpeg" alt="Totebag Dina" onclick="abrirGaleria(['multimedia/tote-dina.jpeg', 'multimedia/tote-dina-interiorr.jpeg'], 'Espaciosa, reforzada y con forrería interna. Compartimentos laterales y frontal, perfecta para el uso del día a día.')">
-                <h4>Totebag Dina</h4> 
-                <p>$37.000</p> 
-                <p class="texto-medidas">Medidas:  40 x 32 x 8cm</p>
-                <a class="btn-sinstock">SIN STOCK</a>
+        </div> <div class="infra-container fade-up">
+            <h3 class="infra-title">Infraestructura Digital Incluida</h3>
+            <div class="infra-grid">
+                <div class="infra-item">
+                    <i class="fa-solid fa-globe"></i>
+                    <h4>Dominio Propio</h4>
+                    <p>Tu marca, tu huella. </p>
+                    <p>Te registramos formalmente en internet (.com o .com.ar).</p>
+                </div>
+                <div class="infra-item">
+                    <i class="fa-solid fa-user-shield"></i>
+                    <h4>Privacidad Total</h4>
+                    <p>Tus datos personales y los de tus clientes son ocultos y protegidos contra bases de spam.</p>
+                </div>
+                <div class="infra-item">
+                    <i class="fa-solid fa-server"></i>
+                    <h4>Hosting Seguro</h4>
+                    <p>Servidores rápidos, certificado de seguridad (SSL) y protección anti-hackeos.</p>
+                </div>
+                <div class="infra-item">
+                    <i class="fa-solid fa-desktop"></i> <i class="fa-solid fa-mobile-alt"></i>
+                    <h4>Diseño Responsive</h4>
+                    <p>La página web se verá excelente en PC, tablet y celular.</p>
+                </div>
             </div>
-
-            <div class="producto" data-categoria="totebags">
-                <img class="img-producto" src="multimedia/tote-vera.jpeg" alt="Totebag Vera White" onclick="abrirGaleria(['multimedia/tote-vera.jpeg'], 'Múltiples bolsillos para llevar lo que necesites, entran cuadernolas, notebook, incluye monedero')">
-                <h4>Totebag Vera</h4> <h4>White</h4>
-                <p>$28.000</p> 
-                <p class="texto-medidas">Medidas: 27 x 11 x 30</p>
-                <a class="btn-sinstock">SIN STOCK</a>
-            </div>
-
-            <div class="producto" data-categoria="totebags">
-                <img class="img-producto" src="multimedia/tote-fashion-blanca1.jpeg" alt="Totebag Fashion" onclick="abrirGaleria(['multimedia/tote-fashion-blanca1.jpeg'], 'Entran cuadernos a4, cartuchera, etc.')">
-                <h4>Totebag Fashion</h4>
-                <h4>white</h4>
-                <p>$24.800</p>
-                <p class="texto-medidas">Medidas: 39 x 14 x 31 </p>
-                <a class="btn-sinstock">SIN STOCK</a>
-            </div>
-
-            <div class="producto" data-categoria="minibags">
-                <img class="img-producto" src="multimedia/minibag-print.jpeg" alt="Minibag print" onclick="abrirGaleria(['multimedia/minibag-print.jpeg', 'multimedia/minibag-animal2.jpg', 'multimedia/minibag-animal3.jpg'], 'Minibag animal print.')">
-                <h4>Minibag print</h4>
-                <p>$29.000</p>
-                <p class="texto-medidas">Medidas: 13 x 25 (correa 29cm)  </p>
-               <a class="btn-sinstock">SIN STOCK</a>
-            </div>
-
         </div>
 
-        </div>
-    </div>
+        <div class="stats-container">
+            <h2 class="section-title fade-up">Hay más que podes saber.</h2>
+            <p class="stats-lead">Conocé cómo interactúan tus clientes con tu web para potenciarte. Entregamos reportes mensuales para que veas...</p>
+            
+            <div class="stats-grid fade-up"> 
+                <div class="stat-item">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <h3>Tráfico Mensual</h3>
+                    <p>Descubrí cuántas personas visitan tu página, qué días hay más movimiento y desde dónde te encuentran.</p>
+                </div>
+                <div class="stat-item">
+                    <i class="fa-solid fa-eye"></i>
+                    <h3>Visualizaciones</h3>
+                    <p>Te mostramos qué fotos, servicios y/o productos específicos reciben la mayor cantidad de clicks.</p>
+                </div>
+                <div class="stat-item">
+                    <i class="fa-solid fa-lightbulb"></i>
+                    <h3>Estrategia</h3>
+                    <p>Con esta información, sabrás exactamente qué productos destacar para multiplicar tus conversiones.</p>
+                </div>
+            </div>
 
-    <section class="contenedor" id="nosotros">
-        <h2>¿Quiénes somos?</h2>
-        <p>En Junio del 2025 nos propusimos el objetivo de ofrecer productos únicos a un precio accesible y que cumpla con las necesidades de cada cliente.</p>
-        <p>Somos amigas dispuestas a hacer crecer este emprendimiento llevando al siguiente nivel tu look.</p>
-        <p>El accesorio correcto es funcional y completa tu estilo.</p>
+        <div class="center-button-container">
+            <a href="#portfolio" class="btn">Mis Proyectos</a>
+        </div>
+
     </section>
 
-    <section id="faq">
-        <h2>Preguntas Frecuentes</h2>
-        <p style="text-align: center; margin: 40px 0; font-size: 0.7em; color: #777; letter-spacing: 1.5px; text-transform: uppercase; font-family: 'Segoe UI', sans-serif;">
-    Diseñado y desarrollado por <a href="https://www.instagram.com/vicckyojeda/" target="_blank" style="color: #d4c2b4; text-decoration: none; font-weight: bold;">Victoria Ojeda</a>
-        </p>
-        
-        <div style="text-align: left; max-width: 800px; margin: 0 auto; padding: 0 20px;">
-            <h4>¿Cómo compro?</h4>
-            <p>Seleccioná el botón "Comprar" e indica qué modelo llevas, rellená el formulario y serás dirigido a nuestro Whatsapp personal para completar la compra! </p>
-            Por consultas:
-            <p><i class="fab fa-instagram" style="font-size: 1.2em; margin-right: 5px;"></i> <a href="https://www.instagram.com/dinacouture_/" target="_blank" style="color: #ccc; text-decoration: none;">@dinacouture_</a> &nbsp;&nbsp;|&nbsp;&nbsp; 
-            </p>
+
+    <section id="portfolio" class="section dark-bg">
+        <h2 class="section-title text-light fade-up">Proyectos Destacados</h2>
+        <div class="grid fade-up">
             
-            <h4>¿Hacen envíos?</h4>
-            <p>Sí, hacemos envíos a todo el país a cargo del comprador. Envíanos tu codigo postal! </p>
-            <p>¿Sos de Concordia, Er? te llega en el día. </p>
-
-            <h4>¿Qué métodos de pago aceptan?</h4>
-            <p>Aceptamos efectivo, transferencias, señas, y hasta tres cuotas con tarjeta de crédito. Para coordinar el pago, escribinos.</p>
-
-            <h4>¿Cómo reservo? ¿Cuándo me llega?</h4>
-            <p>Te contamos cómo funciona nuestro sistema de reservas: </p>
-            <p>siempre que tenemos disponibles modelos para reservar es porque ya están en camino! la espera no suele ser más de una semana. 
-            Podes realizar tu reserva con una seña de $5000 en adelante, en caso de haber abonado el monto mínimo para guardar tu cartera tenés 48hs después de la llegada al local para abonar lo demás.
-            ¡Si señas con el 50% tenes una semana para retirarla y abonar lo restante!</p> 
-            <p>Hacé click en el botón "Reservar" rellena el formulario y con una transferencia de $5000 (mínimo) ya te guardamos tu cartera!</p>
-            <p>Consultanos y te indicamos cuándo llega exactamente. Siempre pasamos codigo de seguimiento. </p>
-
-            <h4>¿Puedo entregar una parte y lo demás en cuotas?</h4>
-            <p>Sí! aceptamos pagos por transferencia/depósito y lo restante se puede hacer en cuotas.</p>
-            
-            <h4>¿Tienen política de cambios?</h4>
-            <p>Realizamos cambios dentro de las 48hs posteriores a la compra. Solicitamos un video del producto completo para corroborar que está en las condiciones adecuadas. (Enviamos el cambio luego de recibir la cartera) </p>
-            <p>Si elegis un artículo de mayor valor, se abona la diferencia. Si optas por uno más barato, se entregará un vale con el saldo restante.  </p>
-            <p>NO realizamos reembolsos.</p>
-
-            <h4>¿De dónde son? ¿Tienen local físico?</h4>
-            <p>Somos de Concordia, Entre Ríos. Hacemos envíos a todo el país 🇦🇷 </p>
-            <p>No contamos con local físico, es una tienda online. Pero podés pasar a retirar presencialmente coordinando una visita.</p>
-
-            <h4>¿Tienen cupones o descuentos?</h4>
-            <p>Si! podes conseguir un descuento subiendo una historia y etiquetándonos en nuestro Instagram @dinacouture_, ganas un 15% off en tu próxima compra, válido desde la fecha hasta en seis meses adelante!</p>
-        </div>
-    </section>
-
-    <footer id="contacto">
-        <p>© 2026 Dina. Todos los derechos reservados.</p>
-        
-        <p style="margin-top: 15px; margin-bottom: 30px;">
-            <a href="https://www.instagram.com/dina.couture_" target="_blank" style="color: #ccc; text-decoration: none;">
-                <i class="fab fa-instagram" style="font-size: 1.5em; vertical-align: middle;"></i> @dina.couture_
+            <a href="https://dina-web.vercel.app/" target="_blank" class="portfolio-item dina-bg">
+                <div class="item-overlay">
+                    <h3>DINA</h3>
+                    <p>Página web PRO de carteras y accesorios.</p>
+                </div>
             </a>
-        </p>
+            
+            <a href="https://oss-web-tau.vercel.app/" target="_blank" class="portfolio-item oss-bg">
+                <div class="item-overlay">
+                    <h3>O.S.S</h3>
+                    <p>Página web PACK STARTER de servicios de seguridad.</p>
+                </div>
+            </a>
 
-        <p style="font-size: 0.7em; color: #777; letter-spacing: 1.5px; text-transform: uppercase; font-family: 'Segoe UI', sans-serif;">
-            Diseñado y desarrollado por <a href="https://vo-studio-seven.vercel.app/" target="_blank" style="color: #d4c2b4; text-decoration: none; font-weight: bold;">Victoria Ojeda</a>
-        </p>
-    </footer>
+            </div> <div class="center-button-container">
+                 <a href="#servicios-packs" class="btn">Packs de Servicios</a>
+            </div>
 
-    <div id="modal-imagen" class="modal" onclick="cerrarModal(event)">
-        <span class="cerrar" onclick="cerrarModal(event)">&times;</span>
-        <a class="flecha prev" onclick="cambiarImagen(-1, event)">&#10094;</a>
-        <img class="modal-contenido" id="img-ampliada" onclick="event.stopPropagation()">
-        <a class="flecha next" onclick="cambiarImagen(1, event)">&#10095;</a>
-        <p id="descripcion-modal" style="color: white; font-family: 'Playfair Display', serif; font-size: 1.2em; margin-top: 15px; text-align: center; max-width: 80%; pointer-events: none;"></p>
+        </div>
+    </section>
+
+    <section id="servicios-packs" class="section dark-bg">
+        <h2 class="section-title text-light fade-up">Nuestros Packs de Servicios</h2>
+        
+        <div class="slider-container fade-up">
+            <button class="slider-btn prev-btn">&#10094;</button>
+            
+            <div class="slider-track">
+                <div class="pack-card">
+                    <h3>PAQUETE STARTER</h3>
+                    <p class="price">Consultar valor<br><span>Mantenimiento mensual</span></p>
+                    <ul class="pack-features">
+                        <li>Maquetado personalizado</li>
+                        <li>Sistema de compra y contacto directo</li>
+                        <li>Catálogo de hasta 30 productos</li>
+                        <li>Web móvil y escritorio</li>
+                        <li>Sección de preguntas frecuentes</li>
+                        <li>Soporte técnico y Hosting</li>
+                        <li class="not-included">Fotografía y pasarela automática</li>
+                        <li class="not-included">Estadísticas del negocio</li>
+                    </ul>
+                    <a href="formulario.html?pack=Starter" class="pack-btn">Lo quiero ✦</a>
+                </div>
+
+                <div class="pack-card">
+                    <h3>PAQUETE ESTÁNDAR</h3>
+                    <p class="price">Consultar valor<br><span>Mantenimiento mensual</span></p>
+                    <ul class="pack-features">
+                        <li><strong>Pack starter completo</strong></li>
+                        <li>Carrito de compras</li>
+                        <li>Ajustes de stock (+40 prod.)</li>
+                        <li>Reporte de visitas mensual</li>
+                        <li>Actualizaciones de estilo</li>
+                        <li class="not-included">Fotografía, productos más visitados</li>
+                    </ul>
+                        <a href="formulario.html?pack=Estándar" class="pack-btn">Lo quiero ✦</a>
+                </div>
+
+                <div class="pack-card accent-card">
+                    <div class="star-badge-small">✦</div>
+                    <h3>PAQUETE PRO</h3>
+                    <p class="price">Consultar valor<br><span>Mantenimiento mensual</span></p>
+                    <ul class="pack-features">
+                        <li><strong>Pack estándar completo</strong></li>
+                        <li>Carrito de compras (E-commerce completo)</li>
+                        <li>Más de 100 productos cargados</li>
+                        <li>Filtros y categorías profesionales</li>
+                        <li>Análisis de productos más clickeados</li>
+                        <li>Mantené tu negocio vivo con Cyber Monday, anuncios en fechas especiales y avisos personalizados.</li>
+                    </ul>
+                        <a href="formulario.html?pack=Pro" class="pack-btn">Lo quiero ✦</a>
+                </div>
+            </div>
+            <button class="slider-btn next-btn">&#10095;</button>
+        </div>
+
+        <section id="upgrades" class="section dark-bg">
+    <div class="container">
+        <h2 class="section-title">Potenciá tu plan</h2>
+        
+        <div class="upgrades-grid fade-up">
+            <!-- Tarjeta 1 -->
+            <div class="upgrade-card visual-prod">
+                <!-- Imagen de fondo real -->
+                <img src="multimedia/sesion.jpg" alt="Producción Visual" class="card-bg-img">
+                
+                <div class="upgrade-content">
+                    <h4>PRODUCCIÓN VISUAL</h4>
+                    <p>Agregá 2 sesiones de fotos mensuales para mantener tu catálogo fresco con una estética homogénea y profesional.</p>
+                </div>
+            </div>
+
+            <!-- Tarjeta 2 -->
+            <div class="upgrade-card panel-auto">
+                <!-- Imagen de fondo real -->
+                <img src="multimedia/panel-gestion.jpg" alt="Panel Autogestionable" class="card-bg-img">
+                
+                <div class="upgrade-content">
+                    <h4>PANEL AUTOGESTIONABLE</h4>
+                    <p>Control total de tu stock. Cargá tus propios productos sin depender de nosotros (incluye descuento en la cuota de mantenimiento).</p>
+                </div>
+            </div>
+        </div>
     </div>
+</section>
 
+         </div> <div class="center-button-container">
+                 <a href="#faq" class="btn">PREGUNTAS FRECUENTES</a>
+            </div>
+    </section>
+
+    <section id="faq" class="section dark-bg">
+        <h2 class="section-title text-light fade-up">Preguntas Frecuentes</h2>
+        
+        <div class="faq-container fade-up">
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    Quiero una web pero no sé que plan necesito.
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Ahora podes solicitar tu presupuesto completamente online y te respondemos en el día.</p>
+                    <div class="contenedor-boton">
+                     <a href="presupuesto.html" class="presupuesto-btn">Solicitar presupuesto</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question">
+                    ¿Qué necesito antes de empezar?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>No es necesario que tengas nada definido. En la primera entrevista vamos a comenzar a desarrollar una estética en base a lo que querés transmitir y a qué público querés llegar. Durante el proceso, se pueden sugerir colores, tipografías y detalles. No es necesario que tengas estudiadas las opciones, siempre presentamos plantillas y sugerencias que creemos adecuadas para tu negocio. Cada cambio es fundamental para llegar a la web ideal.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    ¿Cuánto tiempo demora el desarrollo de mi web?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Una vez realizada la primera entrevista, se te entregará un proyecto prototipo para que ajustemos los detalles del producto final. Siempre se entrega el prototipo en menos de 72 horas. La web completa y ya desarrollada suele estar pulida en una semana.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    ¿Cuál es el método de pago? ¿Cómo es?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Para comenzar a trabajar y reservar tu lugar, se abona una seña del 50%. Esto cubre el diseño del maquetado personalizado y el desarrollo técnico a medida. El 50% restante se abona una vez que la web está lista y aprobada para publicarse. Luego, cada plan cuenta con su cuota mensual correspondiente al mantenimiento.</p>
+                    <p>Métodos de pago: </p>
+                    <p>✦ Transferencia o Efectivo. </p>
+                    <p>✦ Tarjeta de crédito, hasta seis cuotas.</p>
+                    <p>✦ Tarjeta de débito.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    ¿Debo seguir pagando después de se me entrega la página?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Sí. El primer pago cubre el diseño del maquetado personalizado y el desarrollo técnico a medida. Luego, cada plan cuenta con su cuota mensual que cubre el mantenimiento.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    ¿Puedo cargar mis propios productos después?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>¡Sí, totalmente! Te damos dos opciones para que elijas la que mejor se adapte a tu día a día:</p>
+                    <p><strong>1. Nos ocupamos nosotros:</strong> Por defecto, realizamos el mantenimiento mensual. Coordinamos una vía directa para que nos pases las fotos y nosotros las subimos. Ideal para no preocuparte por nada y garantizar que tu web siempre funcione rápido y se vea estética.</p>
+                    <p><strong>2. Panel Autogestionable:</strong> Si preferís tener el control total, podés sumar este upgrade. Desarrollamos un panel a medida (tiene un costo de desarrollo por única vez) para que cargues tus propios productos cuando quieras. Al elegir esta opción, <strong>obtenés una bonificación en tu cuota de mantenimiento mensual</strong>.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    ¿La página va a tener Cyber Mondays, ofertas por eventos especiales, etc?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Con el plan PRO te aseguras que tu página web participe en cualquier evento especial. Esto incluye cambios de estética en festividades, ofertas definidas por vos en Cyber Mondays/cuando lo desees, promos y combos. Cuidamos que aumenten las visitas en momentos importantes.</p>
+                </div>
+            </div>
+
+           
+
+             </div> <div class="center-button-container">
+                 <a href="#sobre-mi" class="btn">CONÓCEME</a>
+            </div>
+
+        </div>
+    </section>
+    
+
+    <section id="sobre-mi" class="section brutalist-about">
+        <div class="about-grid">
+            <div class="about-text-column">
+                <h2 class="massive-title">¿Quién<br>soy?</h2>
+                <p class="about-lead">Hola, soy Victoria! empecé a hacer páginas web con el fin de impulsar proyectos, darles más visibilidad y profesionalismo. Soy estudiante de Licenciatura en Sistemas, carrera que me acompaña en cada paso que doy.</p>
+                <p class="about-body">Mi objetivo no es sólo entregar una página web estética, sino una herramienta funcional que agilice ventas y funcione 24/7. Hago mucho énfasis en la esencia de cada marca, cada detalle es fundamental para retratar al máximo lo que querés transmitir.</p>
+            </div>
+            <div class="about-image-column">
+                <img src="multimedia/yo.png" alt="Victoria Ojeda">
+            </div>
+        </div>
+
+        <div class="about-badges">
+                    <div class="badge-item">
+                        <i class="fa-solid fa-code"></i>
+                        <span><strong>Desarrollo versátil:</strong> Me adapto al 100% a la estética y objetivos de tu marca.</span>
+                    </div>
+                    <div class="badge-item">
+                        <i class="fa-solid fa-comments"></i>
+                        <span><strong>Comunicación ágil:</strong> Reuniones estratégicas (presenciales o virtuales) para optimizar tu tiempo.</span>
+                    </div>
+                </div>
+    </section>
+
+    
+
+    <footer id="contacto" class="editorial-footer">
+        <div class="footer-content">
+            <h2 class="footer-title">Llevemos tu marca al máximo.</h2>
+            <p class="footer-subtitle">Contactame para empezar tu proyecto.</p>
+
+            <div class="footer-links">
+                <a href="https://www.instagram.com/Vicckyojeda" target="_blank">
+                    <i class="fa-brands fa-instagram"></i> Instagram
+                </a>
+                <a href="mailto:victtoriag.ojeda@gmail.com">
+                    <i class="fa-solid fa-envelope"></i> Email
+                </a>
+                <a href="https://wa.me/3454060505" target="_blank">
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                </a>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2026 Victoria Ojeda. Todos los derechos reservados.</p>
+            <a href="index.html" class="back-link">Volver al inicio</a>
+        </div>
+    </footer>
     <script src="script.js"></script>
+
 
 </body>
 </html>

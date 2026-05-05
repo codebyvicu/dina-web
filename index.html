@@ -92,7 +92,7 @@
                 <h4>Minibag Jennie</h4>
                 <p>$26.000</p>
                 <p class="texto-medidas">Medidas: 24x12 (alto y ancho) </p>
-                <button class="btn-comprar" onclick="agregarAlCarrito('Minibag Jennie', 26000)">Agregar al Carrito</button>
+                <button class="btn-comprar" onclick="agregarAlCarrito('Minibag Jennie', 26000, 3)">Agregar al Carrito</button>
             </div>
 
             <div class="producto" data-categoria="totebags">
@@ -100,7 +100,7 @@
                 <h4>Nina Bag</h4>
                 <p>$30.000</p>
                 <p class="texto-medidas">Medidas: 32x37cm (alto y ancho) </p>
-                <button class="btn-comprar" onclick="agregarAlCarrito('Nina Bag', 30000)">Agregar al Carrito</button>
+                <button class="btn-comprar" onclick="agregarAlCarrito('Nina Bag', 30000, 1)">Agregar al Carrito</button>
             </div>
 
             <div class="producto" data-categoria="totebags">
@@ -110,7 +110,7 @@
                 <p>$35.000</p>
                 <p class="texto-stock">¡ÚLTIMA EN STOCK!</p>
                 <p class="texto-medidas">Medidas: 32x37cm (alto y ancho) </p>
-                <button class="btn-comprar" onclick="agregarAlCarrito('Shoulderbag Dina', 35000)">Agregar al Carrito</button>
+                <button class="btn-comprar" onclick="agregarAlCarrito('Shoulderbag Dina', 35000, 1)">Agregar al Carrito</button>
             </div>
 
             <div class="producto" data-categoria="totebags">
@@ -119,7 +119,7 @@
                 <h4>black</h4>
                 <p>$24.800</p>
                 <p class="texto-medidas">Medidas: 36 x 30 x 5 cm </p>
-                <button class="btn-comprar" onclick="agregarAlCarrito('Totebag Fashion (black)', 24800)">Agregar al Carrito</button>
+                <button class="btn-comprar" onclick="agregarAlCarrito('Totebag Fashion (black)', 24800, 3)">Agregar al Carrito</button>
             </div>
 
             <div class="producto" data-categoria="minibags">
@@ -127,7 +127,7 @@
                 <h4>Minibag Kendall</h4>
                 <p>$27.000</p>
                 <p class="texto-medidas">Medidas: 15 x 28 (correa 30cm)  </p>
-                <button class="btn-comprar" onclick="agregarAlCarrito('Minibag Kendall', 26000)">Agregar al Carrito</button>
+                <button class="btn-comprar" onclick="agregarAlCarrito('Minibag Kendall', 26000, 2)">Agregar al Carrito</button>
             </div>
 
             <div class="producto" data-categoria="minibags">
@@ -137,7 +137,7 @@
                 <p>$26.000</p>
                 <p class="texto-stock">¡ÚLTIMA EN STOCK!</p>
                 <p class="texto-medidas">Medidas: 30 x 20x 8cm  </p>
-                <button class="btn-comprar" onclick="agregarAlCarrito('Tina Bag', 26000)">Agregar al Carrito</button>
+                <button class="btn-comprar" onclick="agregarAlCarrito('Tina Bag', 26000, 1)">Agregar al Carrito</button>
             </div>
 
             <div class="producto" data-categoria="minibags">
@@ -145,7 +145,7 @@
                 <h4>Minibag Ariana</h4>
                 <p>$27.000</p>
                 <p class="texto-medidas">Medidas: 15 x 28 (correa 30cm)  </p>
-                <button class="btn-comprar" onclick="agregarAlCarrito('Minibag Ariana', 27000)">Agregar al Carrito</button>
+                <button class="btn-comprar" onclick="agregarAlCarrito('Minibag Ariana', 27000, 3)">Agregar al Carrito</button>
             </div>
 
             <div class="producto" data-categoria="minibags">
@@ -362,7 +362,10 @@
     </div>
 </div>
 
-    <script src="script.js"></script>
+<!-- Cartelito de aviso estético (Toast) -->
+<div id="toast-aviso" class="toast-oculto"></div>
+
+<script src="script.js"></script>
 
 
 </body>

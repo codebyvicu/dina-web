@@ -460,3 +460,41 @@
     background-color: #fff;
     border-top: 1px solid #ddd;
 }
+
+@keyframes latido {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.animar-carrito {
+    animation: latido 0.3s ease-in-out;
+}
+
+/* Notificación Flotante (Toast) */
+#toast-aviso {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px); /* Empieza oculto más abajo */
+    background-color: #1f1a18; 
+    color: #f7f5f0; /* Letra color cremita */
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 0.95em;
+    font-weight: bold;
+    letter-spacing: 1px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    z-index: 2000;
+    opacity: 0;
+    transition: all 0.4s ease-in-out;
+    text-align: center;
+    pointer-events: none; /* Para que no moleste si le hacen clic encima */
+}
+
+/* Esta clase es la que activa la animación para que suba y aparezca */
+#toast-aviso.mostrar {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}

@@ -126,20 +126,38 @@ function renderizarCarrito() {
 }
 
 // La función para agregar productos desde el catálogo
-function agregarAlCarrito(nombre, precio) {
+// Agregamos el parámetro stockDisponible a la función
+function agregarAlCarrito(nombre, precio, stockDisponible) {
+    // Buscamos si el producto ya está en el carrito
     let productoExistente = carrito.find(item => item.nombre === nombre);
     
     if (productoExistente) {
+        // Validamos el stock antes de sumar
+        if (productoExistente.cantidad >= stockDisponible) {
+            mostrarAviso(`Sólo nos quedan ${stockDisponible} unidades de ${nombre} en stock.`);
+            return; // Cortamos la ejecución acá, no se agrega nada al carrito
+        }
         productoExistente.cantidad++;
     } else {
-        carrito.push({ nombre: nombre, precio: precio, cantidad: 1 });
+        // Validamos que haya stock mayor a cero antes de agregarlo por primera vez
+        if (stockDisponible > 0) {
+            carrito.push({ nombre: nombre, precio: precio, cantidad: 1, stockMaximo: stockDisponible });
+        } else {
+            mostrarAviso(`¡Ups! Este modelo está sin stock por el momento.`);
+            return;
+        }
     }
     
+    // Si pasó las validaciones, guardamos y actualizamos la vista
     localStorage.setItem('carritoDina', JSON.stringify(carrito));
-    renderizarCarrito(); // Actualizamos la vista
+    renderizarCarrito(); 
     
-    // Abrimos el carrito automáticamente para que la clienta vea que se agregó
-    document.getElementById('carrito-lateral').classList.add('abierto');
+    // Hacemos que el botón pegue un saltito (el efecto que agregamos antes)
+    let btnFlotante = document.getElementById('btn-carrito-flotante');
+    btnFlotante.classList.add('animar-carrito');
+    setTimeout(() => {
+        btnFlotante.classList.remove('animar-carrito');
+    }, 300);
 }
 
 
@@ -160,3 +178,14 @@ function eliminarDelCarrito(indice) {
 
 // Cuando carga la página, dibujamos lo que ya haya guardado
 window.addEventListener('DOMContentLoaded', renderizarCarrito);
+
+function mostrarAviso(mensaje) {
+    let toast = document.getElementById('toast-aviso');
+    toast.innerText = mensaje;
+    toast.classList.add('mostrar'); // Lo hace aparecer
+
+    // Lo ocultamos a los 3 segundos (3000 milisegundos)
+    setTimeout(() => {
+        toast.classList.remove('mostrar');
+    }, 3000);
+}

@@ -76,3 +76,87 @@
         // Hacemos scroll suave hasta la colección para que la clienta vea el filtro aplicado
         document.getElementById('coleccion').scrollIntoView({ behavior: 'smooth' });
     }
+
+    let carrito = JSON.parse(localStorage.getItem('carritoDina')) || [];
+
+// Abre o cierra el panel derecho
+function toggleCarrito() {
+    document.getElementById('carrito-lateral').classList.toggle('abierto');
+}
+
+// Actualiza los números y la lista visual
+function renderizarCarrito() {
+    let contenedor = document.getElementById('items-carrito');
+    let totalSpan = document.getElementById('total-carrito');
+    let contadorSpan = document.getElementById('contador-carrito');
+    
+    let total = 0;
+    let cantidadTotal = 0;
+    contenedor.innerHTML = ""; // Limpiamos antes de dibujar
+
+    if (carrito.length === 0) {
+        contenedor.innerHTML = '<p style="text-align: center; color: #888;">Tu carrito está vacío.</p>';
+        totalSpan.innerText = "0";
+        contadorSpan.innerText = "0";
+        return;
+    }
+
+    // Dibujamos cada item
+    carrito.forEach((prod, index) => {
+        let subtotal = prod.precio * prod.cantidad;
+        total += subtotal;
+        cantidadTotal += prod.cantidad;
+        
+        contenedor.innerHTML += `
+            <div class="item-carrito">
+                <div>
+                    <strong>${prod.nombre}</strong><br>
+                    <small>${prod.cantidad} x $${prod.precio}</small>
+                </div>
+                <div style="text-align: right;">
+                    <strong>$${subtotal}</strong><br>
+                    <button onclick="eliminarDelCarrito(${index})" style="background:none; border:none; color:#cc0000; cursor:pointer; font-size: 0.8em;">Eliminar</button>
+                </div>
+            </div>
+        `;
+    });
+
+    totalSpan.innerText = total;
+    contadorSpan.innerText = cantidadTotal;
+}
+
+// La función para agregar productos desde el catálogo
+function agregarAlCarrito(nombre, precio) {
+    let productoExistente = carrito.find(item => item.nombre === nombre);
+    
+    if (productoExistente) {
+        productoExistente.cantidad++;
+    } else {
+        carrito.push({ nombre: nombre, precio: precio, cantidad: 1 });
+    }
+    
+    localStorage.setItem('carritoDina', JSON.stringify(carrito));
+    renderizarCarrito(); // Actualizamos la vista
+    
+    // Abrimos el carrito automáticamente para que la clienta vea que se agregó
+    document.getElementById('carrito-lateral').classList.add('abierto');
+}
+
+
+// Función para sacar cosas de la bolsa de a una unidad
+function eliminarDelCarrito(indice) {
+    // Si hay más de un artículo de este modelo, restamos 1
+    if (carrito[indice].cantidad > 1) {
+        carrito[indice].cantidad--;
+    } else {
+        // Si solo queda 1, eliminamos todo el producto del arreglo
+        carrito.splice(indice, 1);
+    }
+    
+    // Guardamos los cambios en el navegador y actualizamos la vista
+    localStorage.setItem('carritoDina', JSON.stringify(carrito));
+    renderizarCarrito();
+}
+
+// Cuando carga la página, dibujamos lo que ya haya guardado
+window.addEventListener('DOMContentLoaded', renderizarCarrito);

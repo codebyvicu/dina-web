@@ -88,6 +88,67 @@
         <div class="grilla-productos" id="grilla-principal">
 
             <div class="producto" data-categoria="minibags">
+                <img class="img-producto" src="multimedia/minibag_jennie.jpeg" alt="Minibag Jennie" onclick="abrirGaleria(['multimedia/minibag_jennie.jpeg'], 'minibag estilo grunge.')">
+                <h4>Minibag Jennie</h4>
+                <p>$26.000</p>
+                <p class="texto-medidas">Medidas: 24x12 (alto y ancho) </p>
+                <button class="btn-comprar" onclick="agregarAlCarrito('Minibag Jennie', 26000)">Agregar al Carrito</button>
+            </div>
+
+            <div class="producto" data-categoria="totebags">
+                <img class="img-producto" src="multimedia/bolso-nina.jpeg" alt="Bolso Nina" onclick="abrirGaleria(['multimedia/bolso-nina.jpeg'], 'Bag casual con tachas.')">
+                <h4>Nina Bag</h4>
+                <p>$30.000</p>
+                <p class="texto-medidas">Medidas: 32x37cm (alto y ancho) </p>
+                <button class="btn-comprar" onclick="agregarAlCarrito('Nina Bag', 30000)">Agregar al Carrito</button>
+            </div>
+
+            <div class="producto" data-categoria="totebags">
+                <img class="img-producto" src="multimedia/shoulderbagmarron2.jpeg" alt="Shoulderbag Dina - chocolate" onclick="abrirGaleria(['multimedia/shoulderbagmarron2.jpeg', 'multimedia/shoulderbag-marron.jpeg', 'multimedia/interiorshoulderdina.jpg'], 'Entran cuadernos A4 y una notebook de 15 pulgadas')">
+                <h4>Shoulderbag Dina</h4>
+                <h4>chocolate</h4>
+                <p>$35.000</p>
+                <p class="texto-stock">¡ÚLTIMA EN STOCK!</p>
+                <p class="texto-medidas">Medidas: 32x37cm (alto y ancho) </p>
+                <button class="btn-comprar" onclick="agregarAlCarrito('Shoulderbag Dina', 35000)">Agregar al Carrito</button>
+            </div>
+
+            <div class="producto" data-categoria="totebags">
+                <img class="img-producto" src="multimedia/tote-fashion-negra.jpeg" alt="Totebag Fashion" onclick="abrirGaleria(['multimedia/tote-fashion-negra.jpeg', 'multimedia/tote-fashion-negra2.jpeg'], 'Entran cuadernos a4, cartuchera, etc.')">
+                <h4>Totebag Fashion</h4>
+                <h4>black</h4>
+                <p>$24.800</p>
+                <p class="texto-medidas">Medidas: 36 x 30 x 5 cm </p>
+                <button class="btn-comprar" onclick="agregarAlCarrito('Totebag Fashion (black)', 24800)">Agregar al Carrito</button>
+            </div>
+
+            <div class="producto" data-categoria="minibags">
+                <img class="img-producto" src="multimedia/minibag-cherry2.jpeg" alt="Minibag Kendall" onclick="abrirGaleria(['multimedia/minibag-cherry2.jpeg', 'multimedia/y2k-cherry.jpeg'], 'Minibag y2k Kendall.')">
+                <h4>Minibag Kendall</h4>
+                <p>$27.000</p>
+                <p class="texto-medidas">Medidas: 15 x 28 (correa 30cm)  </p>
+                <button class="btn-comprar" onclick="agregarAlCarrito('Minibag Kendall', 26000)">Agregar al Carrito</button>
+            </div>
+
+            <div class="producto" data-categoria="minibags">
+                <img class="img-producto" src="multimedia/cherrytina2.jpeg" alt="Tina Bag Cherry" onclick="abrirGaleria(['multimedia/cherrytina2.jpeg', 'multimedia/cherrytina.jpeg', 'multimedia/cherrytina1.jpeg'], 'Ideal para llevar tu billetera, llaves, perfume, cargador. No es minibag.')">
+                <h4>Tina Bag</h4>
+                <h4>cherry</h4>
+                <p>$26.000</p>
+                <p class="texto-stock">¡ÚLTIMA EN STOCK!</p>
+                <p class="texto-medidas">Medidas: 30 x 20x 8cm  </p>
+                <button class="btn-comprar" onclick="agregarAlCarrito('Tina Bag', 26000)">Agregar al Carrito</button>
+            </div>
+
+            <div class="producto" data-categoria="minibags">
+                <img class="img-producto" src="multimedia/minibag-ariana1.jpeg" alt="Minibag Ariana" onclick="abrirGaleria(['multimedia/minibag-ariana1.jpeg', 'multimedia/minibag-y2k-negra.jpeg', 'multimedia/y2k-negra.jpeg'], 'Minibag y2k Ariana.')">
+                <h4>Minibag Ariana</h4>
+                <p>$27.000</p>
+                <p class="texto-medidas">Medidas: 15 x 28 (correa 30cm)  </p>
+                <button class="btn-comprar" onclick="agregarAlCarrito('Minibag Ariana', 27000)">Agregar al Carrito</button>
+            </div>
+
+            <div class="producto" data-categoria="minibags">
                 <img class="img-producto" src="multimedia/bag_effy.jpeg" alt="Bag Effy" onclick="abrirGaleria(['multimedia/bag_effy.jpeg'], 'estilo y2k.')">
                 <h4>Bag Effy</h4>
                 <p>$26.000</p>
@@ -103,24 +164,15 @@
                 <p>$26.000</p>
                 <p class="texto-medidas">Medidas: 23x13.5x14</p>
                 <a class="btn-sinstock">SIN STOCK</a>
-
-            </div>
-
-            <div class="producto" data-categoria="minibags">
-                <img class="img-producto" src="multimedia/minibag_jennie.jpeg" alt="Minibag Jennie" onclick="abrirGaleria(['multimedia/minibag_jennie.jpeg'], 'minibag estilo grunge.')">
-                <h4>Minibag Jennie</h4>
-                <p>$26.000</p>
-                <p class="texto-medidas">Medidas: 24x12 (alto y ancho) </p>
-                <a href="comprar.html?producto=Minibag%20Jennie" class="btn-comprar">Comprar</a>
             </div>
 
             <div class="producto" data-categoria="minibags">
                 <img class="img-producto" src="multimedia/bag_jenna.jpeg" alt="Bag Jenna" onclick="abrirGaleria(['multimedia/bag_jenna.jpeg'], 'minibag Jenna - dark edition.')">
                 <h4>Minibag Jenna</h4>
                 <p>$26.000</p>
-                <p class="texto-stock">¡ÚLTIMA EN STOCK!</p>
                 <p class="texto-medidas">Medidas: 23x11.5 (alto y ancho) </p>
-                <a href="comprar.html?producto=Bag%20Jenna" class="btn-comprar">Comprar</a>
+                <a class="btn-sinstock">SIN STOCK</a>
+
             </div>
 
             <div class="producto" data-categoria="minibags">
@@ -130,58 +182,6 @@
                 <p>$26.000</p>
                 <p class="texto-medidas">Medidas: 23x11.5 (alto y ancho) </p>
                 <a class="btn-sinstock">SIN STOCK</a>
-            </div>
-
-            <div class="producto" data-categoria="totebags">
-                <img class="img-producto" src="multimedia/bolso-nina.jpeg" alt="Bolso Nina" onclick="abrirGaleria(['multimedia/bolso-nina.jpeg'], 'Bag casual con tachas.')">
-                <h4>Bolso Nina</h4>
-                <p>$30.000</p>
-                <a href="comprar.html?producto=Bag%20Dina%20Effy" class="btn-comprar">Comprar</a>
-            </div>
-
-            <div class="producto" data-categoria="totebags">
-                <img class="img-producto" src="multimedia/shoulderbagmarron2.jpeg" alt="Shoulderbag Dina - chocolate" onclick="abrirGaleria(['multimedia/shoulderbagmarron2.jpeg', 'multimedia/shoulderbag-marron.jpeg', 'multimedia/interiorshoulderdina.jpg'], 'Entran cuadernos A4 y una notebook de 15 pulgadas')">
-                <h4>Shoulderbag Dina</h4>
-                <h4>chocolate</h4>
-                <p>$35.000</p>
-                <p class="texto-stock">¡ÚLTIMA EN STOCK!</p>
-                <p class="texto-medidas">Medidas: 32x37cm (alto y ancho) </p>
-                <a href="comprar.html?producto=Shoulderbag%20Marron" class="btn-comprar">Comprar</a>
-            </div>
-
-            <div class="producto" data-categoria="totebags">
-                <img class="img-producto" src="multimedia/tote-fashion-negra.jpeg" alt="Totebag Fashion" onclick="abrirGaleria(['multimedia/tote-fashion-negra.jpeg', 'multimedia/tote-fashion-negra2.jpeg'], 'Entran cuadernos a4, cartuchera, etc.')">
-                <h4>Totebag Fashion</h4>
-                <h4>black</h4>
-                <p>$24.800</p>
-                <p class="texto-medidas">Medidas: 36 x 30 x 5 cm </p>
-                <a href="comprar.html?producto=Tote%20Fashion%20Negra" class="btn-comprar">Comprar</a>
-            </div>
-
-            <div class="producto" data-categoria="minibags">
-                <img class="img-producto" src="multimedia/minibag-cherry2.jpeg" alt="Minibag Kendall" onclick="abrirGaleria(['multimedia/minibag-cherry2.jpeg', 'multimedia/y2k-cherry.jpeg'], 'Minibag y2k Kendall.')">
-                <h4>Minibag Kendall</h4>
-                <p>$27.000</p>
-                <p class="texto-medidas">Medidas: 15 x 28 (correa 30cm)  </p>
-                <a href="comprar.html?producto=Minibag%20Kendall" class="btn-comprar">Comprar</a>
-            </div>
-
-            <div class="producto" data-categoria="minibags">
-                <img class="img-producto" src="multimedia/cherrytina2.jpeg" alt="Tina Bag Cherry" onclick="abrirGaleria(['multimedia/cherrytina2.jpeg', 'multimedia/cherrytina.jpeg', 'multimedia/cherrytina1.jpeg'], 'Ideal para llevar tu billetera, llaves, perfume, cargador. No es minibag.')">
-                <h4>Tina Bag</h4>
-                <h4>cherry</h4>
-                <p>$26.000</p>
-                <p class="texto-stock">¡ÚLTIMA EN STOCK!</p>
-                <p class="texto-medidas">Medidas: 30 x 20x 8cm  </p>
-                <a href="comprar.html?producto=Cherry%20tina" class="btn-comprar">Comprar</a>
-            </div>
-
-            <div class="producto" data-categoria="minibags">
-                <img class="img-producto" src="multimedia/minibag-ariana1.jpeg" alt="Minibag Ariana" onclick="abrirGaleria(['multimedia/minibag-ariana1.jpeg', 'multimedia/minibag-y2k-negra.jpeg', 'multimedia/y2k-negra.jpeg'], 'Minibag y2k Ariana.')">
-                <h4>Minibag Ariana</h4>
-                <p>$27.000</p>
-                <p class="texto-medidas">Medidas: 15 x 28 (correa 30cm)  </p>
-                <a href="comprar.html?producto=Minibag%20Ariana" class="btn-comprar">Comprar</a>
             </div>
 
             <div class="producto" data-categoria="totebags">
@@ -339,7 +339,31 @@
         <p id="descripcion-modal" style="color: white; font-family: 'Playfair Display', serif; font-size: 1.2em; margin-top: 15px; text-align: center; max-width: 80%; pointer-events: none;"></p>
     </div>
 
+    <!-- Botón flotante del carrito -->
+<button id="btn-carrito-flotante" onclick="toggleCarrito()">
+    <i class="fas fa-shopping-bag"></i> <span id="contador-carrito">0</span>
+</button>
+
+<!-- Panel lateral del carrito -->
+<div id="carrito-lateral" class="carrito-oculto">
+    <div class="carrito-header">
+        <h2 style="font-family: 'Playfair Display', serif; margin: 0;">Tu Carrito</h2>
+        <button class="btn-cerrar-carrito" onclick="toggleCarrito()">&times;</button>
+    </div>
+    
+    <div id="items-carrito" class="carrito-body">
+        <!-- Acá JavaScript va a inyectar los productos -->
+        <p style="text-align: center; color: #888;">El carrito está vacío.</p>
+    </div>
+    
+    <div class="carrito-footer">
+        <h3>Total: $<span id="total-carrito">0</span></h3>
+        <a href="comprar.html" class="btn-principal" style="text-align: center; display: block; text-decoration: none;">Ir a Pagar</a>
+    </div>
+</div>
+
     <script src="script.js"></script>
+
 
 </body>
 </html>

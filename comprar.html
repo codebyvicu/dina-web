@@ -32,7 +32,7 @@
         <div id="paso-datos">
             <h1 style="text-align: center; margin-top:0;">Finalizar Compra</h1>
             
-            <h3>¿Qué producto llevás?</h3>
+            <h3>Tus productos</h3>
             <div class="grupo-input">
                 <input type="text" id="producto" placeholder="Ej: Shoulderbag Dina - negro" required>
             </div>
@@ -108,10 +108,19 @@
             let depto = document.getElementById('depto').value;
             let barrio = document.getElementById('barrio').value;
             let ciudad = document.getElementById('ciudad').value;
+            let carrito = JSON.parse(localStorage.getItem('carritoDina')) || [];
+            let detallePedido = "";
+            let total = 0;
+
+carrito.forEach(prod => {
+    detallePedido += `▪ ${prod.cantidad}x ${prod.nombre} ($${prod.precio * prod.cantidad})\n`;
+    total += (prod.precio * prod.cantidad);
+});
 
             // Armamos el mensajito de WhatsApp (usando \n para los saltos de línea)
             let mensaje = `¡Hola Dina! Ya realicé el pago, les dejo mi pedido:\n\n`;
-            mensaje += `🛍️ *Producto:* ${producto}\n`;
+            mensaje += `🛍️ *Productos:*\n${detallePedido}\n`;
+            mensaje += `💰 *Total abonado:* $${total}\n`;
             mensaje += `🚚 *Envío:* ${envio}\n\n`;
             mensaje += `📍 *Datos de entrega:*\n`;
             mensaje += `${nombre} ${apellido}\n`;
@@ -126,19 +135,29 @@
             
             // LA MAGIA: encodeURIComponent traduce los emojis para que WhatsApp los entienda perfecto
             window.open(`https://api.whatsapp.com/send?phone=${numeroDina}&text=${encodeURIComponent(mensaje)}`, '_blank');
+            localStorage.removeItem('carritoDina');
         }
     </script>
-    <script>
-    // Al cargar la página, leemos lo que dice el link
+<script>
+    // Al cargar la página, leemos el carrito guardado
     window.onload = function() {
-        const urlParams = new URLSearchParams(window.location.search);
-        const productoElegido = urlParams.get('producto');
-
-        // Si el link trae un producto, lo ponemos automáticamente en el campo
-        if (productoElegido) {
-            document.getElementById('producto').value = productoElegido;
+        // Traemos los datos del carrito
+        let carrito = JSON.parse(localStorage.getItem('carritoDina')) || [];
+        
+        // Verificamos si hay algo en el carrito
+        if (carrito.length > 0) {
+            // Transformamos el arreglo en un texto. Ej: "2x Minibag Jennie, 1x Totebag Fashion"
+            let resumenProductos = carrito.map(prod => `${prod.cantidad}x ${prod.nombre}`).join(', ');
+            
+            // Colocamos ese texto en el campo
+            let inputProducto = document.getElementById('producto');
+            inputProducto.value = resumenProductos;
+            
+            // Opcional: bloqueamos el campo para que la clienta no lo borre sin querer
+            inputProducto.readOnly = true;
+            inputProducto.style.backgroundColor = "#f9f9f9"; // Le damos un fondo gris clarito para que note que se llenó solo
         }
     };
-</script>
+    </script>
 </body>
 </html>

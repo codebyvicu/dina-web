@@ -183,7 +183,10 @@ function eliminarDelCarrito(indice) {
 }
 
 // Cuando carga la página, dibujamos lo que ya haya guardado
-window.addEventListener('DOMContentLoaded', renderizarCarrito);
+window.addEventListener('DOMContentLoaded', () => {
+    renderizarCarrito();
+    revisarBotonCarrito();
+});
 
 function mostrarAviso(mensaje) {
     let toast = document.getElementById('toast-aviso');
@@ -195,3 +198,28 @@ function mostrarAviso(mensaje) {
         toast.classList.remove('mostrar');
     }, 3000);
 }
+
+// --- LÓGICA PARA MOSTRAR/OCULTAR EL BOTÓN DEL CARRITO ---
+function revisarBotonCarrito() {
+    let botonCarrito = document.getElementById('btn-carrito-flotante');
+    let seccionColeccion = document.getElementById('coleccion');
+    let modalImagen = document.getElementById('modal-imagen');
+
+    if (!botonCarrito || !seccionColeccion || !modalImagen) return;
+
+    // Verificamos si la galería de fotos está abierta
+    let modalAbierto = modalImagen.style.display === 'flex';
+    
+    // Calculamos para que aparezca unos 300px antes de llegar a los productos
+    let limiteMostrar = seccionColeccion.offsetTop - 300; 
+
+    // Si ya scrolleamos hasta la grilla Y el modal está cerrado, lo mostramos
+    if (window.scrollY > limiteMostrar && !modalAbierto) {
+        botonCarrito.classList.add('mostrar');
+    } else {
+        botonCarrito.classList.remove('mostrar');
+    }
+}
+
+// Le decimos al navegador que revise cada vez que scrolleamos
+window.addEventListener('scroll', revisarBotonCarrito);

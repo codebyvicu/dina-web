@@ -433,6 +433,7 @@
 }
 
 /* Botón flotante */
+/* Botón flotante */
 #btn-carrito-flotante {
     position: fixed;
     bottom: 25px;
@@ -447,8 +448,17 @@
     cursor: pointer;
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     z-index: 1000;
-    transition: transform 0.3s;
     
+    /* Magia para ocultarlo suavemente: */
+    opacity: 0; 
+    visibility: hidden; 
+    transition: transform 0.3s, opacity 0.3s ease, visibility 0.3s;
+}
+
+/* Esta es la clase que JavaScript le va a poner cuando haya que mostrarlo */
+#btn-carrito-flotante.mostrar {
+    opacity: 1;
+    visibility: visible;
 }
 
 #btn-carrito-flotante:hover {

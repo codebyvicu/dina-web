@@ -67,7 +67,7 @@
         productos.forEach(prod => {
             // Si eligió "Ver Todo" o si la etiqueta del producto coincide con el menú
             if (categoriaElegida === 'todas' || prod.getAttribute('data-categoria') === categoriaElegida) {
-                prod.style.display = 'block'; // Lo mostramos
+                prod.style.display = 'flex'; // Lo mostramos
             } else {
                 prod.style.display = 'none'; // Lo escondemos
             }
@@ -75,6 +75,12 @@
 
         // Hacemos scroll suave hasta la colección para que la clienta vea el filtro aplicado
         document.getElementById('coleccion').scrollIntoView({ behavior: 'smooth' });
+
+        // Sincroniza el desplegable para que muestre lo correcto
+        let selector = document.getElementById('selector-filtro');
+        if (selector) {
+            selector.value = categoriaElegida;
+        }
     }
 
     let carrito = JSON.parse(localStorage.getItem('carritoDina')) || [];

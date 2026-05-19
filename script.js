@@ -42,46 +42,45 @@
     // -----------------------------------------
     // MAGIA DEL FILTRO POR ETIQUETAS
     // -----------------------------------------
-    function filtrarCategoria(categoriaElegida) {
-        // Agarramos todos los productos de la grilla
-        let productos = document.querySelectorAll('.producto');
-        let titulo = document.getElementById('titulo-coleccion');
-        let mensajeCintos = document.getElementById('mensaje-cintos');
-
-        // 1. Cambiamos el título según lo que eligió la clienta
-        if(categoriaElegida === 'todas') {
-            titulo.innerText = 'Nuestros Favoritos';
-            mensajeCintos.style.display = 'none';
-        } else if(categoriaElegida === 'totebags') {
-            titulo.innerText = 'Bolsos, Totebags & Shoulderbags';
-            mensajeCintos.style.display = 'none';
-        } else if(categoriaElegida === 'minibags') {
-            titulo.innerText = 'Minibags';
-            mensajeCintos.style.display = 'none';
-        } else if(categoriaElegida === 'cintos') {
-            titulo.innerText = 'Cintos';
-            mensajeCintos.style.display = 'block';
-        }
-
-        // 2. Escondemos o mostramos cada producto
-        productos.forEach(prod => {
-            // Si eligió "Ver Todo" o si la etiqueta del producto coincide con el menú
-            if (categoriaElegida === 'todas' || prod.getAttribute('data-categoria') === categoriaElegida) {
-                prod.style.display = 'flex'; // Lo mostramos
-            } else {
-                prod.style.display = 'none'; // Lo escondemos
-            }
-        });
-
-        // Hacemos scroll suave hasta la colección para que la clienta vea el filtro aplicado
-        document.getElementById('coleccion').scrollIntoView({ behavior: 'smooth' });
-
-        // Sincroniza el desplegable para que muestre lo correcto
-        let selector = document.getElementById('selector-filtro');
-        if (selector) {
-            selector.value = categoriaElegida;
-        }
+    function filtrarCategoria(categoria) {
+    // 1. Sincronizar el selector desplegable si existe en la página
+    const selector = document.getElementById('selector-filtro');
+    if (selector) {
+        selector.value = categoria;
     }
+
+    // 2. Cambiar el título de la sección de forma dinámica
+    const titulo = document.getElementById('titulo-coleccion');
+    if (titulo) {
+        if (categoria === 'otono') titulo.innerText = "Colección de Otoño";
+        else if (categoria === 'totebags') titulo.innerText = "Bolsos & Totebags";
+        else if (categoria === 'minibags') titulo.innerText = "Minibags";
+        else titulo.innerText = "Nuestros Favoritos";
+    }
+
+    // 3. Filtrar los productos de la grilla
+    const productos = document.querySelectorAll('.producto');
+    productos.forEach(producto => {
+        const catProducto = producto.getAttribute('data-categoria');
+        
+        // Usamos una expresión regular para separar por espacios (\s+).
+        // Esto evita errores si llega a quedar un espacio de más en el HTML.
+        const listaCategorias = catProducto ? catProducto.trim().split(/\s+/) : [];
+
+        if (categoria === 'todas' || listaCategorias.includes(categoria)) {
+            producto.style.display = 'flex'; // Mantiene el diseño original alineado
+        } else {
+            producto.style.display = 'none';
+        }
+    });
+
+    // 4. EL SLIDE HACIÁ ABAJO (Scroll suave automático)
+    // Forzamos a la pantalla a deslizarse de forma fluida hasta el contenedor de productos
+    const seccionTienda = document.getElementById('coleccion');
+    if (seccionTienda) {
+        seccionTienda.scrollIntoView({ behavior: 'smooth' });
+    }
+}
 
     let carrito = JSON.parse(localStorage.getItem('carritoDina')) || [];
 

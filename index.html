@@ -45,6 +45,30 @@
         <p>Encontrá el accesorio que te complementa.</p>
     </section>
 
+    <section class="nueva-temporada" id="otono">
+        <div class="otono-header">
+            <span class="etiqueta-otono">Colección Exclusiva</span>
+            <h2 class="titulo-otono">NEW SEASON: OTOÑO</h2>
+            <p class="subtitulo-otono">Tonos cálidos, texturas suaves y el complemento perfecto para tus días de frío.</p>
+        </div>
+        
+        <div class="grilla-otono">
+            <div class="item-otono">
+                <img src="multimedia/bufanda-marron.webp" alt="Bufanda Marrón Otoño">
+            </div>
+            <div class="item-otono">
+                <img src="multimedia/modelo-otoñoTres.jpeg" alt="Shoulderbag Marrón">
+            </div>
+            <div class="item-otono">
+                <img src="multimedia/bufanda-negra.webp" alt="Bufanda Beige Otoño">
+            </div>
+        </div>
+        
+        <div class="otono-footer">
+            <a href="#coleccion" class="btn-otono" onclick="filtrarCategoria('otono')">Descubrir la colección</a>
+        </div>
+    </section>
+
     <!-- SECCIÓN SHOP BY COLLECTION -->
     <div class="colecciones-wrapper">
         <h2 class="titulo-colecciones">SHOP BY COLLECTION</h2>
@@ -94,7 +118,51 @@
 
         <div class="grilla-productos" id="grilla-principal">
 
-            <div class="producto" data-categoria="totebags">
+            <div class="producto" data-categoria="otono totebags">
+                <img class="img-producto" src="multimedia/bag-tachas-oliva.jpeg" alt="Bag Rock Tachas - oliva" onclick="abrirGaleria(['multimedia/bag-tachas-oliva.jpeg', 'multimedia/bag-tachas-oliva2.jpg'], 'El color de la temporada. Edición limitada.')">
+                <h4>Bag Rock Tachas</h4>
+                <h4>oliva</h4>
+                <p>$32.500</p>
+                <a class="btn-sinstock">PRÓXIMAMENTE</a>
+            </div>
+
+            <div class="producto" data-categoria="otono">
+                <img class="img-producto" src="multimedia/modelo-otoñoUno.jpeg" alt="Bufanda Boston - marrón" onclick="abrirGaleria(['multimedia/modelo-otoñoUno.jpeg', 'multimedia/bufanda-beige.webp'], 'Súper abrigadas, suaves al tacto y extra largas.')">
+                <h4>Bufanda London</h4>
+                <h4>beige</h4>
+                <p>$17.000</p>
+                <p class="texto-medidas">Largo: 240 cm</p>
+                <button class="btn-comprar" onclick="agregarAlCarrito('Bufanda London (Beige)', 17000, 2)">Agregar al Carrito</button>
+            </div>
+
+            <div class="producto" data-categoria="otono">
+                <img class="img-producto" src="multimedia/bufanda-marron.webp" alt="Bufanda Boston - marrón" onclick="abrirGaleria(['multimedia/bufanda-marron.webp'], 'Súper abrigadas, suaves al tacto y extra largas.')">
+                <h4>Bufanda Boston</h4>
+                <h4>marrón</h4>
+                <p>$17.000</p>
+                <p class="texto-medidas">Largo: 240 cm</p>
+                <button class="btn-comprar" onclick="agregarAlCarrito('Bufanda Boston (Marrón)', 17000, 2)">Agregar al Carrito</button>
+            </div>
+
+            <div class="producto" data-categoria="otono">
+                <img class="img-producto" src="multimedia/bufanda-negra.webp" alt="Bufanda Boston - marrón" onclick="abrirGaleria(['multimedia/bufanda-negra.webp', 'multimedia/bufanda-negra2.webp'], 'Súper abrigadas, suaves al tacto y extra largas.')">
+                <h4>Bufanda NY</h4>
+                <h4>negra</h4>
+                <p>$17.000</p>
+                <p class="texto-medidas">Largo: 240 cm</p>
+                <button class="btn-comprar" onclick="agregarAlCarrito('Bufanda NY (Negra)', 17000, 2)">Agregar al Carrito</button>
+            </div>
+
+            <div class="producto" data-categoria="otono">
+                <img class="img-producto" src="multimedia/bufanda-blanca.webp" alt="Bufanda Boston - marrón" onclick="abrirGaleria(['multimedia/bufanda-blanca.webp'], 'Súper abrigadas, suaves al tacto y extra largas.')">
+                <h4>Bufanda ROMA</h4>
+                <h4>blanca</h4>
+                <p>$17.000</p>
+                <p class="texto-medidas">Largo: 240 cm</p>
+                <button class="btn-comprar" onclick="agregarAlCarrito('Bufanda Roma (Blanca)', 17000, 2)">Agregar al Carrito</button>
+            </div>
+
+            <div class="producto" data-categoria="otono totebags">
                 <img class="img-producto" src="multimedia/shoulderbagmarron2.jpeg" alt="Shoulderbag Dina - chocolate" onclick="abrirGaleria(['multimedia/shoulderbagmarron2.jpeg', 'multimedia/shoulderbag-marron.jpeg', 'multimedia/interiorshoulderdina.jpg'], 'Entran cuadernos A4 y una notebook de 15 pulgadas')">
                 <h4>Shoulderbag Dina</h4>
                 <h4>chocolate</h4>
@@ -102,6 +170,22 @@
                 <p class="texto-stock">¡ÚLTIMA EN STOCK!</p>
                 <p class="texto-medidas">Medidas: 32 x 37 cm (alto y ancho) </p>
                 <button class="btn-comprar" onclick="agregarAlCarrito('Shoulderbag Dina', 35000, 1)">Agregar al Carrito</button>
+            </div>
+
+            <div class="producto" data-categoria="otono totebags">
+                <img class="img-producto" src="multimedia/bag-tachas-negra2.jpeg" alt="Bag Rock Tachas - oliva" onclick="abrirGaleria(['multimedia/bag-tachas-negra2.jpeg','multimedia/bag-tachas-negra.jpg'], 'Bag con tachas espaciosa color negro. Edición limitada.')">
+                <h4>Bag Rock Tachas</h4>
+                <h4>negra</h4>
+                <p>$30.000</p>
+                <a class="btn-sinstock">PRÓXIMAMENTE</a>
+            </div>
+
+            <div class="producto" data-categoria="otono totebags">
+                <img class="img-producto" src="multimedia/bag-tachas-marron.jpg" alt="Bag Rock Tachas - oliva" onclick="abrirGaleria(['multimedia/bag-tachas-marron.jpg','multimedia/bag-tachas-marron2.jpeg'], 'Bag con tachas espaciosa color marrón. Edición limitada.')">
+                <h4>Bag Rock Tachas</h4>
+                <h4>marrón</h4>
+                <p>$30.000</p>
+                <a class="btn-sinstock">PRÓXIMAMENTE</a>
             </div>
 
             <div class="producto" data-categoria="totebags">

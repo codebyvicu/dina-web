@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel de Gestión | Dina</title>
+    <link rel="stylesheet" href="style.css"> <style>
+        .panel-admin { max-width: 600px; margin: 50px auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px; }
+        .panel-admin input, .panel-admin select, .panel-admin button { width: 100%; margin-bottom: 15px; padding: 10px; }
+        .panel-admin button { background-color: #000; color: #fff; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <header><h1>DINA - Panel de Gestión</h1></header>
+
+    <div class="panel-admin">
+        <h2>Subir Nuevo Producto</h2>
+        <form id="form-producto">
+            <input type="text" id="nombre" placeholder="Nombre del producto (Ej: Minibag Jennie)" required>
+            <input type="number" id="precio" placeholder="Precio (Ej: 26000)" required>
+            <input type="number" id="stock" placeholder="Stock disponible (Ej: 3)" required>
+            <input type="text" id="descripcion" placeholder="Descripción para la galería" required>
+            
+            <select id="categoria" required>
+                <option value="">Seleccionar Categoría...</option>
+                <option value="totebags">Bolsos & Totebags</option>
+                <option value="minibags">Minibags</option>
+                <option value="otono">Colección Otoño</option>
+            </select>
+
+            <label>Foto del Producto:</label>
+            <input type="file" id="foto" accept="image/*" required>
+
+            <button type="submit" id="btn-guardar">Guardar en la tienda</button>
+        </form>
+        <p id="mensaje" style="text-align:center; color: green;"></p>
+    </div>
+
+    <script type="module" src="admin.js"></script>
+</body>
+</html>

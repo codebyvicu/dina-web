@@ -155,6 +155,7 @@
         if (categoria === 'otono') titulo.innerText = "Colección de Otoño";
         else if (categoria === 'totebags') titulo.innerText = "Bolsos & Totebags";
         else if (categoria === 'minibags') titulo.innerText = "Minibags";
+        else if (categoria === 'accesorios') titulo.innerText = "Accesorios";
         else titulo.innerText = "Nuestros Favoritos";
     }
 

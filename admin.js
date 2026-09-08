@@ -101,11 +101,16 @@ function renderizarListaFiltrada() {
     const contenedor = document.getElementById('lista-productos');
     const busqueda = document.getElementById('buscador-inventario').value.trim().toLowerCase();
     const categoriaFiltro = document.getElementById('filtro-categoria-inventario').value;
+    const estadoFiltro = document.getElementById('filtro-estado-inventario').value;
 
     const filtrados = todosLosProductos.filter(p => {
         const coincideNombre = !busqueda || (p.nombre || '').toLowerCase().includes(busqueda) || (p.variante || '').toLowerCase().includes(busqueda);
         const coincideCategoria = categoriaFiltro === 'todas' || (p.categorias || []).includes(categoriaFiltro);
-        return coincideNombre && coincideCategoria;
+        const stockNum = Number(p.stock) || 0;
+        const coincideEstado = estadoFiltro === 'todos'
+            || (estadoFiltro === 'en-stock' && stockNum > 0)
+            || (estadoFiltro === 'sin-stock' && stockNum === 0);
+        return coincideNombre && coincideCategoria && coincideEstado;
     });
 
     if (filtrados.length === 0) {
@@ -157,6 +162,7 @@ function renderizarListaFiltrada() {
 
 document.getElementById('buscador-inventario').addEventListener('input', renderizarListaFiltrada);
 document.getElementById('filtro-categoria-inventario').addEventListener('change', renderizarListaFiltrada);
+document.getElementById('filtro-estado-inventario').addEventListener('change', renderizarListaFiltrada);
 
 async function eliminarProducto(id) {
     if (!confirm('¿Seguro que querés eliminar este producto? No se puede deshacer.')) return;

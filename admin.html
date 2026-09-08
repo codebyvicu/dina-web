@@ -153,7 +153,7 @@
             padding: 10px 12px; border: 1px solid #ddd4c6; border-radius: 4px; font-family: inherit; font-size: 0.9em;
         }
         #buscador-inventario { flex: 1; }
-        #filtro-categoria-inventario { width: 190px; }
+        #filtro-categoria-inventario, #filtro-estado-inventario { width: 190px; flex-shrink: 0; }
 
         .fila-producto-admin {
             display: flex; align-items: center; gap: 14px; padding: 12px 6px; border-bottom: 1px solid #f0ece3;
@@ -255,7 +255,8 @@
                             <div class="fila-categorias">
                                 <label class="chip-categoria"><input type="checkbox" value="totebags"> Totebags</label>
                                 <label class="chip-categoria"><input type="checkbox" value="minibags"> Minibags</label>
-                                <label class="chip-categoria"><input type="checkbox" value="anteojos"> Anteojos</label>
+                                <label class="chip-categoria"><input type="checkbox" value="otono"> Otoño</label>
+                                <label class="chip-categoria"><input type="checkbox" value="accesorios"> Accesorios</label>
                             </div>
                         </div>
 
@@ -285,7 +286,12 @@
                             <option value="totebags">Totebags</option>
                             <option value="minibags">Minibags</option>
                             <option value="otono">Otoño</option>
-                            <option value="anteojos">Anteojos</option>
+                            <option value="accesorios">Accesorios</option>
+                        </select>
+                        <select id="filtro-estado-inventario">
+                            <option value="todos">Cualquier estado</option>
+                            <option value="en-stock">En stock</option>
+                            <option value="sin-stock">Sin stock</option>
                         </select>
                     </div>
                     <div id="lista-productos">Cargando...</div>

@@ -1,6 +1,6 @@
 /* Estilos generales */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f7f5f0; 
@@ -74,15 +74,14 @@
         align-items: stretch; /* Esta es la regla de oro: iguala todas las alturas de la fila */
 }
         .producto {
-        background: #fff;
-         padding: 20px;
+        background: transparent;
+         padding: 0;
          border: none;
-            /* Sombra mucho más suave y sofisticada */
-         box-shadow: 0 10px 30px rgba(0,0,0,0.04); 
-         width: 100%; 
-         box-sizing: border-box; 
-         border-radius: 12px;
-         transition: transform 0.3s ease, box-shadow 0.3s ease;
+         box-shadow: none;
+         width: 100%;
+         box-sizing: border-box;
+         border-radius: 0;
+         transition: opacity 0.3s ease;
 
          /* Magia para alinear el botón al fondo: */
          display: flex;
@@ -90,28 +89,13 @@
          height: 100%;
         }
 
-.producto {
-    background: #fff;
-    padding: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.04);
-    border-radius: 12px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-sizing: border-box;
-    
-    /* Magia interna para el botón */
-    display: flex;
-    flex-direction: column;
-    height: 100%; /* Le dice a la tarjeta: "Ocupá todo el alto que te da la grilla" */
-}
-
 .producto:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+    opacity: 0.9;
 }
         .producto h4 {
-    margin: 0 0 8px 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Tipografía limpia y legible */
-    font-size: 0.95em; /* Un poquito más chica para que se vea delicada */
+    margin: 0 0 4px 0;
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Tipografía limpia y legible */
+    font-size: 0.78em;
     font-weight: 600; /* Semi-negrita para que destaque */
     text-transform: uppercase; /* El secreto de las marcas de lujo: todo en mayúsculas */
     letter-spacing: 1.5px; /* Espaciado entre letras para que "respire" */
@@ -120,7 +104,7 @@
 }
         .producto p {
     margin: 5px 0;
-    color: #666; /* Gris más suave para no competir con el título */
+    color: #776b62; /* Gris más suave para no competir con el título */
     font-weight: normal;
 }
 
@@ -130,8 +114,10 @@
     font-size: 0.85em;
     color: #888;
     letter-spacing: 0.5px;
-    margin-top: -5px; /* Los pegamos un poquito más */
+    margin-top: -2px; /* Los pegamos un poquito más */
 }
+
+
 
         /* Pie de página */
         footer {
@@ -276,7 +262,7 @@
         }
 
         #titulo-coleccion {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 1.4em; /* Un poco más chico que antes para que sea elegante */
     font-weight: 700;
     text-transform: uppercase; /* Mayúsculas para que se vea como una marca premium */
@@ -333,7 +319,7 @@
         }
 
         .overlay-coleccion h3 {
-            font-family: 'Segoe UI', sans-serif;
+            font-family: 'Inter', 'Segoe UI', sans-serif;
             font-size: 1.1em;
             margin: 0 0 8px 0;
             letter-spacing: 1px;
@@ -342,7 +328,7 @@
         }
 
         .overlay-coleccion p {
-            font-family: 'Segoe UI', sans-serif;
+            font-family: 'Inter', 'Segoe UI', sans-serif;
             font-size: 0.9em;
             margin: 0;
             font-weight: bold;
@@ -368,8 +354,8 @@
     width: 100%;
     height: 300px; /* Un poco más altas da un look más fashion / editorial */
     object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 15px;
+    border-radius: 0;
+    margin-bottom: 14px;
     cursor: pointer;
 }
 
@@ -396,39 +382,47 @@
 }
 
 .btn-comprar {
-    display: block;
-    background-color: #5c2427;
-    color: white;
+    display: inline-block;
+    background: none;
+    color: #1f1a18;
     text-decoration: none;
-    padding: 12px;
-    border-radius: 4px;
-    border: none; 
-    width: 100%; 
-    cursor: pointer; 
-    font-family: inherit; 
-    font-size: 1em; 
+    padding: 0 0 3px 0;
+    border: none;
+    border-bottom: 1px solid #1f1a18;
+    border-radius: 0;
+    width: fit-content;
+    cursor: pointer;
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 0.78em;
     font-weight: 600;
-    transition: background-color 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    transition: color 0.3s ease, border-color 0.3s ease;
     margin-top: auto !important; /* Empuja el botón al fondo */
 }
 
 .btn-comprar:hover {
-    background-color: #4a1d1f;
+    color: #5c2427;
+    border-color: #5c2427;
 }
 
 .btn-sinstock {
-    display: block;
-    background-color: #e0e0e0;
-    color: #888888;
+    display: inline-block;
+    background: none;
+    color: #aaa;
     text-decoration: none;
-    padding: 12px;
-    border-radius: 4px;
+    padding: 0 0 3px 0;
+    border: none;
+    border-bottom: 1px solid #ddd;
     cursor: not-allowed;
-    font-weight: bold;
-    letter-spacing: 1px;
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+    font-size: 0.78em;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
     text-align: center;
     box-sizing: border-box;
-    width: 100%;
+    width: fit-content;
     margin-top: auto !important; /* Empuja el botón al fondo */
 }
 
@@ -543,7 +537,7 @@
     color: #f7f5f0; /* Letra color cremita */
     padding: 12px 25px;
     border-radius: 5px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 0.95em;
     font-weight: bold;
     letter-spacing: 1px;
@@ -597,7 +591,7 @@
 
 /* Todos los párrafos usan la misma letra limpia y moderna del resto de la web */
 #nosotros p {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 1.05em;
     line-height: 1.8;
     color: #666;
@@ -628,7 +622,7 @@
 
 .filtro-estetico {
     padding: 10px 35px 10px 15px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 0.8em;
     font-weight: 600;
     text-transform: uppercase;
@@ -668,7 +662,7 @@
 }
 
 .etiqueta-otono {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 0.85em;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -687,7 +681,7 @@
 }
 
 .subtitulo-otono {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 1.1em;
     color: #555;
     line-height: 1.6;
@@ -735,7 +729,7 @@
     border: 1px solid #1f1a18;
     border-radius: 4px;
     text-decoration: none;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 0.9em;
     font-weight: 600;
     text-transform: uppercase;

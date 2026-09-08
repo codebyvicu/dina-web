@@ -173,28 +173,88 @@
             font-family: 'Playfair Display', serif;
         }
 
-        /* Franja Negra para Preguntas Frecuentes */
+        /* --- PREGUNTAS FRECUENTES (Acordeón editorial) --- */
         #faq {
-            background-color: #000;
-            color: #fff;
-            padding: 40px 0;
+            background-color: #1f1a18;
+            color: #f7f5f0;
+            padding: 90px 20px 60px;
         }
-        #faq h2 {
+        .faq-header {
             text-align: center;
-            margin-top: 0;
-            margin-bottom: 30px;
+            max-width: 700px;
+            margin: 0 auto 50px;
         }
-        #faq h4 {
+        .eyebrow-faq {
+            display: block;
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 0.75em;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #d4c2b4;
+            font-weight: 600;
+            margin-bottom: 14px;
+        }
+        #faq .faq-header h2 {
+            font-size: 2.1em;
+            font-weight: 500;
             color: #fff;
-            margin-bottom: 5px;
+            margin: 0;
+            letter-spacing: 0.5px;
+        }
+        .faq-lista {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            border-bottom: 1px solid rgba(255,255,255,0.12);
+        }
+        .faq-item summary {
+            list-style: none;
+            cursor: pointer;
+            padding: 22px 0;
+            font-family: 'Playfair Display', serif;
             font-size: 1.1em;
+            font-weight: 500;
+            color: #f7f5f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
         }
-        #faq p {
-            color: #ccc;
-            margin-top: 0;
-            margin-bottom: 20px;
+        .faq-item summary::-webkit-details-marker { display: none; }
+        .faq-item summary::marker { content: ""; }
+        .faq-icono {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.3em;
+            font-weight: 400;
+            color: #d4c2b4;
+            transition: transform 0.25s ease;
+            flex-shrink: 0;
+        }
+        .faq-item[open] .faq-icono { transform: rotate(45deg); }
+        .faq-item summary:hover { color: #d4c2b4; }
+        .faq-respuesta { padding: 0 0 24px; }
+        .faq-respuesta p {
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #cfc7bd;
             font-size: 0.95em;
+            line-height: 1.75;
+            margin: 0 0 14px;
         }
+        .faq-respuesta p:last-child { margin-bottom: 0; }
+        .faq-respuesta a { color: #d4c2b4; text-decoration: none; font-weight: 600; }
+        .faq-respuesta a:hover { text-decoration: underline; }
+        .faq-respuesta i.fab { margin-right: 6px; }
+        .creditos-faq {
+            text-align: center;
+            margin: 60px 0 0;
+            font-size: 0.7em;
+            color: #776b62;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .creditos-faq a { color: #d4c2b4; text-decoration: none; font-weight: 600; }
 
         /* Flechas del carrusel */
         .flecha {
@@ -556,60 +616,57 @@
 }
 
 /* --- SECCIÓN NOSOTROS (Estilo Editorial) --- */
-#nosotros {
-    max-width: 800px; /* Más angosto que la grilla para que la lectura sea cómoda */
-    margin: 80px auto; /* Le da mucho más respiro arriba y abajo */
-    padding: 60px 50px;
-    background-color: #ffffff; /* Fondo blanco puro para que resalte del beige */
+.seccion-nosotros {
+    padding: 90px 20px;
+}
+
+.nosotros-caja {
+    max-width: 700px;
+    margin: 0 auto;
     text-align: center;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.04); /* Sombra muy suave */
-    border-radius: 8px; /* Bordes redondeados sutiles */
-    border: 1px solid #f0ece6;
-    position: relative;
 }
 
-#nosotros h2 {
+.eyebrow-nosotros {
+    display: block;
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 0.75em;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #5c2427;
+    font-weight: 600;
+    margin-bottom: 14px;
+}
+
+.nosotros-caja h2 {
     font-family: 'Playfair Display', serif;
-    font-size: 2.2em;
+    font-size: 2.3em;
+    font-weight: 500;
     color: #1f1a18;
-    margin-top: 0;
-    margin-bottom: 25px;
-    letter-spacing: 1px;
+    margin: 0 0 30px;
+    letter-spacing: 0.5px;
 }
 
-/* Línea decorativa debajo del título */
-/* El título principal se mantiene con la fuente del logo, bien legible */
-#nosotros h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.2em;
-    color: #1f1a18;
-    margin-top: 0;
-    margin-bottom: 25px;
-    letter-spacing: 1px;
-    font-style: normal; /* Nos aseguramos de que no tenga cursiva */
-}
-
-/* Todos los párrafos usan la misma letra limpia y moderna del resto de la web */
-#nosotros p {
+.nosotros-caja p {
     font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 1.05em;
     line-height: 1.8;
-    color: #666;
-    margin-bottom: 20px;
+    color: #776b62;
+    margin: 0 0 20px;
 }
 
-/* El primer párrafo resalta solo por ser un poco más grande y oscuro, sin cambiar la letra */
-#nosotros p:nth-of-type(1) {
-    font-size: 1.15em; 
-    color: #3b312b; 
-    font-weight: 600; /* Un poco más grueso */
-    font-style: normal; /* Chau cursiva ilegible */
-    margin-bottom: 25px;
+.nosotros-destacado {
+    font-size: 1.2em !important;
+    color: #3b312b !important;
+    font-weight: 500;
 }
 
-#nosotros p:last-child {
-    margin-bottom: 0;
-    font-weight: 600; 
+.nosotros-cierre {
+    font-family: 'Playfair Display', serif !important;
+    font-style: italic;
+    font-size: 1.15em !important;
+    color: #5c2427 !important;
+    margin-top: 30px !important;
+    margin-bottom: 0 !important;
 }
 
 /* --- CONTROLES DE LA TIENDA (Filtro Desplegable) --- */

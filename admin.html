@@ -2,39 +2,300 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel de Gestión | Dina</title>
-    <link rel="stylesheet" href="style.css"> <style>
-        .panel-admin { max-width: 600px; margin: 50px auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px; }
-        .panel-admin input, .panel-admin select, .panel-admin button { width: 100%; margin-bottom: 15px; padding: 10px; }
-        .panel-admin button { background-color: #000; color: #fff; cursor: pointer; }
+    <link rel="icon" href="multimedia/logodina.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --crema: #f7f5f0;
+            --choco: #1f1a18;
+            --choco-suave: #352d29;
+            --bordo: #5c2427;
+            --bordo-hover: #4a1d1f;
+            --dorado: #d4c2b4;
+            --texto: #3b312b;
+            --texto-suave: #776b62;
+            --salvia: #6b7a5e;
+            --terracota: #a15c3d;
+            --blanco: #ffffff;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--crema);
+            color: var(--texto);
+        }
+
+        h1, h2, h3 { font-family: 'Playfair Display', serif; margin: 0; }
+
+        /* --- LOGIN --- */
+        #caja-login {
+            max-width: 380px;
+            margin: 90px auto;
+            background: var(--blanco);
+            border: 1px solid #e7e1d6;
+            border-radius: 6px;
+            padding: 40px 35px;
+            text-align: center;
+        }
+        #caja-login h1 { font-size: 1.7em; color: var(--choco); margin-bottom: 6px; }
+        #caja-login p.subtitulo { color: var(--texto-suave); font-size: 0.9em; margin-bottom: 28px; }
+        #caja-login input {
+            width: 100%; padding: 12px 14px; margin-bottom: 12px;
+            border: 1px solid #ddd4c6; border-radius: 4px; font-size: 0.95em;
+        }
+        #caja-login input:focus { outline: none; border-color: var(--bordo); }
+        #caja-login button {
+            width: 100%; padding: 12px; margin-top: 6px; background: var(--bordo); color: #fff;
+            border: none; border-radius: 4px; font-size: 0.95em; cursor: pointer; transition: background 0.2s;
+        }
+        #caja-login button:hover { background: var(--bordo-hover); }
+        #mensaje-login { color: var(--terracota); font-size: 0.88em; margin-top: 12px; min-height: 1em; }
+
+        /* --- SHELL: sidebar + contenido --- */
+        #shell { display: none; min-height: 100vh; }
+        #shell.activo { display: flex; }
+
+        #sidebar {
+            width: 220px; flex-shrink: 0; background: var(--choco); color: var(--crema);
+            display: flex; flex-direction: column; padding: 28px 0;
+        }
+        #sidebar .marca { padding: 0 24px 24px; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 20px; }
+        #sidebar .marca h1 { font-size: 1.5em; color: #fff; letter-spacing: 0.5px; }
+        #sidebar .marca span { font-size: 0.75em; color: var(--dorado); }
+        #sidebar nav { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+        #sidebar nav button {
+            background: none; border: none; color: #d8cfc6; text-align: left; padding: 13px 24px;
+            font-size: 0.92em; font-family: inherit; cursor: pointer; border-left: 3px solid transparent;
+            transition: background 0.15s, color 0.15s;
+        }
+        #sidebar nav button:hover { background: rgba(255,255,255,0.05); color: #fff; }
+        #sidebar nav button.activo { background: rgba(255,255,255,0.07); color: #fff; border-left-color: var(--dorado); }
+        #btn-logout {
+            margin: 12px 24px 0; background: none; border: 1px solid rgba(255,255,255,0.2); color: #d8cfc6;
+            padding: 9px; border-radius: 4px; font-size: 0.85em; cursor: pointer; font-family: inherit;
+        }
+        #btn-logout:hover { border-color: rgba(255,255,255,0.4); color: #fff; }
+
+        #contenido { flex: 1; padding: 32px 40px; max-width: 1100px; }
+
+        /* --- TICKET DE ESTADÍSTICAS --- */
+        #ticket-stats {
+            display: flex; gap: 0; background: var(--blanco); border: 1px dashed var(--dorado);
+            border-radius: 6px; margin-bottom: 30px; overflow: hidden;
+        }
+        .stat { flex: 1; padding: 16px 20px; text-align: center; }
+        .stat:not(:last-child) { border-right: 1px dashed var(--dorado); }
+        .stat .numero { font-family: 'Playfair Display', serif; font-size: 1.6em; color: var(--choco); display: block; }
+        .stat .etiqueta { font-size: 0.78em; color: var(--texto-suave); }
+        .stat.alerta .numero { color: var(--terracota); }
+
+        .vista { display: none; }
+        .vista.activa { display: block; }
+
+        /* --- FORMULARIO --- */
+        .caja { background: var(--blanco); border: 1px solid #e7e1d6; border-radius: 6px; padding: 28px 30px; margin-bottom: 24px; }
+        .caja h2 { font-size: 1.25em; color: var(--choco); margin-bottom: 20px; }
+        .seccion-form { margin-bottom: 22px; padding-bottom: 22px; border-bottom: 1px solid #f0ece3; }
+        .seccion-form:last-of-type { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        .seccion-form > label.titulo-seccion {
+            display: block; font-size: 0.78em; text-transform: uppercase; letter-spacing: 0.06em;
+            color: var(--texto-suave); margin-bottom: 12px;
+        }
+        .fila { display: flex; gap: 12px; margin-bottom: 12px; }
+        .fila > * { flex: 1; }
+        .panel-admin input, .panel-admin textarea {
+            width: 100%; padding: 10px 12px; border: 1px solid #ddd4c6; border-radius: 4px;
+            font-family: inherit; font-size: 0.93em; margin-bottom: 12px;
+        }
+        .panel-admin input:focus, .panel-admin textarea:focus { outline: none; border-color: var(--bordo); }
+        .fila-categorias { display: flex; flex-wrap: wrap; gap: 8px; }
+        .chip-categoria {
+            display: flex; align-items: center; gap: 6px; border: 1px solid #ddd4c6; border-radius: 20px;
+            padding: 7px 14px; font-size: 0.87em; cursor: pointer; user-select: none; transition: all 0.15s;
+        }
+        .chip-categoria input { width: auto; margin: 0; accent-color: var(--bordo); }
+        .chip-categoria:has(input:checked) { background: var(--bordo); border-color: var(--bordo); color: #fff; }
+
+        #imagenes-actuales { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+        .imagen-actual { position: relative; }
+        .imagen-actual img { width: 64px; height: 64px; object-fit: cover; border-radius: 4px; border: 1px solid #ddd4c6; }
+        .imagen-actual .btn-borrar-img {
+            position: absolute; top: -6px; right: -6px; background: var(--terracota); color: #fff; border-radius: 50%;
+            width: 18px; height: 18px; font-size: 12px; line-height: 18px; text-align: center; cursor: pointer;
+        }
+        .panel-admin input[type="file"] { border: 1px dashed #ddd4c6; padding: 14px; background: #fbfaf7; cursor: pointer; }
+
+        .acciones-form { display: flex; gap: 10px; align-items: center; margin-top: 6px; }
+        #btn-guardar {
+            background: var(--bordo); color: #fff; border: none; padding: 12px 26px; border-radius: 4px;
+            font-size: 0.93em; cursor: pointer; font-family: inherit; transition: background 0.2s;
+        }
+        #btn-guardar:hover { background: var(--bordo-hover); }
+        #btn-guardar:disabled { opacity: 0.6; cursor: default; }
+        #btn-cancelar-edicion {
+            background: none; border: 1px solid #ddd4c6; color: var(--texto-suave); padding: 12px 20px;
+            border-radius: 4px; font-size: 0.9em; cursor: pointer; font-family: inherit;
+        }
+        #mensaje { font-size: 0.88em; margin-top: 12px; min-height: 1em; }
+        #mensaje.ok { color: var(--salvia); }
+        #mensaje.error { color: var(--terracota); }
+
+        /* --- INVENTARIO --- */
+        .barra-inventario { display: flex; gap: 12px; margin-bottom: 18px; }
+        .barra-inventario input, .barra-inventario select {
+            padding: 10px 12px; border: 1px solid #ddd4c6; border-radius: 4px; font-family: inherit; font-size: 0.9em;
+        }
+        #buscador-inventario { flex: 1; }
+        #filtro-categoria-inventario { width: 190px; }
+
+        .fila-producto-admin {
+            display: flex; align-items: center; gap: 14px; padding: 12px 6px; border-bottom: 1px solid #f0ece3;
+        }
+        .fila-producto-admin:last-child { border-bottom: none; }
+        .fila-producto-admin img { width: 52px; height: 52px; object-fit: cover; border-radius: 4px; flex-shrink: 0; }
+        .fila-producto-admin .info { flex: 1; min-width: 0; }
+        .fila-producto-admin .info .nombre { font-weight: 600; }
+        .fila-producto-admin .info .detalle { font-size: 0.85em; color: var(--texto-suave); }
+        .etiqueta-stock {
+            font-size: 0.75em; padding: 3px 10px; border-radius: 20px; font-weight: 600; white-space: nowrap;
+        }
+        .etiqueta-stock.si { background: #eef1e9; color: var(--salvia); }
+        .etiqueta-stock.no { background: #f5e9e2; color: var(--terracota); }
+        .fila-producto-admin .acciones { display: flex; gap: 8px; flex-shrink: 0; }
+        .fila-producto-admin .acciones button {
+            background: none; border: 1px solid #ddd4c6; padding: 6px 13px; border-radius: 4px;
+            font-size: 0.82em; cursor: pointer; font-family: inherit; color: var(--texto);
+        }
+        .fila-producto-admin .acciones .btn-eliminar { color: var(--terracota); border-color: #e6c9ba; }
+        .fila-producto-admin .acciones button:hover { background: #faf8f4; }
+
+        @media (max-width: 800px) {
+            #shell.activo { flex-direction: column; }
+            #sidebar { width: 100%; flex-direction: row; align-items: center; padding: 14px 16px; }
+            #sidebar .marca { border: none; margin: 0; padding: 0; margin-right: auto; }
+            #sidebar nav { flex-direction: row; flex: none; }
+            #sidebar nav button { border-left: none; border-bottom: 3px solid transparent; padding: 8px 12px; }
+            #sidebar nav button.activo { border-left-color: transparent; border-bottom-color: var(--dorado); }
+            #btn-logout { margin: 0 0 0 10px; }
+            #contenido { padding: 20px; }
+            .fila { flex-direction: column; }
+            #ticket-stats { flex-wrap: wrap; }
+            .stat { flex: 1 1 50%; }
+            .stat:nth-child(2) { border-right: none; }
+        }
     </style>
 </head>
 <body>
-    <header><h1>DINA - Panel de Gestión</h1></header>
 
-    <div class="panel-admin">
-        <h2>Subir Nuevo Producto</h2>
-        <form id="form-producto">
-            <input type="text" id="nombre" placeholder="Nombre del producto (Ej: Minibag Jennie)" required>
-            <input type="number" id="precio" placeholder="Precio (Ej: 26000)" required>
-            <input type="number" id="stock" placeholder="Stock disponible (Ej: 3)" required>
-            <input type="text" id="descripcion" placeholder="Descripción para la galería" required>
-            
-            <select id="categoria" required>
-                <option value="">Seleccionar Categoría...</option>
-                <option value="totebags">Bolsos & Totebags</option>
-                <option value="minibags">Minibags</option>
-                <option value="otono">Colección Otoño</option>
-            </select>
-
-            <label>Foto del Producto:</label>
-            <input type="file" id="foto" accept="image/*" required>
-
-            <button type="submit" id="btn-guardar">Guardar en la tienda</button>
+    <!-- LOGIN -->
+    <div id="caja-login">
+        <h1>DINA</h1>
+        <p class="subtitulo">Panel de gestión</p>
+        <form id="form-login">
+            <input type="email" id="login-email" placeholder="Email" required>
+            <input type="password" id="login-password" placeholder="Contraseña" required>
+            <button type="submit">Ingresar</button>
         </form>
-        <p id="mensaje" style="text-align:center; color: green;"></p>
+        <p id="mensaje-login"></p>
     </div>
 
-    <script type="module" src="admin.js"></script>
+    <!-- SHELL -->
+    <div id="shell">
+        <aside id="sidebar">
+            <div class="marca">
+                <h1>DINA</h1>
+                <span>Panel de gestión</span>
+            </div>
+            <nav>
+                <button type="button" class="nav-item activo" data-vista="cargar">Cargar producto</button>
+                <button type="button" class="nav-item" data-vista="inventario">Inventario</button>
+            </nav>
+            <button id="btn-logout" type="button">Cerrar sesión</button>
+        </aside>
+
+        <main id="contenido">
+            <div id="ticket-stats">
+                <div class="stat"><span class="numero" id="stat-total">–</span><span class="etiqueta">Productos</span></div>
+                <div class="stat"><span class="numero" id="stat-en-stock">–</span><span class="etiqueta">En stock</span></div>
+                <div class="stat alerta"><span class="numero" id="stat-sin-stock">–</span><span class="etiqueta">Sin stock</span></div>
+                <div class="stat"><span class="numero" id="stat-valor">–</span><span class="etiqueta">Valor de inventario</span></div>
+            </div>
+
+            <!-- VISTA: CARGAR / EDITAR -->
+            <div class="vista activa" id="vista-cargar">
+                <div class="caja panel-admin">
+                    <h2 id="titulo-form">Subir Nuevo Producto</h2>
+                    <form id="form-producto">
+                        <div class="seccion-form">
+                            <label class="titulo-seccion">Datos del producto</label>
+                            <div class="fila">
+                                <input type="text" id="nombre" placeholder="Nombre (Ej: Minibag Jennie)" required>
+                                <input type="text" id="variante" placeholder="Variante / color (opcional)">
+                            </div>
+                            <div class="fila">
+                                <input type="number" id="precio" placeholder="Precio" required>
+                                <input type="number" id="stock" placeholder="Stock disponible" required>
+                            </div>
+                            <textarea id="descripcion" placeholder="Descripción para la galería" rows="2"></textarea>
+                            <div class="fila">
+                                <input type="text" id="medidas" placeholder="Medidas (opcional)">
+                                <input type="text" id="destacado" placeholder="Texto destacado (opcional, ej: ¡ÚLTIMA EN STOCK!)">
+                            </div>
+                        </div>
+
+                        <div class="seccion-form">
+                            <label class="titulo-seccion">Categorías</label>
+                            <div class="fila-categorias">
+                                <label class="chip-categoria"><input type="checkbox" value="totebags"> Totebags</label>
+                                <label class="chip-categoria"><input type="checkbox" value="minibags"> Minibags</label>
+                                <label class="chip-categoria"><input type="checkbox" value="otono"> Otoño</label>
+                                <label class="chip-categoria"><input type="checkbox" value="anteojos"> Anteojos</label>
+                            </div>
+                        </div>
+
+                        <div class="seccion-form">
+                            <label class="titulo-seccion">Fotos</label>
+                            <div id="imagenes-actuales"></div>
+                            <input type="file" id="foto" accept="image/*" multiple>
+                        </div>
+
+                        <div class="acciones-form">
+                            <button type="submit" id="btn-guardar">Guardar en la tienda</button>
+                            <button type="button" id="btn-cancelar-edicion" style="display:none;">Cancelar edición</button>
+                        </div>
+                        <p id="mensaje"></p>
+                    </form>
+                </div>
+            </div>
+
+            <!-- VISTA: INVENTARIO -->
+            <div class="vista" id="vista-inventario">
+                <div class="caja">
+                    <h2 style="margin-bottom:16px;">Productos cargados</h2>
+                    <div class="barra-inventario">
+                        <input type="text" id="buscador-inventario" placeholder="Buscar por nombre...">
+                        <select id="filtro-categoria-inventario">
+                            <option value="todas">Todas las categorías</option>
+                            <option value="totebags">Totebags</option>
+                            <option value="minibags">Minibags</option>
+                            <option value="otono">Otoño</option>
+                            <option value="anteojos">Anteojos</option>
+                        </select>
+                    </div>
+                    <div id="lista-productos">Cargando...</div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+    <script src="admin.js"></script>
 </body>
 </html>

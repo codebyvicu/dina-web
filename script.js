@@ -1,4 +1,104 @@
     // -----------------------------------------
+    // CONEXIÓN A SUPABASE
+    // -----------------------------------------
+    const SUPABASE_URL = 'https://szwkpgkwepgllamsbvjb.supabase.co';
+    const SUPABASE_ANON_KEY = 'sb_publishable_KN45RAB60JtrT0wZiH7iVQ_PD5XJ8CJ';
+    const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    // -----------------------------------------
+    // CARGA Y RENDERIZADO DE PRODUCTOS
+    // -----------------------------------------
+    async function cargarProductos() {
+        const grilla = document.getElementById('grilla-principal');
+        if (!grilla) return;
+
+        const { data, error } = await supabaseClient
+            .from('productos')
+            .select('*')
+            .order('orden', { ascending: true, nullsFirst: false })
+            .order('id', { ascending: true });
+
+        if (error) {
+            console.error('Error cargando productos:', error);
+            grilla.innerHTML = '<p style="text-align:center; color:#888;">No pudimos cargar los productos. Probá recargar la página.</p>';
+            return;
+        }
+
+        renderizarProductos(data);
+    }
+
+    function renderizarProductos(lista) {
+        const grilla = document.getElementById('grilla-principal');
+        grilla.innerHTML = '';
+
+        if (!lista || lista.length === 0) {
+            grilla.innerHTML = '<p style="text-align:center; color:#888;">Todavía no hay productos cargados.</p>';
+            return;
+        }
+
+        lista.forEach(p => {
+            const div = document.createElement('div');
+            div.className = 'producto';
+            div.setAttribute('data-categoria', (p.categorias || []).join(' '));
+
+            const imagenes = p.imagenes || [];
+
+            const img = document.createElement('img');
+            img.className = 'img-producto';
+            img.src = imagenes[0] || '';
+            img.alt = p.nombre;
+            img.addEventListener('click', () => abrirGaleria(imagenes, p.descripcion_galeria || ''));
+            div.appendChild(img);
+
+            const hNombre = document.createElement('h4');
+            hNombre.innerText = p.nombre;
+            div.appendChild(hNombre);
+
+            if (p.variante) {
+                const hVariante = document.createElement('h4');
+                hVariante.innerText = p.variante;
+                div.appendChild(hVariante);
+            }
+
+            const pPrecio = document.createElement('p');
+            const precioNum = Number(p.precio) || 0;
+            pPrecio.innerText = `$${precioNum.toLocaleString('es-AR')}`;
+            div.appendChild(pPrecio);
+
+            if (p.destacado) {
+                const pDestacado = document.createElement('p');
+                pDestacado.className = 'texto-stock';
+                pDestacado.innerText = p.destacado;
+                div.appendChild(pDestacado);
+            }
+
+            if (p.medidas) {
+                const pMedidas = document.createElement('p');
+                pMedidas.className = 'texto-medidas';
+                pMedidas.innerText = p.medidas;
+                div.appendChild(pMedidas);
+            }
+
+            const stockNum = Number(p.stock) || 0;
+            if (stockNum > 0) {
+                const btn = document.createElement('button');
+                btn.className = 'btn-comprar';
+                btn.innerText = 'Agregar al Carrito';
+                const nombreCompleto = p.variante ? `${p.nombre} (${p.variante})` : p.nombre;
+                btn.addEventListener('click', () => agregarAlCarrito(nombreCompleto, precioNum, stockNum));
+                div.appendChild(btn);
+            } else {
+                const a = document.createElement('a');
+                a.className = 'btn-sinstock';
+                a.innerText = 'SIN STOCK';
+                div.appendChild(a);
+            }
+
+            grilla.appendChild(div);
+        });
+    }
+
+    // -----------------------------------------
     // CÓDIGO DEL CARRUSEL DE IMÁGENES
     // -----------------------------------------
     let imagenesGaleria = [];
@@ -7,11 +107,11 @@
     function abrirGaleria(listaImagenes, descripcion) {
         imagenesGaleria = listaImagenes;
         indiceActual = 0;
-        
+
         document.getElementById('modal-imagen').style.display = 'flex';
         document.getElementById('img-ampliada').src = imagenesGaleria[indiceActual];
         document.getElementById('descripcion-modal').innerText = descripcion;
-        
+
         let flechas = document.querySelectorAll('.flecha');
         if(imagenesGaleria.length > 1) {
             flechas.forEach(f => f.style.display = 'block');
@@ -21,9 +121,9 @@
     }
 
     function cambiarImagen(direccion, evento) {
-        evento.stopPropagation(); 
+        evento.stopPropagation();
         indiceActual = indiceActual + direccion;
-        
+
         if (indiceActual >= imagenesGaleria.length) {
             indiceActual = 0;
         }
@@ -62,7 +162,7 @@
     const productos = document.querySelectorAll('.producto');
     productos.forEach(producto => {
         const catProducto = producto.getAttribute('data-categoria');
-        
+
         // Usamos una expresión regular para separar por espacios (\s+).
         // Esto evita errores si llega a quedar un espacio de más en el HTML.
         const listaCategorias = catProducto ? catProducto.trim().split(/\s+/) : [];
@@ -94,7 +194,7 @@ function renderizarCarrito() {
     let contenedor = document.getElementById('items-carrito');
     let totalSpan = document.getElementById('total-carrito');
     let contadorSpan = document.getElementById('contador-carrito');
-    
+
     let total = 0;
     let cantidadTotal = 0;
     contenedor.innerHTML = ""; // Limpiamos antes de dibujar
@@ -111,7 +211,7 @@ function renderizarCarrito() {
         let subtotal = prod.precio * prod.cantidad;
         total += subtotal;
         cantidadTotal += prod.cantidad;
-        
+
         contenedor.innerHTML += `
             <div class="item-carrito">
                 <div>
@@ -135,7 +235,7 @@ function renderizarCarrito() {
 function agregarAlCarrito(nombre, precio, stockDisponible) {
     // Buscamos si el producto ya está en el carrito
     let productoExistente = carrito.find(item => item.nombre === nombre);
-    
+
     if (productoExistente) {
         // Validamos el stock antes de sumar
         if (productoExistente.cantidad >= stockDisponible) {
@@ -152,11 +252,11 @@ function agregarAlCarrito(nombre, precio, stockDisponible) {
             return;
         }
     }
-    
+
     // Si pasó las validaciones, guardamos y actualizamos la vista
     localStorage.setItem('carritoDina', JSON.stringify(carrito));
-    renderizarCarrito(); 
-    
+    renderizarCarrito();
+
     // Hacemos que el botón pegue un saltito (el efecto que agregamos antes)
     let btnFlotante = document.getElementById('btn-carrito-flotante');
     btnFlotante.classList.add('animar-carrito');
@@ -175,16 +275,17 @@ function eliminarDelCarrito(indice) {
         // Si solo queda 1, eliminamos todo el producto del arreglo
         carrito.splice(indice, 1);
     }
-    
+
     // Guardamos los cambios en el navegador y actualizamos la vista
     localStorage.setItem('carritoDina', JSON.stringify(carrito));
     renderizarCarrito();
 }
 
-// Cuando carga la página, dibujamos lo que ya haya guardado
+// Cuando carga la página, dibujamos lo que ya haya guardado y traemos los productos
 window.addEventListener('DOMContentLoaded', () => {
     renderizarCarrito();
     revisarBotonCarrito();
+    cargarProductos();
 });
 
 function mostrarAviso(mensaje) {
@@ -208,9 +309,9 @@ function revisarBotonCarrito() {
 
     // Verificamos si la galería de fotos está abierta
     let modalAbierto = modalImagen.style.display === 'flex';
-    
+
     // Calculamos para que aparezca unos 300px antes de llegar a los productos
-    let limiteMostrar = seccionColeccion.offsetTop - 300; 
+    let limiteMostrar = seccionColeccion.offsetTop - 300;
 
     // Si ya scrolleamos hasta la grilla Y el modal está cerrado, lo mostramos
     if (window.scrollY > limiteMostrar && !modalAbierto) {

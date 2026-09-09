@@ -82,6 +82,9 @@
             padding: 9px; border-radius: 4px; font-size: 0.85em; cursor: pointer; font-family: inherit;
         }
         #btn-logout:hover { border-color: rgba(255,255,255,0.4); color: #fff; }
+        #btn-logout:disabled, .fila-producto-admin .acciones button:disabled {
+            opacity: 0.55; cursor: default;
+        }
 
         #contenido { flex: 1; padding: 32px 40px; max-width: 1100px; }
 

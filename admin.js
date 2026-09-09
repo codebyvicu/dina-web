@@ -12,6 +12,17 @@ let imagenesActuales = [];   // urls de imágenes ya subidas (para el producto e
 let todosLosProductos = [];  // cache local para stats, búsqueda y filtro
 
 // -----------------------------------------
+// HELPER: estado temporal en un botón (ej: "Actualizando..." -> "¡Listo!" -> texto original)
+// -----------------------------------------
+function flashBoton(boton, textoFinal, duracionMs = 1400) {
+    const original = boton.dataset.textoOriginal || boton.innerText;
+    boton.innerText = textoFinal;
+    setTimeout(() => {
+        boton.innerText = original;
+    }, duracionMs);
+}
+
+// -----------------------------------------
 // LOGIN / SESIÓN
 // -----------------------------------------
 const cajaLogin = document.getElementById('caja-login');
@@ -34,18 +45,32 @@ document.getElementById('form-login').addEventListener('submit', async (e) => {
     const email = document.getElementById('login-email').value;
     const password = document.getElementById('login-password').value;
     const mensajeLogin = document.getElementById('mensaje-login');
+    const btnLogin = e.target.querySelector('button[type="submit"]');
+
+    const textoOriginal = btnLogin.innerText;
+    btnLogin.innerText = 'Ingresando...';
+    btnLogin.disabled = true;
 
     const { error } = await supabaseClient.auth.signInWithPassword({ email, password });
+
     if (error) {
         mensajeLogin.innerText = 'Email o contraseña incorrectos.';
+        btnLogin.innerText = textoOriginal;
+        btnLogin.disabled = false;
         return;
     }
     mensajeLogin.innerText = '';
     chequearSesion();
 });
 
-document.getElementById('btn-logout').addEventListener('click', async () => {
+document.getElementById('btn-logout').addEventListener('click', async (e) => {
+    const boton = e.target;
+    const textoOriginal = boton.innerText;
+    boton.innerText = 'Cerrando sesión...';
+    boton.disabled = true;
     await supabaseClient.auth.signOut();
+    boton.innerText = textoOriginal;
+    boton.disabled = false;
     chequearSesion();
 });
 
@@ -152,7 +177,7 @@ function renderizarListaFiltrada() {
         const btnEliminar = document.createElement('button');
         btnEliminar.innerText = 'Eliminar';
         btnEliminar.className = 'btn-eliminar';
-        btnEliminar.addEventListener('click', () => eliminarProducto(p.id));
+        btnEliminar.addEventListener('click', () => eliminarProducto(p.id, btnEliminar));
         acciones.appendChild(btnEliminar);
 
         fila.appendChild(acciones);
@@ -164,12 +189,19 @@ document.getElementById('buscador-inventario').addEventListener('input', renderi
 document.getElementById('filtro-categoria-inventario').addEventListener('change', renderizarListaFiltrada);
 document.getElementById('filtro-estado-inventario').addEventListener('change', renderizarListaFiltrada);
 
-async function eliminarProducto(id) {
+async function eliminarProducto(id, boton) {
     if (!confirm('¿Seguro que querés eliminar este producto? No se puede deshacer.')) return;
+
+    const textoOriginal = boton.innerText;
+    boton.innerText = 'Eliminando...';
+    boton.disabled = true;
+
     const { error } = await supabaseClient.from('productos').delete().eq('id', id);
     if (error) {
         alert('Error al eliminar. Mirá la consola.');
         console.error(error);
+        boton.innerText = textoOriginal;
+        boton.disabled = false;
         return;
     }
     cargarListaProductos();
@@ -246,18 +278,19 @@ function resetearFormulario() {
     form.reset();
     contenedorImagenesActuales.innerHTML = '';
     tituloForm.innerText = 'Subir Nuevo Producto';
-    btnGuardar.innerText = 'Guardar en la tienda';
     btnCancelarEdicion.style.display = 'none';
 }
 
-btnCancelarEdicion.addEventListener('click', resetearFormulario);
+btnCancelarEdicion.addEventListener('click', () => {
+    resetearFormulario();
+    btnGuardar.innerText = 'Guardar en la tienda';
+});
 
 form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const mensaje = document.getElementById('mensaje');
     mensaje.className = '';
     mensaje.innerText = '';
-    btnGuardar.innerText = 'Guardando...';
     btnGuardar.disabled = true;
 
     try {
@@ -266,6 +299,9 @@ form.addEventListener('submit', async (e) => {
         // Subir las fotos nuevas seleccionadas (si hay)
         const archivos = document.getElementById('foto').files;
         const urlsNuevas = [];
+        if (archivos.length > 0) {
+            btnGuardar.innerText = archivos.length > 1 ? `Subiendo ${archivos.length} fotos...` : 'Subiendo foto...';
+        }
         for (const archivo of archivos) {
             const nombreArchivo = `${Date.now()}-${archivo.name}`;
             const { error: errorSubida } = await supabaseClient.storage
@@ -286,6 +322,8 @@ form.addEventListener('submit', async (e) => {
             btnGuardar.disabled = false;
             return;
         }
+
+        btnGuardar.innerText = editandoId ? 'Actualizando...' : 'Guardando...';
 
         const registro = {
             nombre: document.getElementById('nombre').value,
@@ -308,18 +346,22 @@ form.addEventListener('submit', async (e) => {
 
         if (error) throw error;
 
+        const fueEdicion = !!editandoId;
         mensaje.className = 'ok';
-        mensaje.innerText = editandoId ? '¡Producto actualizado con éxito!' : '¡Producto agregado con éxito al catálogo!';
+        mensaje.innerText = fueEdicion ? '¡Producto actualizado con éxito!' : '¡Producto agregado con éxito al catálogo!';
+        btnGuardar.innerText = fueEdicion ? '¡Actualizado! ✓' : '¡Carga completa! ✓';
         resetearFormulario();
         cargarListaProductos();
+
+        setTimeout(() => {
+            btnGuardar.innerText = 'Guardar en la tienda';
+            btnGuardar.disabled = false;
+        }, 1600);
     } catch (error) {
         console.error('Error al guardar:', error);
         mensaje.className = 'error';
         mensaje.innerText = 'Hubo un error. Revisá la consola.';
-    } finally {
+        btnGuardar.innerText = editandoId ? 'Actualizar producto' : 'Guardar en la tienda';
         btnGuardar.disabled = false;
-        if (btnGuardar.innerText === 'Guardando...') {
-            btnGuardar.innerText = editandoId ? 'Actualizar producto' : 'Guardar en la tienda';
-        }
     }
 });
